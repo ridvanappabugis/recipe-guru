@@ -33,7 +33,8 @@ namespace recipeguru.WebAPI.Migrations
                     KorisnickoIme = table.Column<string>(maxLength: 50, nullable: false),
                     LozinkaHash = table.Column<string>(maxLength: 500, nullable: false),
                     LozinkaSalt = table.Column<string>(maxLength: 50, nullable: false),
-                    Status = table.Column<bool>(nullable: false, defaultValueSql: "((1))")
+                    Status = table.Column<bool>(nullable: false, defaultValueSql: "((1))"),
+                    KorisniciUlogeId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -225,6 +226,40 @@ namespace recipeguru.WebAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Kategorije",
+                columns: new[] { "Id", "Naziv", "ReceptiId" },
+                values: new object[,]
+                {
+                    { 1, "Slatko", null },
+                    { 2, "Slano", null },
+                    { 3, "Salate", null },
+                    { 4, "Pite", null },
+                    { 5, "Pizze", null },
+                    { 6, "Rostilj", null },
+                    { 7, "Supe", null },
+                    { 8, "Kolaci", null },
+                    { 9, "Vegan", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Korisnici",
+                columns: new[] { "KorisnikID", "Email", "Ime", "KorisniciUlogeId", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon" },
+                values: new object[,]
+                {
+                    { 1, "ridvan@fit.ba", "Ridvan", 1L, "admin", "gwxNjOsQSCim62bZl8W7bjObgfI=", "8U8B6yoc5ulFt1oTzV01ug==", "Appa", "061234567" },
+                    { 2, "ridvanclient@fit.ba", "Ridvan", 2L, "ClientUser", "QpNcjXqOIPPb+/4rvyI4KEpUR8I=", "H7tLPzMOoyPTrWHoEuI01w==", "Appa", "061234567" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Uloge",
+                columns: new[] { "UlogaID", "Naziv", "Opis" },
+                values: new object[,]
+                {
+                    { 1, "Administrator", null },
+                    { 2, "ClientUser", null }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Kategorije_ReceptiId",
                 table: "Kategorije",
@@ -251,7 +286,8 @@ namespace recipeguru.WebAPI.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_KorisniciUloge_KorisnikID",
                 table: "KorisniciUloge",
-                column: "KorisnikID");
+                column: "KorisnikID",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_KorisniciUloge_UlogaID",

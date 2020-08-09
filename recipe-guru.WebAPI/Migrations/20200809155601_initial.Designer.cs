@@ -10,7 +10,7 @@ using recipe_guru.WebAPI.Database;
 namespace recipeguru.WebAPI.Migrations
 {
     [DbContext(typeof(recipeGuruContext))]
-    [Migration("20200809153014_initial")]
+    [Migration("20200809155601_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,6 +54,53 @@ namespace recipeguru.WebAPI.Migrations
                     b.HasIndex("ReceptiId");
 
                     b.ToTable("Kategorije");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Naziv = "Slatko"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Naziv = "Slano"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Naziv = "Salate"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Naziv = "Pite"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Naziv = "Pizze"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Naziv = "Rostilj"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Naziv = "Supe"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Naziv = "Kolaci"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Naziv = "Vegan"
+                        });
                 });
 
             modelBuilder.Entity("recipe_guru.WebAPI.Database.KnjigeRecepata", b =>
@@ -99,6 +146,9 @@ namespace recipeguru.WebAPI.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<long>("KorisniciUlogeId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("KorisnickoIme")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -141,6 +191,32 @@ namespace recipeguru.WebAPI.Migrations
                         .HasName("CS_KorisnickoIme");
 
                     b.ToTable("Korisnici");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "ridvan@fit.ba",
+                            Ime = "Ridvan",
+                            KorisniciUlogeId = 1L,
+                            KorisnickoIme = "admin",
+                            LozinkaHash = "gwxNjOsQSCim62bZl8W7bjObgfI=",
+                            LozinkaSalt = "8U8B6yoc5ulFt1oTzV01ug==",
+                            Prezime = "Appa",
+                            Telefon = "061234567"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "ridvanclient@fit.ba",
+                            Ime = "Ridvan",
+                            KorisniciUlogeId = 2L,
+                            KorisnickoIme = "ClientUser",
+                            LozinkaHash = "QpNcjXqOIPPb+/4rvyI4KEpUR8I=",
+                            LozinkaSalt = "H7tLPzMOoyPTrWHoEuI01w==",
+                            Prezime = "Appa",
+                            Telefon = "061234567"
+                        });
                 });
 
             modelBuilder.Entity("recipe_guru.WebAPI.Database.KorisniciUloge", b =>
@@ -164,7 +240,8 @@ namespace recipeguru.WebAPI.Migrations
 
                     b.HasKey("KorisnikUlogaId");
 
-                    b.HasIndex("KorisnikId");
+                    b.HasIndex("KorisnikId")
+                        .IsUnique();
 
                     b.HasIndex("UlogaId");
 
@@ -305,6 +382,18 @@ namespace recipeguru.WebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Uloge");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Naziv = "Administrator"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Naziv = "ClientUser"
+                        });
                 });
 
             modelBuilder.Entity("recipe_guru.WebAPI.Database.Kategorije", b =>
@@ -324,8 +413,8 @@ namespace recipeguru.WebAPI.Migrations
             modelBuilder.Entity("recipe_guru.WebAPI.Database.KorisniciUloge", b =>
                 {
                     b.HasOne("recipe_guru.WebAPI.Database.Korisnici", "Korisnik")
-                        .WithMany("KorisniciUloge")
-                        .HasForeignKey("KorisnikId")
+                        .WithOne("KorisniciUloge")
+                        .HasForeignKey("recipe_guru.WebAPI.Database.KorisniciUloge", "KorisnikId")
                         .HasConstraintName("FK_KorisniciUloge_Korisnici")
                         .IsRequired();
 

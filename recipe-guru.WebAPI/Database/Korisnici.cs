@@ -5,11 +5,6 @@ namespace recipe_guru.WebAPI.Database
 {
     public partial class Korisnici
     {
-        public Korisnici()
-        {
-            KorisniciUloge = new HashSet<KorisniciUloge>();
-        }
-
         public int Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
@@ -20,6 +15,7 @@ namespace recipe_guru.WebAPI.Database
         public string LozinkaSalt { get; set; }
         public bool? Status { get; set; }
 
-        public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
+        public long KorisniciUlogeId { get; set; }
+        public KorisniciUloge KorisniciUloge { get; set; }
     }
 }
