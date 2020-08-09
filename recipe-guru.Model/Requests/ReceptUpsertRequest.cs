@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace recipe_guru.Model.Requests
 {
-    public class ReceptInsertRequest
+    public class ReceptUpsertRequest
     {
         [Required(AllowEmptyStrings = false)]
         public string Naziv { get; set; }

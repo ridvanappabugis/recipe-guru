@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using recipe_guru.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace recipe_guru.WebAPI.Controllers
 {
@@ -26,6 +27,13 @@ namespace recipe_guru.WebAPI.Controllers
         public T Update(int id, [FromBody]TUpdate request)
         {
             return _service.Update(id, request);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("{Id}")]
+        public T Delete(int Id)
+        {
+            return _service.Delete(Id);
         }
     }
 }

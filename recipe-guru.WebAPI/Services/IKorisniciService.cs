@@ -18,5 +18,7 @@ namespace recipe_guru.WebAPI.Services
         Model.Korisnik Update(int id, KorisniciInsertRequest request);
 
         Model.Korisnik Authenticiraj(string username, string pass);
+
+        Model.Korisnik Delete(int Id);
     }
 }

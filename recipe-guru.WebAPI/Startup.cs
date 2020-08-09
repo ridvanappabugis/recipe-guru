@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 using recipe_guru.WebAPI.Database;
+using recipe_guru.Model.Requests;
 using recipe_guru.WebAPI.Filters;
 using recipe_guru.WebAPI.Security;
 using recipe_guru.WebAPI.Services;
@@ -71,6 +72,12 @@ namespace recipe_guru
 
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IService<Model.Uloga, object>, BaseService<Model.Uloga, object, Uloge>>();
+            services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorije>>();
+
+            services.AddScoped<ICRUDService<Model.KnjigaRecepata, KnjigaRecepataSearchRequest, KnjigaRecepataUpsertRequest, KnjigaRecepataUpsertRequest>, KnjigaRecepataService>();
+            services.AddScoped<ICRUDService<Model.Rating, RatingSearchRequest, RatingUpsertRequest, RatingUpsertRequest>, RatingService>();
+            services.AddScoped<ICRUDService<Model.ReceptKorak, ReceptKoraciSearchRequest, ReceptKoraciUpsertRequest, ReceptKoraciUpsertRequest>, ReceptKoraciService>();
+            services.AddScoped<ICRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest>, ReceptService>();
 
             // connection to database
             // Scaffold-DbContext -Connection "Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database -context MoviePickContext -force
@@ -98,7 +105,7 @@ namespace recipe_guru
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "RecipeGuru");
                 c.RoutePrefix = "";
             });
 

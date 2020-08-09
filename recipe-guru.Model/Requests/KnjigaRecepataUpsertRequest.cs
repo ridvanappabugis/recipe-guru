@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace recipe_guru.Model.Requests
 {
-    public class KnjigaRecepataInsertRequest
+    public class KnjigaRecepataUpsertRequest
     {
         [Required(AllowEmptyStrings = false)]
         public string Naziv { get; set; }

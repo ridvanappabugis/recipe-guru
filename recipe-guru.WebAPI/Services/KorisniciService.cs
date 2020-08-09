@@ -5,7 +5,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using recipe_guru.Model;
 using recipe_guru.WebAPI.Util;
 using recipe_guru.Model.Requests;
 using recipe_guru.WebAPI.Database;
@@ -133,6 +132,22 @@ namespace recipe_guru.WebAPI.Services
             _context.SaveChanges();
 
             return _mapper.Map<Model.Korisnik>(entity);
+        }
+
+        public Model.Korisnik Delete(int Id)
+        {
+            var entity = _context.Korisnici.Find(Id);
+
+            if (entity == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            var x = entity;
+            _context.Korisnici.Remove(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Korisnik>(x);
         }
     }
 }
