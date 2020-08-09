@@ -9,14 +9,14 @@ namespace recipe_guru.WebAPI.Services
 {
     public interface IKorisniciService
     {
-        List<Model.Korisnici> Get(KorisniciSearchRequest request);
+        List<Model.Korisnik> Get(KorisniciSearchRequest request);
 
-        Model.Korisnici GetById(int id);
+        Model.Korisnik GetById(int id);
 
-        Model.Korisnici Insert(KorisniciInsertRequest request);
+        Model.Korisnik Insert(KorisniciInsertRequest request);
 
-        Model.Korisnici Update(int id, KorisniciInsertRequest request);
+        Model.Korisnik Update(int id, KorisniciInsertRequest request);
 
-        Model.Korisnici Authenticiraj(string username, string pass);
+        Model.Korisnik Authenticiraj(string username, string pass);
     }
 }

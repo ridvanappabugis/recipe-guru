@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
-using recipe_guru.Model.Requests;
 using recipe_guru.WebAPI.Database;
 using recipe_guru.WebAPI.Filters;
 using recipe_guru.WebAPI.Security;
@@ -11,35 +8,17 @@ using recipe_guru.WebAPI.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 
 namespace recipe_guru
 {
-    public class BasicAuthDocumentFilter : IDocumentFilter
-    {
-
-        public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
-        {
-            OpenApiSecurityScheme securityDefinition = new OpenApiSecurityScheme() {  };
-
-            OpenApiSecurityRequirement securityRequirements = new OpenApiSecurityRequirement()
-            {
-                {securityDefinition, new string[] { }},
-            };
-
-            swaggerDoc.SecurityRequirements = new List<OpenApiSecurityRequirement> { securityRequirements };
-        }
-    }
-
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -52,56 +31,89 @@ namespace recipe_guru
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddAutoMapper(typeof(Startup));
+            services.AddControllers();
 
+            services.AddMvc(x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Latest);
+
+            services.AddMvc(x => x.EnableEndpointRouting = false)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
+            // swagger configuration
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-                c.AddSecurityDefinition("basic", new OpenApiSecurityScheme() { Type = SecuritySchemeType.ApiKey });
-                c.DocumentFilter<BasicAuthDocumentFilter>();
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RecipeGuru API", Version = "v1" });
+
+                // basic auth swagger
+                c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic",
+                    In = ParameterLocation.Header,
+                    Description = "Basic Authorization header using the Bearer scheme."
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "basic"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
             });
 
+            services.AddScoped<IKorisniciService, KorisniciService>();
+            services.AddScoped<IService<Model.Uloga, object>, BaseService<Model.Uloga, object, Uloge>>();
+
+            // connection to database
+            // Scaffold-DbContext -Connection "Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database -context MoviePickContext -force
+            services.AddDbContext<recipeGuruContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("LocalConnection"))
+            .EnableSensitiveDataLogging());
+
+            // basic auth
             services.AddAuthentication("BasicAuthentication")
                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-            services.AddScoped<IKorisniciService, KorisniciService>();
-            services.AddScoped<IService<Model.Uloge, object>, BaseService<Model.Uloge, object, Uloge>>();
-
-
-            //var connection = @"Server=.;Database=eProdaja;Trusted_Connection=True;ConnectRetryCount=0";
-            var connection = @"Server=db;Database=eProdaja;username=sa;password=qweasd;ConnectRetryCount=0";
-            services.AddDbContext<recipeGuruContext>(options => options.UseSqlServer(connection));
-
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            // auto mapper configuration
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+            IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
 
             app.UseSwagger();
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-            // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-
+                c.RoutePrefix = "";
             });
 
-
             app.UseAuthentication();
+
             //app.UseHttpsRedirection();
-            app.UseMvc();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

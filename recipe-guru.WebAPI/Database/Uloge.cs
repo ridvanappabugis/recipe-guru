@@ -10,7 +10,7 @@ namespace recipe_guru.WebAPI.Database
             KorisniciUloge = new HashSet<KorisniciUloge>();
         }
 
-        public int UlogaId { get; set; }
+        public int Id { get; set; }
         public string Naziv { get; set; }
         public string Opis { get; set; }
 

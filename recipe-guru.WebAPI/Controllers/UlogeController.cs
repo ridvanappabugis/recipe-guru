@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace recipe_guru.WebAPI.Controllers
 {
 
-    public class UlogeController : BaseController<Model.Uloge, object>
+    public class UlogeController : BaseController<Model.Uloga, object>
     {
-        public UlogeController(IService<Uloge, object> service) : base(service)
+        public UlogeController(IService<Uloga, object> service) : base(service)
         {
         }
     }

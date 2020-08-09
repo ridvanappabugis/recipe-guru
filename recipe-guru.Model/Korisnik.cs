@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace recipe_guru.Model
 {
-    public class Korisnici
+    public partial class Korisnik
     {
         public int KorisnikId { get; set; }
         public string Ime { get; set; }
@@ -12,7 +12,8 @@ namespace recipe_guru.Model
         public string Telefon { get; set; }
         public string KorisnickoIme { get; set; }
         public bool? Status { get; set; }
+        public ImageResource SlikaProfila { get; set; }
 
-        public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
+        public ICollection<KorisnikUloga> KorisniciUloge { get; set; }
     }
 }

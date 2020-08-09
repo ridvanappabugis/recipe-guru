@@ -9,6 +9,7 @@ using recipe_guru.Model;
 using recipe_guru.Model.Requests;
 using recipe_guru.WebAPI.Database;
 using Microsoft.EntityFrameworkCore;
+using recipeguru.WebAPI.Exceptions;
 
 namespace recipe_guru.WebAPI.Services
 {
@@ -23,7 +24,7 @@ namespace recipe_guru.WebAPI.Services
             _mapper = mapper;
         }
 
-        public Model.Korisnici Authenticiraj(string username, string pass)
+        public Model.Korisnik Authenticiraj(string username, string pass)
         {
             var user = _context.Korisnici.Include("KorisniciUloge.Uloga").FirstOrDefault(x => x.KorisnickoIme == username);
 
@@ -33,7 +34,7 @@ namespace recipe_guru.WebAPI.Services
 
                 if(newHash == user.LozinkaHash)
                 {
-                    return _mapper.Map<Model.Korisnici>(user);
+                    return _mapper.Map<Model.Korisnik>(user);
                 }
             }
             return null;
@@ -61,7 +62,7 @@ namespace recipe_guru.WebAPI.Services
         }
 
 
-        public List<Model.Korisnici> Get(KorisniciSearchRequest request)
+        public List<Model.Korisnik> Get(KorisniciSearchRequest request)
         {
             var query = _context.Korisnici.AsQueryable();
 
@@ -82,21 +83,26 @@ namespace recipe_guru.WebAPI.Services
 
             var list = query.ToList();
 
-            return _mapper.Map<List<Model.Korisnici>>(list);
+            return _mapper.Map<List<Model.Korisnik>>(list);
         }
 
-        public Model.Korisnici GetById(int id)
+        public Model.Korisnik GetById(int id)
         {
             var entity = _context.Korisnici.Find(id);
 
-            return _mapper.Map<Model.Korisnici>(entity);
+            return _mapper.Map<Model.Korisnik>(entity);
         }
 
-        public Model.Korisnici Insert(KorisniciInsertRequest request)
+        public Model.Korisnik Insert(KorisniciInsertRequest request)
         {
             var entity = _mapper.Map<Database.Korisnici>(request);
 
-            if(request.Password != request.PasswordPotvrda)
+            if (_context.Korisnici.Where(k => k.KorisnickoIme == request.KorisnickoIme).Any())
+            {
+                throw new UserException("Username je zauzet");
+            }
+
+            if (request.Password != request.PasswordPotvrda)
             {
                 throw new Exception("Passwordi se ne slažu");
             }
@@ -110,17 +116,17 @@ namespace recipe_guru.WebAPI.Services
             foreach(var uloga in request.Uloge)
             {
                 Database.KorisniciUloge korisniciUloge = new Database.KorisniciUloge();
-                korisniciUloge.KorisnikId = entity.KorisnikId;
+                korisniciUloge.KorisnikId = entity.Id;
                 korisniciUloge.UlogaId = uloga;
                 korisniciUloge.DatumIzmjene = DateTime.Now;
                 _context.KorisniciUloge.Add(korisniciUloge);
             }
             _context.SaveChanges();
 
-            return _mapper.Map<Model.Korisnici>(entity);
+            return _mapper.Map<Model.Korisnik>(entity);
         }
 
-        public Model.Korisnici Update(int id, KorisniciInsertRequest request)
+        public Model.Korisnik Update(int id, KorisniciInsertRequest request)
         {
             var entity = _context.Korisnici.Find(id);
             _context.Korisnici.Attach(entity);
@@ -128,6 +134,12 @@ namespace recipe_guru.WebAPI.Services
 
             if(!string.IsNullOrWhiteSpace(request.Password))
             {
+                if (request.KorisnickoIme != entity.KorisnickoIme
+                        && _context.Korisnici.Where(k => k.KorisnickoIme == request.KorisnickoIme).Any())
+                {
+                    throw new UserException("Username je zauzet");
+                }
+
                 if (request.Password != request.PasswordPotvrda)
                 {
                     throw new Exception("Passwordi se ne slažu");
@@ -141,7 +153,7 @@ namespace recipe_guru.WebAPI.Services
 
             _context.SaveChanges();
 
-            return _mapper.Map<Model.Korisnici>(entity);
+            return _mapper.Map<Model.Korisnik>(entity);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace recipe_guru.WebAPI.Security
             if (!Request.Headers.ContainsKey("Authorization"))
                 return AuthenticateResult.Fail("Missing Authorization Header");
 
-            Model.Korisnici user = null;
+            Model.Korisnik user = null;
             try
             {
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
@@ -59,7 +59,7 @@ namespace recipe_guru.WebAPI.Security
 
             foreach (var role in user.KorisniciUloge)
             {
-                claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv));
+                claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv.ToString()));
             }
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);

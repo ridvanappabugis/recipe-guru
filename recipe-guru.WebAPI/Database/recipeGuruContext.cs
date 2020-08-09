@@ -18,13 +18,20 @@ namespace recipe_guru.WebAPI.Database
         public virtual DbSet<Korisnici> Korisnici { get; set; }
         public virtual DbSet<KorisniciUloge> KorisniciUloge { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
+        public virtual DbSet<ImageResources> ImageResources { get; set; }
+        public virtual DbSet<Kategorije> Kategorije { get; set; }
+        public virtual DbSet<KnjigeRecepata> KnjigeRecepata { get; set; }
+        public virtual DbSet<Recepti> Recepti { get; set; }
+        public virtual DbSet<ReceptKoraci> ReceptKoraci { get; set; }
+        public virtual DbSet<ReceptSastojci> ReceptSastojci { get; set; }
+        public virtual DbSet<Ratings> Ratings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=.\\REPORTING;Database=eProdaja;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=(local);Database=recipeGuru;Integrated Security=True;Trusted_Connection=True;");
             }
         }
 
@@ -33,7 +40,7 @@ namespace recipe_guru.WebAPI.Database
 
             modelBuilder.Entity<Korisnici>(entity =>
             {
-                entity.HasKey(e => e.KorisnikId);
+                entity.HasKey(e => e.Id);
 
                 entity.HasIndex(e => e.Email)
                     .HasName("CS_Email")
@@ -43,7 +50,7 @@ namespace recipe_guru.WebAPI.Database
                     .HasName("CS_KorisnickoIme")
                     .IsUnique();
 
-                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
+                entity.Property(e => e.Id).HasColumnName("KorisnikID");
 
                 entity.Property(e => e.Email).HasMaxLength(100);
 
@@ -103,9 +110,9 @@ namespace recipe_guru.WebAPI.Database
 
             modelBuilder.Entity<Uloge>(entity =>
             {
-                entity.HasKey(e => e.UlogaId);
+                entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.UlogaId).HasColumnName("UlogaID");
+                entity.Property(e => e.Id).HasColumnName("UlogaID");
 
                 entity.Property(e => e.Naziv)
                     .IsRequired()
