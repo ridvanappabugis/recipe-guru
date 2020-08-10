@@ -1,7 +1,7 @@
 ﻿using System;
 namespace recipe_guru.WebAPI.Database
 {
-    public class ReceptSastojci
+    public partial class ReceptSastojci
     {
         public int Id { get; set; }
 

@@ -5,7 +5,7 @@ namespace recipe_guru.WebAPI.Database
     {
         ONE_STAR, TWO_STAR, THREE_STAR, FOUR_STAR, FIVE_STAR
     }
-    public class Ratings
+    public partial class Ratings
     {
         public int Id { get; set; }
         public RatingMark Mark { get; set; }

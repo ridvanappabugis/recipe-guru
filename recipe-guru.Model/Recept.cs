@@ -21,6 +21,6 @@ namespace recipe_guru.Model
 
         public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<ReceptKorak> ReceptKoraci { get; set; }
-        public virtual ICollection<ReceptSastojak> ReceptSastojak { get; set; }
+        public virtual ICollection<ReceptSastojak> ReceptSastojci { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace recipe_guru.WebAPI.Database
 {
-    public class Recepti
+    public partial class Recepti
     {
         public Recepti() {
             Ratings = new HashSet<Ratings>();
