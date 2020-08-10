@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using recipe_guru.WebAPI.Util;
@@ -17,7 +18,6 @@ namespace recipe_guru.WebAPI.Database
         }
 
         public virtual DbSet<Korisnici> Korisnici { get; set; }
-        public virtual DbSet<KorisniciUloge> KorisniciUloge { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
         public virtual DbSet<ImageResources> ImageResources { get; set; }
         public virtual DbSet<Kategorije> Kategorije { get; set; }
@@ -48,14 +48,14 @@ namespace recipe_guru.WebAPI.Database
             modelBuilder.Entity<Uloge>().HasData(new Uloge()
             {
                 Id = 2,
-                Naziv = "ClientUser"
+                Naziv = "User"
             });
 
             // admin
             Korisnici u1 = new Korisnici
             {
                 Id = 1,
-                KorisniciUlogeId = 1,
+                UlogeId = 1,
                 KorisnickoIme = "admin",
                 Telefon = "061234567",
                 Ime = "Ridvan",
@@ -71,7 +71,7 @@ namespace recipe_guru.WebAPI.Database
             Korisnici u2 = new Korisnici
             {
                 Id = 2,
-                KorisniciUlogeId = 2,
+                UlogeId = 2,
                 KorisnickoIme = "ClientUser",
                 Telefon = "061234567",
                 Ime = "Ridvan",
@@ -83,51 +83,153 @@ namespace recipe_guru.WebAPI.Database
             u2.LozinkaHash = PasswordUtil.GenerateHash(u2.LozinkaSalt, "test");
             modelBuilder.Entity<Korisnici>().HasData(u2);
 
-            // kategorije
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+            List<string> kategorije = new List<string> {
+                "Hljebovi i Pekarska hrana",
+                "Dorucak",
+                "Vecera",
+                "Rucak",
+                "Umaci, Salate, Sosovi",
+                "Kokteli",
+                "Supe",
+                "Glavna Jela",
+                "Predjela",
+                "Jela iz Lonca",
+                "Pizze",
+                "Sendvici",
+                "Salate",
+                "Snacks"
+            };
+
+            int i = 1;
+
+            foreach (string kategorija in kategorije)
+            {
+                modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+                {
+                    Id = i++,
+                    Naziv = kategorija
+                });
+            }
+
+            modelBuilder.Entity<KnjigeRecepata>().HasData(new KnjigeRecepata()
             {
                 Id = 1,
-                Naziv = "Slatko"
+                KorisnikId = 2,
+                Naziv = "Ridvanovi Recepti",
+                Public = true
             });
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+
+            modelBuilder.Entity<KnjigeRecepata>().HasData(new KnjigeRecepata()
             {
                 Id = 2,
-                Naziv = "Slano"
+                KorisnikId = 2,
+                Naziv = "Ridvanovi Recepti #2",
+                Public = false
             });
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+
+            modelBuilder.Entity<Recepti>().HasData(new Recepti()
+            {
+                Id = 1,
+                KnjigaRecepataId = 1,
+                BrojPregleda = 0,
+                DuzinaPripreme = 30,
+                Naziv = "Domaci Nanin Grah",
+                Public = true,
+                KategorijeId = 7
+            });
+
+            modelBuilder.Entity<Recepti>().HasData(new Recepti()
+            {
+                Id = 2,
+                KnjigaRecepataId = 1,
+                BrojPregleda = 0,
+                DuzinaPripreme = 30,
+                Naziv = "Doner Kebab iz srca Turske",
+                Public = true,
+                KategorijeId = 4
+            });
+
+            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
+            {
+                Id = 1,
+                ReceptId = 2,
+                RedniBrojKoraka = 1,
+                Deskripcija = "Priprema sosa za prekrivanje mesa."
+            });
+
+            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
+            {
+                Id = 2,
+                ReceptId = 2,
+                RedniBrojKoraka = 2,
+                Deskripcija = "Przenje mesa."
+            });
+
+            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
             {
                 Id = 3,
-                Naziv = "Salate"
+                ReceptId = 2,
+                RedniBrojKoraka = 3,
+                Deskripcija = "Jedenje."
             });
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+
+            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
             {
                 Id = 4,
-                Naziv = "Pite"
+                ReceptId = 1,
+                RedniBrojKoraka = 1,
+                Deskripcija = "Ubrati grah."
             });
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+
+            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
             {
                 Id = 5,
-                Naziv = "Pizze"
+                ReceptId = 1,
+                RedniBrojKoraka = 2,
+                Deskripcija = "Skuhati."
             });
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+
+            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
             {
                 Id = 6,
-                Naziv = "Rostilj"
+                ReceptId = 1,
+                RedniBrojKoraka = 3,
+                Deskripcija = "Dodati suhog mesa."
             });
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+
+
+            modelBuilder.Entity<ReceptSastojci>().HasData(new ReceptSastojci()
             {
-                Id = 7,
-                Naziv = "Supe"
+                Id = 1,
+                ReceptId = 2,
+                Kolicina = "1 kilgoram",
+                Naziv = "Telece meso."
             });
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+
+            modelBuilder.Entity<ReceptSastojci>().HasData(new ReceptSastojci()
             {
-                Id = 8,
-                Naziv = "Kolaci"
+                Id = 2,
+                ReceptId = 2,
+                Kolicina = "1 kilgoram",
+                Naziv = "Telece meso."
             });
-            modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+
+            modelBuilder.Entity<ReceptSastojci>().HasData(new ReceptSastojci()
             {
-                Id = 9,
-                Naziv = "Vegan"
+                Id = 3,
+                ReceptId = 2,
+                Kolicina = "1 kilgoram",
+                Naziv = "Telece meso."
+            });
+
+            modelBuilder.Entity<Ratings>().HasData(new Ratings()
+            {
+                Id = 1,
+                ReceptId = 2,
+                InsertTime = System.DateTime.Now,
+                KorisnikId = 1,
+                Mark = RatingMark.FIVE_STAR,
+                Comment = "Predobar doner."
             });
 
         }
@@ -147,7 +249,7 @@ namespace recipe_guru.WebAPI.Database
                     .HasName("CS_KorisnickoIme")
                     .IsUnique();
 
-                entity.Property(e => e.Id).HasColumnName("KorisnikID");
+                entity.Property(e => e.Id).HasColumnName("Id");
 
                 entity.Property(e => e.Email).HasMaxLength(100);
 
@@ -178,37 +280,11 @@ namespace recipe_guru.WebAPI.Database
                 entity.Property(e => e.Telefon).HasMaxLength(20);
             });
 
-            modelBuilder.Entity<KorisniciUloge>(entity =>
-            {
-                entity.HasKey(e => e.KorisnikUlogaId);
-
-                entity.Property(e => e.KorisnikUlogaId).HasColumnName("KorisnikUlogaID");
-
-                entity.Property(e => e.DatumIzmjene).HasColumnType("datetime");
-
-                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
-
-                entity.Property(e => e.UlogaId).HasColumnName("UlogaID");
-
-                entity.HasOne(d => d.Korisnik)
-                    .WithOne(p => p.KorisniciUloge)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_KorisniciUloge_Korisnici");
-
-                entity.HasOne(d => d.Uloga)
-                    .WithMany(p => p.KorisniciUloge)
-                    .HasForeignKey(d => d.UlogaId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_KorisniciUloge_Uloge");
-            });
-
-           
-
             modelBuilder.Entity<Uloge>(entity =>
             {
                 entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.Id).HasColumnName("UlogaID");
+                entity.Property(e => e.Id).HasColumnName("Id");
 
                 entity.Property(e => e.Naziv)
                     .IsRequired()

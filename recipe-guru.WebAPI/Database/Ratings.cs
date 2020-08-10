@@ -7,15 +7,15 @@ namespace recipe_guru.WebAPI.Database
     }
     public class Ratings
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public RatingMark Mark { get; set; }
         public string Comment { get; set; }
         public DateTime InsertTime { get; set; }
 
-        public long KorisnikId { get; set; }
+        public int KorisnikId { get; set; }
         public virtual Korisnici Korisnik { get; set; }
 
-        public long ReceptId { get; set; }
+        public int ReceptId { get; set; }
         public virtual Recepti Recept { get; set; }
     }
 }

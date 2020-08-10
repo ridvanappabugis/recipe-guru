@@ -6,7 +6,8 @@
     }
     public partial class Uloga
     {
-        public int UlogaId { get; set; }
+        public int Id { get; set; }
+
         public Role Naziv { get; set; }
     }
 }

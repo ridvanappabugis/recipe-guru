@@ -56,7 +56,7 @@ namespace recipe_guru.WebAPI.Services
 
             if(request?.IsUlogeLoadingEnabled == true)
             {
-                query = query.Include(x => x.KorisniciUloge);
+                query = query.Include(x => x.Uloge);
             }
 
             var list = query.ToList();
@@ -89,16 +89,6 @@ namespace recipe_guru.WebAPI.Services
             entity.LozinkaHash = PasswordUtil.GenerateHash(entity.LozinkaSalt, request.Password);
 
             _context.Korisnici.Add(entity);
-            _context.SaveChanges();
-
-            foreach(var uloga in request.Uloge)
-            {
-                Database.KorisniciUloge korisniciUloge = new Database.KorisniciUloge();
-                korisniciUloge.KorisnikId = entity.Id;
-                korisniciUloge.UlogaId = uloga;
-                korisniciUloge.DatumIzmjene = DateTime.Now;
-                _context.KorisniciUloge.Add(korisniciUloge);
-            }
             _context.SaveChanges();
 
             return _mapper.Map<Model.Korisnik>(entity);

@@ -7,7 +7,7 @@ namespace recipe_guru.Model.Requests
 
         public long BrojPregleda { get; set; }
 
-        public string DuzinaPripreme { get; set; }
+        public int DuzinaPripreme { get; set; }
 
         public int AverageRating { get; set; }
     }

@@ -10,12 +10,12 @@ namespace recipe_guru.WebAPI.Database
             Recepti = new HashSet<Recepti>();
         }
 
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         public string Naziv { get; set; }
         public bool Public { get; set; }
 
-        public long KorisnikId { get; set; }
+        public int KorisnikId { get; set; }
         public Korisnici Korisnik { get; set; }
 
         public virtual ICollection<Recepti> Recepti { get; set; }

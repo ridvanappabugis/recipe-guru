@@ -8,15 +8,15 @@ namespace recipe_guru.Model
     public partial class Rating
     {
 
-        public long Id { get; set; }
+        public int Id { get; set; }
         public RatingMark Mark { get; set; }
         public string Comment { get; set; }
         public DateTime InsertTime { get; set; }
 
-        public long KorisnikID { get; set; }
+        public int KorisnikID { get; set; }
         public virtual Korisnik Korisnik { get; set; }
 
-        public long ReceptID { get; set; }
+        public int ReceptID { get; set; }
         public virtual Recept Recept { get; set; }
     }
 }

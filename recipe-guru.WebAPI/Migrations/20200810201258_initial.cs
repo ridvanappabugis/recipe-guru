@@ -11,7 +11,7 @@ namespace recipeguru.WebAPI.Migrations
                 name: "ImageResources",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ImageByteValue = table.Column<byte[]>(nullable: true)
                 },
@@ -21,10 +21,37 @@ namespace recipeguru.WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Kategorije",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Naziv = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kategorije", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Uloge",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Naziv = table.Column<string>(maxLength: 50, nullable: false),
+                    Opis = table.Column<string>(maxLength: 200, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Uloge", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Korisnici",
                 columns: table => new
                 {
-                    KorisnikID = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Ime = table.Column<string>(maxLength: 50, nullable: false),
                     Prezime = table.Column<string>(maxLength: 50, nullable: false),
@@ -34,88 +61,53 @@ namespace recipeguru.WebAPI.Migrations
                     LozinkaHash = table.Column<string>(maxLength: 500, nullable: false),
                     LozinkaSalt = table.Column<string>(maxLength: 50, nullable: false),
                     Status = table.Column<bool>(nullable: false, defaultValueSql: "((1))"),
-                    KorisniciUlogeId = table.Column<long>(nullable: false)
+                    UlogeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Korisnici", x => x.KorisnikID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Uloge",
-                columns: table => new
-                {
-                    UlogaID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(maxLength: 50, nullable: false),
-                    Opis = table.Column<string>(maxLength: 200, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Uloge", x => x.UlogaID);
+                    table.PrimaryKey("PK_Korisnici", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Korisnici_Uloge_UlogeId",
+                        column: x => x.UlogeId,
+                        principalTable: "Uloge",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "KnjigeRecepata",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naziv = table.Column<string>(nullable: true),
                     Public = table.Column<bool>(nullable: false),
-                    KorisnikId = table.Column<long>(nullable: false),
-                    KorisnikId1 = table.Column<int>(nullable: true)
+                    KorisnikId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_KnjigeRecepata", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_KnjigeRecepata_Korisnici_KorisnikId1",
-                        column: x => x.KorisnikId1,
+                        name: "FK_KnjigeRecepata_Korisnici_KorisnikId",
+                        column: x => x.KorisnikId,
                         principalTable: "Korisnici",
-                        principalColumn: "KorisnikID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "KorisniciUloge",
-                columns: table => new
-                {
-                    KorisnikUlogaID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    KorisnikID = table.Column<int>(nullable: false),
-                    UlogaID = table.Column<int>(nullable: false),
-                    DatumIzmjene = table.Column<DateTime>(type: "datetime", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_KorisniciUloge", x => x.KorisnikUlogaID);
-                    table.ForeignKey(
-                        name: "FK_KorisniciUloge_Korisnici",
-                        column: x => x.KorisnikID,
-                        principalTable: "Korisnici",
-                        principalColumn: "KorisnikID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_KorisniciUloge_Uloge",
-                        column: x => x.UlogaID,
-                        principalTable: "Uloge",
-                        principalColumn: "UlogaID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Recepti",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naziv = table.Column<string>(nullable: true),
                     BrojPregleda = table.Column<long>(nullable: false),
-                    DuzinaPripreme = table.Column<string>(nullable: true),
+                    DuzinaPripreme = table.Column<int>(nullable: false),
                     Public = table.Column<bool>(nullable: false),
-                    GlavnaSlikaId = table.Column<long>(nullable: true),
-                    KnjigaRecepataId = table.Column<long>(nullable: false)
+                    GlavnaSlikaId = table.Column<int>(nullable: true),
+                    KnjigaRecepataId = table.Column<int>(nullable: false),
+                    KategorijeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -127,6 +119,12 @@ namespace recipeguru.WebAPI.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
+                        name: "FK_Recepti_Kategorije_KategorijeId",
+                        column: x => x.KategorijeId,
+                        principalTable: "Kategorije",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Recepti_KnjigeRecepata_KnjigaRecepataId",
                         column: x => x.KnjigaRecepataId,
                         principalTable: "KnjigeRecepata",
@@ -135,64 +133,43 @@ namespace recipeguru.WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Kategorije",
+                name: "Ratings",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(nullable: true),
-                    ReceptiId = table.Column<long>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Kategorije", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Kategorije_Recepti_ReceptiId",
-                        column: x => x.ReceptiId,
-                        principalTable: "Recepti",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Ratings",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     Mark = table.Column<int>(nullable: false),
                     Comment = table.Column<string>(nullable: true),
                     InsertTime = table.Column<DateTime>(nullable: false),
-                    KorisnikId = table.Column<long>(nullable: false),
-                    KorisnikId1 = table.Column<int>(nullable: true),
-                    ReceptId = table.Column<long>(nullable: false)
+                    KorisnikId = table.Column<int>(nullable: false),
+                    ReceptId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ratings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Ratings_Korisnici_KorisnikId1",
-                        column: x => x.KorisnikId1,
+                        name: "FK_Ratings_Korisnici_KorisnikId",
+                        column: x => x.KorisnikId,
                         principalTable: "Korisnici",
-                        principalColumn: "KorisnikID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Ratings_Recepti_ReceptId",
                         column: x => x.ReceptId,
                         principalTable: "Recepti",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ReceptKoraci",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RedniBrojKoraka = table.Column<int>(nullable: false),
                     Deskripcija = table.Column<string>(nullable: true),
-                    ReceptId = table.Column<long>(nullable: false)
+                    ReceptId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -209,11 +186,11 @@ namespace recipeguru.WebAPI.Migrations
                 name: "ReceptSastojci",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Kolicina = table.Column<string>(nullable: true),
                     Naziv = table.Column<string>(nullable: true),
-                    ReceptId = table.Column<long>(nullable: false)
+                    ReceptId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -228,47 +205,96 @@ namespace recipeguru.WebAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Kategorije",
-                columns: new[] { "Id", "Naziv", "ReceptiId" },
+                columns: new[] { "Id", "Naziv" },
                 values: new object[,]
                 {
-                    { 1, "Slatko", null },
-                    { 2, "Slano", null },
-                    { 3, "Salate", null },
-                    { 4, "Pite", null },
-                    { 5, "Pizze", null },
-                    { 6, "Rostilj", null },
-                    { 7, "Supe", null },
-                    { 8, "Kolaci", null },
-                    { 9, "Vegan", null }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Korisnici",
-                columns: new[] { "KorisnikID", "Email", "Ime", "KorisniciUlogeId", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon" },
-                values: new object[,]
-                {
-                    { 1, "ridvan@fit.ba", "Ridvan", 1L, "admin", "gwxNjOsQSCim62bZl8W7bjObgfI=", "8U8B6yoc5ulFt1oTzV01ug==", "Appa", "061234567" },
-                    { 2, "ridvanclient@fit.ba", "Ridvan", 2L, "ClientUser", "QpNcjXqOIPPb+/4rvyI4KEpUR8I=", "H7tLPzMOoyPTrWHoEuI01w==", "Appa", "061234567" }
+                    { 1, "Hljebovi i Pekarska hrana" },
+                    { 2, "Dorucak" },
+                    { 3, "Vecera" },
+                    { 4, "Rucak" },
+                    { 5, "Umaci, Salate, Sosovi" },
+                    { 6, "Kokteli" },
+                    { 7, "Supe" },
+                    { 8, "Glavna Jela" },
+                    { 9, "Predjela" },
+                    { 10, "Jela iz Lonca" },
+                    { 11, "Pizze" },
+                    { 12, "Sendvici" },
+                    { 13, "Salate" },
+                    { 14, "Snacks" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Uloge",
-                columns: new[] { "UlogaID", "Naziv", "Opis" },
+                columns: new[] { "Id", "Naziv", "Opis" },
                 values: new object[,]
                 {
                     { 1, "Administrator", null },
-                    { 2, "ClientUser", null }
+                    { 2, "User", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Korisnici",
+                columns: new[] { "Id", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogeId" },
+                values: new object[] { 1, "ridvan@fit.ba", "Ridvan", "admin", "BecrbX8U8yPSpBGhA2jGa9y0q5k=", "CjpunY8moV5HP6BctY2aeg==", "Appa", "061234567", 1 });
+
+            migrationBuilder.InsertData(
+                table: "Korisnici",
+                columns: new[] { "Id", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogeId" },
+                values: new object[] { 2, "ridvanclient@fit.ba", "Ridvan", "ClientUser", "4O3p0NzV7b15OkI8IBG7YngYN3s=", "hSakNLaRevFomUwj5rlJZg==", "Appa", "061234567", 2 });
+
+            migrationBuilder.InsertData(
+                table: "KnjigeRecepata",
+                columns: new[] { "Id", "KorisnikId", "Naziv", "Public" },
+                values: new object[] { 1, 2, "Ridvanovi Recepti", true });
+
+            migrationBuilder.InsertData(
+                table: "KnjigeRecepata",
+                columns: new[] { "Id", "KorisnikId", "Naziv", "Public" },
+                values: new object[] { 2, 2, "Ridvanovi Recepti #2", false });
+
+            migrationBuilder.InsertData(
+                table: "Recepti",
+                columns: new[] { "Id", "BrojPregleda", "DuzinaPripreme", "GlavnaSlikaId", "KategorijeId", "KnjigaRecepataId", "Naziv", "Public" },
+                values: new object[] { 1, 0L, 30, null, 7, 1, "Domaci Nanin Grah", true });
+
+            migrationBuilder.InsertData(
+                table: "Recepti",
+                columns: new[] { "Id", "BrojPregleda", "DuzinaPripreme", "GlavnaSlikaId", "KategorijeId", "KnjigaRecepataId", "Naziv", "Public" },
+                values: new object[] { 2, 0L, 30, null, 4, 1, "Doner Kebab iz srca Turske", true });
+
+            migrationBuilder.InsertData(
+                table: "Ratings",
+                columns: new[] { "Id", "Comment", "InsertTime", "KorisnikId", "Mark", "ReceptId" },
+                values: new object[] { 1, "Predobar doner.", new DateTime(2020, 8, 10, 22, 12, 58, 204, DateTimeKind.Local).AddTicks(6530), 1, 4, 2 });
+
+            migrationBuilder.InsertData(
+                table: "ReceptKoraci",
+                columns: new[] { "Id", "Deskripcija", "ReceptId", "RedniBrojKoraka" },
+                values: new object[,]
+                {
+                    { 4, "Ubrati grah.", 1, 1 },
+                    { 5, "Skuhati.", 1, 2 },
+                    { 6, "Dodati suhog mesa.", 1, 3 },
+                    { 1, "Priprema sosa za prekrivanje mesa.", 2, 1 },
+                    { 2, "Przenje mesa.", 2, 2 },
+                    { 3, "Jedenje.", 2, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ReceptSastojci",
+                columns: new[] { "Id", "Kolicina", "Naziv", "ReceptId" },
+                values: new object[,]
+                {
+                    { 1, "1 kilgoram", "Telece meso.", 2 },
+                    { 2, "1 kilgoram", "Telece meso.", 2 },
+                    { 3, "1 kilgoram", "Telece meso.", 2 }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Kategorije_ReceptiId",
-                table: "Kategorije",
-                column: "ReceptiId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_KnjigeRecepata_KorisnikId1",
+                name: "IX_KnjigeRecepata_KorisnikId",
                 table: "KnjigeRecepata",
-                column: "KorisnikId1");
+                column: "KorisnikId");
 
             migrationBuilder.CreateIndex(
                 name: "CS_Email",
@@ -284,20 +310,14 @@ namespace recipeguru.WebAPI.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_KorisniciUloge_KorisnikID",
-                table: "KorisniciUloge",
-                column: "KorisnikID",
-                unique: true);
+                name: "IX_Korisnici_UlogeId",
+                table: "Korisnici",
+                column: "UlogeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_KorisniciUloge_UlogaID",
-                table: "KorisniciUloge",
-                column: "UlogaID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Ratings_KorisnikId1",
+                name: "IX_Ratings_KorisnikId",
                 table: "Ratings",
-                column: "KorisnikId1");
+                column: "KorisnikId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ratings_ReceptId",
@@ -308,6 +328,11 @@ namespace recipeguru.WebAPI.Migrations
                 name: "IX_Recepti_GlavnaSlikaId",
                 table: "Recepti",
                 column: "GlavnaSlikaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Recepti_KategorijeId",
+                table: "Recepti",
+                column: "KategorijeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Recepti_KnjigaRecepataId",
@@ -328,12 +353,6 @@ namespace recipeguru.WebAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Kategorije");
-
-            migrationBuilder.DropTable(
-                name: "KorisniciUloge");
-
-            migrationBuilder.DropTable(
                 name: "Ratings");
 
             migrationBuilder.DropTable(
@@ -343,19 +362,22 @@ namespace recipeguru.WebAPI.Migrations
                 name: "ReceptSastojci");
 
             migrationBuilder.DropTable(
-                name: "Uloge");
-
-            migrationBuilder.DropTable(
                 name: "Recepti");
 
             migrationBuilder.DropTable(
                 name: "ImageResources");
 
             migrationBuilder.DropTable(
+                name: "Kategorije");
+
+            migrationBuilder.DropTable(
                 name: "KnjigeRecepata");
 
             migrationBuilder.DropTable(
                 name: "Korisnici");
+
+            migrationBuilder.DropTable(
+                name: "Uloge");
         }
     }
 }
