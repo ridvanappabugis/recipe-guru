@@ -57,10 +57,7 @@ namespace recipe_guru.WebAPI.Security
                 new Claim(ClaimTypes.Name, user.Ime),
             };
 
-            foreach (var role in user.KorisniciUloge)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv.ToString()));
-            }
+            claims.Add(new Claim(ClaimTypes.Role, user.Uloga.Naziv.ToString()));
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);

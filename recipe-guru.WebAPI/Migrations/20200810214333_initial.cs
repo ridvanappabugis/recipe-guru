@@ -39,8 +39,7 @@ namespace recipeguru.WebAPI.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(maxLength: 50, nullable: false),
-                    Opis = table.Column<string>(maxLength: 200, nullable: true)
+                    Naziv = table.Column<int>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,14 +60,14 @@ namespace recipeguru.WebAPI.Migrations
                     LozinkaHash = table.Column<string>(maxLength: 500, nullable: false),
                     LozinkaSalt = table.Column<string>(maxLength: 50, nullable: false),
                     Status = table.Column<bool>(nullable: false, defaultValueSql: "((1))"),
-                    UlogeId = table.Column<int>(nullable: false)
+                    UlogaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Korisnici", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Korisnici_Uloge_UlogeId",
-                        column: x => x.UlogeId,
+                        name: "FK_Korisnici_Uloge_UlogaId",
+                        column: x => x.UlogaId,
                         principalTable: "Uloge",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -209,39 +208,40 @@ namespace recipeguru.WebAPI.Migrations
                 values: new object[,]
                 {
                     { 1, "Hljebovi i Pekarska hrana" },
-                    { 2, "Dorucak" },
-                    { 3, "Vecera" },
-                    { 4, "Rucak" },
-                    { 5, "Umaci, Salate, Sosovi" },
-                    { 6, "Kokteli" },
-                    { 7, "Supe" },
+                    { 14, "Snacks" },
+                    { 13, "Salate" },
+                    { 12, "Sendvici" },
+                    { 11, "Pizze" },
+                    { 10, "Jela iz Lonca" },
                     { 8, "Glavna Jela" },
                     { 9, "Predjela" },
-                    { 10, "Jela iz Lonca" },
-                    { 11, "Pizze" },
-                    { 12, "Sendvici" },
-                    { 13, "Salate" },
-                    { 14, "Snacks" }
+                    { 6, "Kokteli" },
+                    { 5, "Umaci, Salate, Sosovi" },
+                    { 4, "Rucak" },
+                    { 3, "Vecera" },
+                    { 2, "Dorucak" },
+                    { 7, "Supe" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Uloge",
-                columns: new[] { "Id", "Naziv", "Opis" },
+                columns: new[] { "Id", "Naziv" },
                 values: new object[,]
                 {
-                    { 1, "Administrator", null },
-                    { 2, "User", null }
+                    { 2, 2 },
+                    { 1, 0 },
+                    { 3, 1 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Korisnici",
-                columns: new[] { "Id", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogeId" },
-                values: new object[] { 1, "ridvan@fit.ba", "Ridvan", "admin", "BecrbX8U8yPSpBGhA2jGa9y0q5k=", "CjpunY8moV5HP6BctY2aeg==", "Appa", "061234567", 1 });
+                columns: new[] { "Id", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogaId" },
+                values: new object[] { 1, "ridvan@fit.ba", "Ridvan", "admin", "GBFHxSi0pxp8UvFBlOVB/buYmks=", "iqaMPG7eGDsk6NR6pZjiag==", "Appa", "061234567", 1 });
 
             migrationBuilder.InsertData(
                 table: "Korisnici",
-                columns: new[] { "Id", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogeId" },
-                values: new object[] { 2, "ridvanclient@fit.ba", "Ridvan", "ClientUser", "4O3p0NzV7b15OkI8IBG7YngYN3s=", "hSakNLaRevFomUwj5rlJZg==", "Appa", "061234567", 2 });
+                columns: new[] { "Id", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogaId" },
+                values: new object[] { 2, "ridvanclient@fit.ba", "Ridvan", "ClientUser", "K2J0XqIuEhvmX6NPQ7A56/DcE+0=", "SNCXDc86Hu29XN51tHI4SQ==", "Appa", "061234567", 2 });
 
             migrationBuilder.InsertData(
                 table: "KnjigeRecepata",
@@ -266,7 +266,7 @@ namespace recipeguru.WebAPI.Migrations
             migrationBuilder.InsertData(
                 table: "Ratings",
                 columns: new[] { "Id", "Comment", "InsertTime", "KorisnikId", "Mark", "ReceptId" },
-                values: new object[] { 1, "Predobar doner.", new DateTime(2020, 8, 10, 22, 12, 58, 204, DateTimeKind.Local).AddTicks(6530), 1, 4, 2 });
+                values: new object[] { 1, "Predobar doner.", new DateTime(2020, 8, 10, 23, 43, 32, 866, DateTimeKind.Local).AddTicks(6630), 1, 4, 2 });
 
             migrationBuilder.InsertData(
                 table: "ReceptKoraci",
@@ -310,9 +310,9 @@ namespace recipeguru.WebAPI.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Korisnici_UlogeId",
+                name: "IX_Korisnici_UlogaId",
                 table: "Korisnici",
-                column: "UlogeId");
+                column: "UlogaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ratings_KorisnikId",

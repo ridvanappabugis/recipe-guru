@@ -5,7 +5,7 @@ namespace recipe_guru.Model
 {
     public partial class Korisnik
     {
-        public int KorisnikId { get; set; }
+        public int Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Email { get; set; }
@@ -14,6 +14,7 @@ namespace recipe_guru.Model
         public bool? Status { get; set; }
         public ImageResource SlikaProfila { get; set; }
 
-        public ICollection<KorisnikUloga> KorisniciUloge { get; set; }
+        public int UlogaId { get; set; }
+        public Uloga Uloga { get; set; }
     }
 }

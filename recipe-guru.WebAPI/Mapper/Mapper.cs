@@ -26,6 +26,8 @@ namespace recipe_guru.WebAPI.Mapper
             CreateMap<Database.Ratings, Model.Rating>();
             CreateMap<Database.Ratings, Model.Requests.RatingUpsertRequest>().ReverseMap();
 
+            CreateMap<Database.Uloge, Model.Uloga>();
+
         }
     }
 }

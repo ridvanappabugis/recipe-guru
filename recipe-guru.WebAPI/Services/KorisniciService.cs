@@ -26,7 +26,7 @@ namespace recipe_guru.WebAPI.Services
 
         public Model.Korisnik Authenticiraj(string username, string pass)
         {
-            var user = _context.Korisnici.Include("KorisniciUloge.Uloga").FirstOrDefault(x => x.KorisnickoIme == username);
+            var user = _context.Korisnici.Include(k => k.Uloga).FirstOrDefault(x => x.KorisnickoIme == username);
 
             if (user != null)
             {
@@ -56,7 +56,7 @@ namespace recipe_guru.WebAPI.Services
 
             if(request?.IsUlogeLoadingEnabled == true)
             {
-                query = query.Include(x => x.Uloge);
+                query = query.Include(x => x.Uloga);
             }
 
             var list = query.ToList();

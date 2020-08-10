@@ -15,7 +15,7 @@ namespace recipe_guru.WebAPI.Database
         public string LozinkaSalt { get; set; }
         public bool? Status { get; set; }
 
-        public int UlogeId { get; set; }
-        public Uloge Uloge { get; set; }
+        public int UlogaId { get; set; }
+        public Uloge Uloga { get; set; }
     }
 }

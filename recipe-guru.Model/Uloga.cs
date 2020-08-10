@@ -2,12 +2,11 @@
 {
     public enum Role
     {
-        ADMIN, VISITOR, RESTAURANT_OWNER
+        ADMIN, VISITOR, USER
     }
     public partial class Uloga
     {
         public int Id { get; set; }
-
         public Role Naziv { get; set; }
     }
 }

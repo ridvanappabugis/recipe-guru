@@ -42,20 +42,26 @@ namespace recipe_guru.WebAPI.Database
             modelBuilder.Entity<Uloge>().HasData(new Uloge()
             {
                 Id = 1,
-                Naziv = "Administrator"
+                Naziv = Role.ADMIN
             });
 
             modelBuilder.Entity<Uloge>().HasData(new Uloge()
             {
                 Id = 2,
-                Naziv = "User"
+                Naziv = Role.USER
+            });
+
+            modelBuilder.Entity<Uloge>().HasData(new Uloge()
+            {
+                Id = 3,
+                Naziv = Role.VISITOR
             });
 
             // admin
             Korisnici u1 = new Korisnici
             {
                 Id = 1,
-                UlogeId = 1,
+                UlogaId = 1,
                 KorisnickoIme = "admin",
                 Telefon = "061234567",
                 Ime = "Ridvan",
@@ -71,7 +77,7 @@ namespace recipe_guru.WebAPI.Database
             Korisnici u2 = new Korisnici
             {
                 Id = 2,
-                UlogeId = 2,
+                UlogaId = 2,
                 KorisnickoIme = "ClientUser",
                 Telefon = "061234567",
                 Ime = "Ridvan",
@@ -289,8 +295,6 @@ namespace recipe_guru.WebAPI.Database
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
-
-                entity.Property(e => e.Opis).HasMaxLength(200);
             });
 
             InitialiseData(modelBuilder);

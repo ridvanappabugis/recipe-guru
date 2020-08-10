@@ -10,7 +10,7 @@ using recipe_guru.WebAPI.Database;
 namespace recipeguru.WebAPI.Migrations
 {
     [DbContext(typeof(recipeGuruContext))]
-    [Migration("20200810201258_initial")]
+    [Migration("20200810214333_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -209,7 +209,7 @@ namespace recipeguru.WebAPI.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<int>("UlogeId")
+                    b.Property<int>("UlogaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -223,7 +223,7 @@ namespace recipeguru.WebAPI.Migrations
                         .IsUnique()
                         .HasName("CS_KorisnickoIme");
 
-                    b.HasIndex("UlogeId");
+                    b.HasIndex("UlogaId");
 
                     b.ToTable("Korisnici");
 
@@ -234,11 +234,11 @@ namespace recipeguru.WebAPI.Migrations
                             Email = "ridvan@fit.ba",
                             Ime = "Ridvan",
                             KorisnickoIme = "admin",
-                            LozinkaHash = "BecrbX8U8yPSpBGhA2jGa9y0q5k=",
-                            LozinkaSalt = "CjpunY8moV5HP6BctY2aeg==",
+                            LozinkaHash = "GBFHxSi0pxp8UvFBlOVB/buYmks=",
+                            LozinkaSalt = "iqaMPG7eGDsk6NR6pZjiag==",
                             Prezime = "Appa",
                             Telefon = "061234567",
-                            UlogeId = 1
+                            UlogaId = 1
                         },
                         new
                         {
@@ -246,11 +246,11 @@ namespace recipeguru.WebAPI.Migrations
                             Email = "ridvanclient@fit.ba",
                             Ime = "Ridvan",
                             KorisnickoIme = "ClientUser",
-                            LozinkaHash = "4O3p0NzV7b15OkI8IBG7YngYN3s=",
-                            LozinkaSalt = "hSakNLaRevFomUwj5rlJZg==",
+                            LozinkaHash = "K2J0XqIuEhvmX6NPQ7A56/DcE+0=",
+                            LozinkaSalt = "SNCXDc86Hu29XN51tHI4SQ==",
                             Prezime = "Appa",
                             Telefon = "061234567",
-                            UlogeId = 2
+                            UlogaId = 2
                         });
                 });
 
@@ -289,7 +289,7 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 1,
                             Comment = "Predobar doner.",
-                            InsertTime = new DateTime(2020, 8, 10, 22, 12, 58, 204, DateTimeKind.Local).AddTicks(6530),
+                            InsertTime = new DateTime(2020, 8, 10, 23, 43, 32, 866, DateTimeKind.Local).AddTicks(6630),
                             KorisnikId = 1,
                             Mark = 4,
                             ReceptId = 2
@@ -478,14 +478,9 @@ namespace recipeguru.WebAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Naziv")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
+                    b.Property<int>("Naziv")
+                        .HasColumnType("int")
                         .HasMaxLength(50);
-
-                    b.Property<string>("Opis")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
 
                     b.HasKey("Id");
 
@@ -495,12 +490,17 @@ namespace recipeguru.WebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            Naziv = "Administrator"
+                            Naziv = 0
                         },
                         new
                         {
                             Id = 2,
-                            Naziv = "User"
+                            Naziv = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Naziv = 1
                         });
                 });
 
@@ -515,9 +515,9 @@ namespace recipeguru.WebAPI.Migrations
 
             modelBuilder.Entity("recipe_guru.WebAPI.Database.Korisnici", b =>
                 {
-                    b.HasOne("recipe_guru.WebAPI.Database.Uloge", "Uloge")
+                    b.HasOne("recipe_guru.WebAPI.Database.Uloge", "Uloga")
                         .WithMany()
-                        .HasForeignKey("UlogeId")
+                        .HasForeignKey("UlogaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
