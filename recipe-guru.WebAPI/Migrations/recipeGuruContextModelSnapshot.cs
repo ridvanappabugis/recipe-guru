@@ -19,7 +19,7 @@ namespace recipeguru.WebAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.ImageResources", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.ImageResource", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace recipeguru.WebAPI.Migrations
                     b.ToTable("ImageResources");
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.Kategorije", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.Kategorija", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,7 +121,7 @@ namespace recipeguru.WebAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.KnjigeRecepata", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.KnjigaRecepata", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,7 +160,7 @@ namespace recipeguru.WebAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.Korisnici", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.Korisnik", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -232,8 +232,8 @@ namespace recipeguru.WebAPI.Migrations
                             Email = "ridvan@fit.ba",
                             Ime = "Ridvan",
                             KorisnickoIme = "admin",
-                            LozinkaHash = "GBFHxSi0pxp8UvFBlOVB/buYmks=",
-                            LozinkaSalt = "iqaMPG7eGDsk6NR6pZjiag==",
+                            LozinkaHash = "Id4Z8QPOmgazi9b+QZGBELqSpl0=",
+                            LozinkaSalt = "9mlcua6FN/zddKAYy382rg==",
                             Prezime = "Appa",
                             Telefon = "061234567",
                             UlogaId = 1
@@ -244,15 +244,15 @@ namespace recipeguru.WebAPI.Migrations
                             Email = "ridvanclient@fit.ba",
                             Ime = "Ridvan",
                             KorisnickoIme = "ClientUser",
-                            LozinkaHash = "K2J0XqIuEhvmX6NPQ7A56/DcE+0=",
-                            LozinkaSalt = "SNCXDc86Hu29XN51tHI4SQ==",
+                            LozinkaHash = "xE3FiDu0z9nIs26CWCNL2V1g2og=",
+                            LozinkaSalt = "y/e6wUiyOrPgXtWPlCg8dw==",
                             Prezime = "Appa",
                             Telefon = "061234567",
                             UlogaId = 2
                         });
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.Ratings", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.Rating", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -287,14 +287,75 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 1,
                             Comment = "Predobar doner.",
-                            InsertTime = new DateTime(2020, 8, 10, 23, 43, 32, 866, DateTimeKind.Local).AddTicks(6630),
+                            InsertTime = new DateTime(2020, 8, 11, 0, 58, 56, 932, DateTimeKind.Local).AddTicks(1760),
                             KorisnikId = 1,
                             Mark = 4,
                             ReceptId = 2
                         });
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptKoraci", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.Recept", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("BrojPregleda")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("DuzinaPripreme")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GlavnaSlikaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("KategorijaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("KnjigaRecepataId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Naziv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Public")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GlavnaSlikaId");
+
+                    b.HasIndex("KategorijaId");
+
+                    b.HasIndex("KnjigaRecepataId");
+
+                    b.ToTable("Recepti");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BrojPregleda = 0L,
+                            DuzinaPripreme = 30,
+                            KategorijaId = 7,
+                            KnjigaRecepataId = 1,
+                            Naziv = "Domaci Nanin Grah",
+                            Public = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BrojPregleda = 0L,
+                            DuzinaPripreme = 30,
+                            KategorijaId = 4,
+                            KnjigaRecepataId = 1,
+                            Naziv = "Doner Kebab iz srca Turske",
+                            Public = true
+                        });
+                });
+
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptKorak", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -361,7 +422,7 @@ namespace recipeguru.WebAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptSastojci", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptSastojak", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -407,68 +468,7 @@ namespace recipeguru.WebAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.Recepti", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("BrojPregleda")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("DuzinaPripreme")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GlavnaSlikaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("KategorijeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("KnjigaRecepataId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Naziv")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Public")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GlavnaSlikaId");
-
-                    b.HasIndex("KategorijeId");
-
-                    b.HasIndex("KnjigaRecepataId");
-
-                    b.ToTable("Recepti");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BrojPregleda = 0L,
-                            DuzinaPripreme = 30,
-                            KategorijeId = 7,
-                            KnjigaRecepataId = 1,
-                            Naziv = "Domaci Nanin Grah",
-                            Public = true
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BrojPregleda = 0L,
-                            DuzinaPripreme = 30,
-                            KategorijeId = 4,
-                            KnjigaRecepataId = 1,
-                            Naziv = "Doner Kebab iz srca Turske",
-                            Public = true
-                        });
-                });
-
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.Uloge", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.Uloga", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -502,72 +502,72 @@ namespace recipeguru.WebAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.KnjigeRecepata", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.KnjigaRecepata", b =>
                 {
-                    b.HasOne("recipe_guru.WebAPI.Database.Korisnici", "Korisnik")
+                    b.HasOne("recipe_guru.WebAPI.Database.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.Korisnici", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.Korisnik", b =>
                 {
-                    b.HasOne("recipe_guru.WebAPI.Database.Uloge", "Uloga")
+                    b.HasOne("recipe_guru.WebAPI.Database.Uloga", "Uloga")
                         .WithMany()
                         .HasForeignKey("UlogaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.Ratings", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.Rating", b =>
                 {
-                    b.HasOne("recipe_guru.WebAPI.Database.Korisnici", "Korisnik")
+                    b.HasOne("recipe_guru.WebAPI.Database.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("recipe_guru.WebAPI.Database.Recepti", "Recept")
+                    b.HasOne("recipe_guru.WebAPI.Database.Recept", "Recept")
                         .WithMany("Ratings")
                         .HasForeignKey("ReceptId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptKoraci", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.Recept", b =>
                 {
-                    b.HasOne("recipe_guru.WebAPI.Database.Recepti", "Recept")
+                    b.HasOne("recipe_guru.WebAPI.Database.ImageResource", "GlavnaSlika")
+                        .WithMany()
+                        .HasForeignKey("GlavnaSlikaId");
+
+                    b.HasOne("recipe_guru.WebAPI.Database.Kategorija", "Kategorija")
+                        .WithMany()
+                        .HasForeignKey("KategorijaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("recipe_guru.WebAPI.Database.KnjigaRecepata", "KnjigaRecepata")
+                        .WithMany("Recepti")
+                        .HasForeignKey("KnjigaRecepataId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptKorak", b =>
+                {
+                    b.HasOne("recipe_guru.WebAPI.Database.Recept", "Recept")
                         .WithMany("ReceptKoraci")
                         .HasForeignKey("ReceptId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptSastojci", b =>
+            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptSastojak", b =>
                 {
-                    b.HasOne("recipe_guru.WebAPI.Database.Recepti", "Recept")
+                    b.HasOne("recipe_guru.WebAPI.Database.Recept", "Recept")
                         .WithMany("ReceptSastojci")
                         .HasForeignKey("ReceptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.Recepti", b =>
-                {
-                    b.HasOne("recipe_guru.WebAPI.Database.ImageResources", "GlavnaSlika")
-                        .WithMany()
-                        .HasForeignKey("GlavnaSlikaId");
-
-                    b.HasOne("recipe_guru.WebAPI.Database.Kategorije", "Kategorije")
-                        .WithMany()
-                        .HasForeignKey("KategorijeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("recipe_guru.WebAPI.Database.KnjigeRecepata", "KnjigaRecepata")
-                        .WithMany("Recepti")
-                        .HasForeignKey("KnjigaRecepataId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

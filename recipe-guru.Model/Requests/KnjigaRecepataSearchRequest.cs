@@ -5,6 +5,6 @@ namespace recipe_guru.Model.Requests
     {
         public string Naziv { get; set; }
 
-        public long KorisnikId { get; set; }
+        public int KorisnikId { get; set; }
     }
 }

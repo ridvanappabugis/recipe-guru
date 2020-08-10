@@ -8,6 +8,5 @@
         public string Naziv { get; set; }
 
         public int ReceptId { get; set; }
-        public Recept Recept { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace recipe_guru.WebAPI.Database
     {
         ONE_STAR, TWO_STAR, THREE_STAR, FOUR_STAR, FIVE_STAR
     }
-    public partial class Ratings
+    public partial class Rating
     {
         public int Id { get; set; }
         public RatingMark Mark { get; set; }
@@ -13,9 +13,9 @@ namespace recipe_guru.WebAPI.Database
         public DateTime InsertTime { get; set; }
 
         public int KorisnikId { get; set; }
-        public virtual Korisnici Korisnik { get; set; }
+        public virtual Korisnik Korisnik { get; set; }
 
         public int ReceptId { get; set; }
-        public virtual Recepti Recept { get; set; }
+        public virtual Recept Recept { get; set; }
     }
 }

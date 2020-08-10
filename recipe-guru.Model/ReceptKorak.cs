@@ -9,6 +9,5 @@ namespace recipe_guru.Model
         public string Deskripcija { get; set; }
 
         public int ReceptId { get; set; }
-        public Recept Recept { get; set; }
     }
 }

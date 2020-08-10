@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace recipe_guru.WebAPI.Database
 {
-    public partial class Korisnici
+    public partial class Korisnik
     {
         public int Id { get; set; }
         public string Ime { get; set; }
@@ -16,6 +16,6 @@ namespace recipe_guru.WebAPI.Database
         public bool? Status { get; set; }
 
         public int UlogaId { get; set; }
-        public Uloge Uloga { get; set; }
+        public Uloga Uloga { get; set; }
     }
 }

@@ -9,12 +9,9 @@ namespace recipe_guru.Model.Requests
         [Required(AllowEmptyStrings = false)]
         public string Naziv { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
-        public bool Public { get; set; }
+        public bool Public { get; set; } = true;
 
-        [Required(AllowEmptyStrings = false)]
-        public long KorisnikId { get; set; }
-
-        public ICollection<Recept> Recepti { get; set; } = new List<Recept>();
+        [Required]
+        public int KorisnikId { get; set; }
     }
 }

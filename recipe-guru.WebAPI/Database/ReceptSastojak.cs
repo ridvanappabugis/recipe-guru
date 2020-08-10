@@ -1,7 +1,7 @@
 ﻿using System;
 namespace recipe_guru.WebAPI.Database
 {
-    public partial class ReceptSastojci
+    public partial class ReceptSastojak
     {
         public int Id { get; set; }
 
@@ -9,6 +9,6 @@ namespace recipe_guru.WebAPI.Database
         public string Naziv { get; set; }
 
         public int ReceptId { get; set; }
-        public Recepti Recept { get; set; }
+        public virtual Recept Recept { get; set; }
     }
 }

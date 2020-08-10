@@ -13,10 +13,8 @@ namespace recipe_guru.Model
         public string Comment { get; set; }
         public DateTime InsertTime { get; set; }
 
-        public int KorisnikID { get; set; }
-        public virtual Korisnik Korisnik { get; set; }
+        public int KorisnikId { get; set; }
 
-        public int ReceptID { get; set; }
-        public virtual Recept Recept { get; set; }
+        public int ReceptId { get; set; }
     }
 }

@@ -106,7 +106,7 @@ namespace recipeguru.WebAPI.Migrations
                     Public = table.Column<bool>(nullable: false),
                     GlavnaSlikaId = table.Column<int>(nullable: true),
                     KnjigaRecepataId = table.Column<int>(nullable: false),
-                    KategorijeId = table.Column<int>(nullable: false)
+                    KategorijaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -118,8 +118,8 @@ namespace recipeguru.WebAPI.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Recepti_Kategorije_KategorijeId",
-                        column: x => x.KategorijeId,
+                        name: "FK_Recepti_Kategorije_KategorijaId",
+                        column: x => x.KategorijaId,
                         principalTable: "Kategorije",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -236,12 +236,12 @@ namespace recipeguru.WebAPI.Migrations
             migrationBuilder.InsertData(
                 table: "Korisnici",
                 columns: new[] { "Id", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogaId" },
-                values: new object[] { 1, "ridvan@fit.ba", "Ridvan", "admin", "GBFHxSi0pxp8UvFBlOVB/buYmks=", "iqaMPG7eGDsk6NR6pZjiag==", "Appa", "061234567", 1 });
+                values: new object[] { 1, "ridvan@fit.ba", "Ridvan", "admin", "Id4Z8QPOmgazi9b+QZGBELqSpl0=", "9mlcua6FN/zddKAYy382rg==", "Appa", "061234567", 1 });
 
             migrationBuilder.InsertData(
                 table: "Korisnici",
                 columns: new[] { "Id", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogaId" },
-                values: new object[] { 2, "ridvanclient@fit.ba", "Ridvan", "ClientUser", "K2J0XqIuEhvmX6NPQ7A56/DcE+0=", "SNCXDc86Hu29XN51tHI4SQ==", "Appa", "061234567", 2 });
+                values: new object[] { 2, "ridvanclient@fit.ba", "Ridvan", "ClientUser", "xE3FiDu0z9nIs26CWCNL2V1g2og=", "y/e6wUiyOrPgXtWPlCg8dw==", "Appa", "061234567", 2 });
 
             migrationBuilder.InsertData(
                 table: "KnjigeRecepata",
@@ -255,18 +255,18 @@ namespace recipeguru.WebAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Recepti",
-                columns: new[] { "Id", "BrojPregleda", "DuzinaPripreme", "GlavnaSlikaId", "KategorijeId", "KnjigaRecepataId", "Naziv", "Public" },
+                columns: new[] { "Id", "BrojPregleda", "DuzinaPripreme", "GlavnaSlikaId", "KategorijaId", "KnjigaRecepataId", "Naziv", "Public" },
                 values: new object[] { 1, 0L, 30, null, 7, 1, "Domaci Nanin Grah", true });
 
             migrationBuilder.InsertData(
                 table: "Recepti",
-                columns: new[] { "Id", "BrojPregleda", "DuzinaPripreme", "GlavnaSlikaId", "KategorijeId", "KnjigaRecepataId", "Naziv", "Public" },
+                columns: new[] { "Id", "BrojPregleda", "DuzinaPripreme", "GlavnaSlikaId", "KategorijaId", "KnjigaRecepataId", "Naziv", "Public" },
                 values: new object[] { 2, 0L, 30, null, 4, 1, "Doner Kebab iz srca Turske", true });
 
             migrationBuilder.InsertData(
                 table: "Ratings",
                 columns: new[] { "Id", "Comment", "InsertTime", "KorisnikId", "Mark", "ReceptId" },
-                values: new object[] { 1, "Predobar doner.", new DateTime(2020, 8, 10, 23, 43, 32, 866, DateTimeKind.Local).AddTicks(6630), 1, 4, 2 });
+                values: new object[] { 1, "Predobar doner.", new DateTime(2020, 8, 11, 0, 58, 56, 932, DateTimeKind.Local).AddTicks(1760), 1, 4, 2 });
 
             migrationBuilder.InsertData(
                 table: "ReceptKoraci",
@@ -330,9 +330,9 @@ namespace recipeguru.WebAPI.Migrations
                 column: "GlavnaSlikaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Recepti_KategorijeId",
+                name: "IX_Recepti_KategorijaId",
                 table: "Recepti",
-                column: "KategorijeId");
+                column: "KategorijaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Recepti_KnjigaRecepataId",

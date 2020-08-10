@@ -7,7 +7,7 @@ namespace recipe_guru.WebAPI.Database
     {
         ADMIN, VISITOR, USER
     }
-    public partial class Uloge
+    public partial class Uloga
     {
         public int Id { get; set; }
         public Role Naziv { get; set; }

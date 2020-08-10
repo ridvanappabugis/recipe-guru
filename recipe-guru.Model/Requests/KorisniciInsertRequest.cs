@@ -24,6 +24,7 @@ namespace recipe_guru.Model.Requests
         [Required(AllowEmptyStrings = false)]
         public string PasswordPotvrda { get; set; }
 
-        public List<int> Uloge { get; set; } = new List<int>();
+        [Required]
+        public int UlogaId { get; set; }
     }
 }

@@ -71,8 +71,8 @@ namespace recipe_guru
             });
 
             services.AddScoped<IKorisniciService, KorisniciService>();
-            services.AddScoped<IService<Model.Uloga, object>, BaseService<Model.Uloga, object, Uloge>>();
-            services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorije>>();
+            services.AddScoped<IService<Model.Uloga, object>, BaseService<Model.Uloga, object, Uloga>>();
+            services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
 
             services.AddScoped<ICRUDService<Model.KnjigaRecepata, KnjigaRecepataSearchRequest, KnjigaRecepataUpsertRequest, KnjigaRecepataUpsertRequest>, KnjigaRecepataService>();
             services.AddScoped<ICRUDService<Model.Rating, RatingSearchRequest, RatingUpsertRequest, RatingUpsertRequest>, RatingService>();

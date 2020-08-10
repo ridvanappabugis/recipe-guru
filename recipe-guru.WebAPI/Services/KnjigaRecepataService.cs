@@ -7,7 +7,7 @@ using AutoMapper;
 namespace recipe_guru.WebAPI.Services
 {
     public class KnjigaRecepataService
-        : BaseCRUDService<Model.KnjigaRecepata, KnjigaRecepataSearchRequest, KnjigaRecepataUpsertRequest, KnjigaRecepataUpsertRequest, Database.KnjigeRecepata>
+        : BaseCRUDService<Model.KnjigaRecepata, KnjigaRecepataSearchRequest, KnjigaRecepataUpsertRequest, KnjigaRecepataUpsertRequest, Database.KnjigaRecepata>
     {
         public KnjigaRecepataService(recipeGuruContext context, IMapper mapper) : base(context, mapper)
         {

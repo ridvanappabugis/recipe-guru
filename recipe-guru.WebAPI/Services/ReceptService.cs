@@ -7,7 +7,7 @@ using AutoMapper;
 namespace recipe_guru.WebAPI.Services
 {
     public class ReceptService
-        : BaseCRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest, Database.Recepti>
+        : BaseCRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest, Database.Recept>
     {
         public ReceptService(recipeGuruContext context, IMapper mapper) : base(context, mapper)
         {

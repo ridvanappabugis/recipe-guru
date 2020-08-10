@@ -11,8 +11,5 @@ namespace recipe_guru.Model
         public bool Public { get; set; }
 
         public int KorisnikId { get; set; }
-        public Korisnik Korisnik { get; set; }
-
-        public virtual ICollection<Recept> Ratings { get; set; }
     }
 }

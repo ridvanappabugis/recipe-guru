@@ -17,15 +17,15 @@ namespace recipe_guru.WebAPI.Database
         {
         }
 
-        public virtual DbSet<Korisnici> Korisnici { get; set; }
-        public virtual DbSet<Uloge> Uloge { get; set; }
-        public virtual DbSet<ImageResources> ImageResources { get; set; }
-        public virtual DbSet<Kategorije> Kategorije { get; set; }
-        public virtual DbSet<KnjigeRecepata> KnjigeRecepata { get; set; }
-        public virtual DbSet<Recepti> Recepti { get; set; }
-        public virtual DbSet<ReceptKoraci> ReceptKoraci { get; set; }
-        public virtual DbSet<ReceptSastojci> ReceptSastojci { get; set; }
-        public virtual DbSet<Ratings> Ratings { get; set; }
+        public virtual DbSet<Korisnik> Korisnici { get; set; }
+        public virtual DbSet<Uloga> Uloge { get; set; }
+        public virtual DbSet<ImageResource> ImageResources { get; set; }
+        public virtual DbSet<Kategorija> Kategorije { get; set; }
+        public virtual DbSet<KnjigaRecepata> KnjigeRecepata { get; set; }
+        public virtual DbSet<Recept> Recepti { get; set; }
+        public virtual DbSet<ReceptKorak> ReceptKoraci { get; set; }
+        public virtual DbSet<ReceptSastojak> ReceptSastojci { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,26 +39,26 @@ namespace recipe_guru.WebAPI.Database
         void InitialiseData(ModelBuilder modelBuilder)
         {
             // user types
-            modelBuilder.Entity<Uloge>().HasData(new Uloge()
+            modelBuilder.Entity<Uloga>().HasData(new Uloga()
             {
                 Id = 1,
                 Naziv = Role.ADMIN
             });
 
-            modelBuilder.Entity<Uloge>().HasData(new Uloge()
+            modelBuilder.Entity<Uloga>().HasData(new Uloga()
             {
                 Id = 2,
                 Naziv = Role.USER
             });
 
-            modelBuilder.Entity<Uloge>().HasData(new Uloge()
+            modelBuilder.Entity<Uloga>().HasData(new Uloga()
             {
                 Id = 3,
                 Naziv = Role.VISITOR
             });
 
             // admin
-            Korisnici u1 = new Korisnici
+            Korisnik u1 = new Korisnik
             {
                 Id = 1,
                 UlogaId = 1,
@@ -71,10 +71,10 @@ namespace recipe_guru.WebAPI.Database
 
             u1.LozinkaSalt = PasswordUtil.GenerateSalt();
             u1.LozinkaHash = PasswordUtil.GenerateHash(u1.LozinkaSalt, "test");
-            modelBuilder.Entity<Korisnici>().HasData(u1);
+            modelBuilder.Entity<Korisnik>().HasData(u1);
 
             // client user
-            Korisnici u2 = new Korisnici
+            Korisnik u2 = new Korisnik
             {
                 Id = 2,
                 UlogaId = 2,
@@ -87,7 +87,7 @@ namespace recipe_guru.WebAPI.Database
 
             u2.LozinkaSalt = PasswordUtil.GenerateSalt();
             u2.LozinkaHash = PasswordUtil.GenerateHash(u2.LozinkaSalt, "test");
-            modelBuilder.Entity<Korisnici>().HasData(u2);
+            modelBuilder.Entity<Korisnik>().HasData(u2);
 
             List<string> kategorije = new List<string> {
                 "Hljebovi i Pekarska hrana",
@@ -110,14 +110,14 @@ namespace recipe_guru.WebAPI.Database
 
             foreach (string kategorija in kategorije)
             {
-                modelBuilder.Entity<Kategorije>().HasData(new Kategorije()
+                modelBuilder.Entity<Kategorija>().HasData(new Kategorija()
                 {
                     Id = i++,
                     Naziv = kategorija
                 });
             }
 
-            modelBuilder.Entity<KnjigeRecepata>().HasData(new KnjigeRecepata()
+            modelBuilder.Entity<KnjigaRecepata>().HasData(new KnjigaRecepata()
             {
                 Id = 1,
                 KorisnikId = 2,
@@ -125,7 +125,7 @@ namespace recipe_guru.WebAPI.Database
                 Public = true
             });
 
-            modelBuilder.Entity<KnjigeRecepata>().HasData(new KnjigeRecepata()
+            modelBuilder.Entity<KnjigaRecepata>().HasData(new KnjigaRecepata()
             {
                 Id = 2,
                 KorisnikId = 2,
@@ -133,7 +133,7 @@ namespace recipe_guru.WebAPI.Database
                 Public = false
             });
 
-            modelBuilder.Entity<Recepti>().HasData(new Recepti()
+            modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 1,
                 KnjigaRecepataId = 1,
@@ -141,10 +141,10 @@ namespace recipe_guru.WebAPI.Database
                 DuzinaPripreme = 30,
                 Naziv = "Domaci Nanin Grah",
                 Public = true,
-                KategorijeId = 7
+                KategorijaId = 7
             });
 
-            modelBuilder.Entity<Recepti>().HasData(new Recepti()
+            modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 2,
                 KnjigaRecepataId = 1,
@@ -152,10 +152,10 @@ namespace recipe_guru.WebAPI.Database
                 DuzinaPripreme = 30,
                 Naziv = "Doner Kebab iz srca Turske",
                 Public = true,
-                KategorijeId = 4
+                KategorijaId = 4
             });
 
-            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
+            modelBuilder.Entity<ReceptKorak>().HasData(new ReceptKorak()
             {
                 Id = 1,
                 ReceptId = 2,
@@ -163,7 +163,7 @@ namespace recipe_guru.WebAPI.Database
                 Deskripcija = "Priprema sosa za prekrivanje mesa."
             });
 
-            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
+            modelBuilder.Entity<ReceptKorak>().HasData(new ReceptKorak()
             {
                 Id = 2,
                 ReceptId = 2,
@@ -171,7 +171,7 @@ namespace recipe_guru.WebAPI.Database
                 Deskripcija = "Przenje mesa."
             });
 
-            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
+            modelBuilder.Entity<ReceptKorak>().HasData(new ReceptKorak()
             {
                 Id = 3,
                 ReceptId = 2,
@@ -179,7 +179,7 @@ namespace recipe_guru.WebAPI.Database
                 Deskripcija = "Jedenje."
             });
 
-            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
+            modelBuilder.Entity<ReceptKorak>().HasData(new ReceptKorak()
             {
                 Id = 4,
                 ReceptId = 1,
@@ -187,7 +187,7 @@ namespace recipe_guru.WebAPI.Database
                 Deskripcija = "Ubrati grah."
             });
 
-            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
+            modelBuilder.Entity<ReceptKorak>().HasData(new ReceptKorak()
             {
                 Id = 5,
                 ReceptId = 1,
@@ -195,7 +195,7 @@ namespace recipe_guru.WebAPI.Database
                 Deskripcija = "Skuhati."
             });
 
-            modelBuilder.Entity<ReceptKoraci>().HasData(new ReceptKoraci()
+            modelBuilder.Entity<ReceptKorak>().HasData(new ReceptKorak()
             {
                 Id = 6,
                 ReceptId = 1,
@@ -204,7 +204,7 @@ namespace recipe_guru.WebAPI.Database
             });
 
 
-            modelBuilder.Entity<ReceptSastojci>().HasData(new ReceptSastojci()
+            modelBuilder.Entity<ReceptSastojak>().HasData(new ReceptSastojak()
             {
                 Id = 1,
                 ReceptId = 2,
@@ -212,7 +212,7 @@ namespace recipe_guru.WebAPI.Database
                 Naziv = "Telece meso."
             });
 
-            modelBuilder.Entity<ReceptSastojci>().HasData(new ReceptSastojci()
+            modelBuilder.Entity<ReceptSastojak>().HasData(new ReceptSastojak()
             {
                 Id = 2,
                 ReceptId = 2,
@@ -220,7 +220,7 @@ namespace recipe_guru.WebAPI.Database
                 Naziv = "Telece meso."
             });
 
-            modelBuilder.Entity<ReceptSastojci>().HasData(new ReceptSastojci()
+            modelBuilder.Entity<ReceptSastojak>().HasData(new ReceptSastojak()
             {
                 Id = 3,
                 ReceptId = 2,
@@ -228,7 +228,7 @@ namespace recipe_guru.WebAPI.Database
                 Naziv = "Telece meso."
             });
 
-            modelBuilder.Entity<Ratings>().HasData(new Ratings()
+            modelBuilder.Entity<Rating>().HasData(new Rating()
             {
                 Id = 1,
                 ReceptId = 2,
@@ -243,7 +243,7 @@ namespace recipe_guru.WebAPI.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Korisnici>(entity =>
+            modelBuilder.Entity<Korisnik>(entity =>
             {
                 entity.HasKey(e => e.Id);
 
@@ -286,7 +286,7 @@ namespace recipe_guru.WebAPI.Database
                 entity.Property(e => e.Telefon).HasMaxLength(20);
             });
 
-            modelBuilder.Entity<Uloge>(entity =>
+            modelBuilder.Entity<Uloga>(entity =>
             {
                 entity.HasKey(e => e.Id);
 

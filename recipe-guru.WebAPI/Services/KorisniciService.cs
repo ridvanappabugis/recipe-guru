@@ -73,7 +73,7 @@ namespace recipe_guru.WebAPI.Services
 
         public Model.Korisnik Insert(KorisniciInsertRequest request)
         {
-            var entity = _mapper.Map<Database.Korisnici>(request);
+            var entity = _mapper.Map<Database.Korisnik>(request);
 
             if (_context.Korisnici.Where(k => k.KorisnickoIme == request.KorisnickoIme).Any())
             {
