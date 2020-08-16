@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="About"
+             x:Class="recipe_guru.Mobile.Views.AboutPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="StartAndExpand">
+            <Label FontSize="20" FontAttributes="Bold" Margin="0,0,0,10">
+                Software development II - MoviePick project.</Label>
+            <Image HeightRequest="250" WidthRequest="250" x:Name="imgDisp" Margin="0,15,0,15"></Image>
+            <Label>
+                This project contains 3 interconnected applications:
+                    REST API C# ASP.NET Core application
+                    Windows forms application
+                    Xamarin mobile application
+            </Label>
+            <Label></Label>
+            <Label>Source code: https://github.com/ajdincatic/MoviePick-Project</Label>
+            <Label></Label>
+            <Label VerticalOptions="End">
+                © Ridvan Appa Bugis
+                Faculty of Information Technology
+                University Džemal Bijedić of Mostar</Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

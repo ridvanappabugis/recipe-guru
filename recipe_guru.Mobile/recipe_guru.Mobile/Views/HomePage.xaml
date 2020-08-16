@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:recipe_guru.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:recipe_guru.Mobile.Converters"
+             mc:Ignorable="d"
+             Title="RecipeGuru"
+             x:Class="recipe_guru.Mobile.Views.Home">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel></vm:HomeViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label FontSize="30" HorizontalOptions="Center" Margin="0,0,0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Welcome"/>
+                        <Span Text=" "/>
+                        <Span Text="{Binding LoggedUser}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label VerticalOptions="EndAndExpand" HorizontalOptions="Center">© Ridvan Appa Bugis</Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
