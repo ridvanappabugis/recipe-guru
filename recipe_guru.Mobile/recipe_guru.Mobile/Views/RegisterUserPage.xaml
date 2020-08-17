@@ -5,14 +5,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:recipe_guru.Mobile.ViewModels"
              mc:Ignorable="d"
-             BackgroundColor="LightBlue"
+             BackgroundColor="Beige"
              x:Class="recipe_guru.Mobile.Views.RegisterUserPage">
     <ContentPage.BindingContext>
         <vm:RegisterUserViewModel></vm:RegisterUserViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
-            <Label Text="Register to MoviePick." FontAttributes="Bold" Margin="0,0,0,30" FontSize="Medium"></Label>
+            <Label Text="Register now use Recipe Guru." Margin="0,0,0,30" FontSize="Medium"></Label>
             <Label Text="First name"></Label>
             <Entry Text="{Binding FirstName}"></Entry>
             <Label Text="Last name"></Label>
@@ -31,8 +31,18 @@
             <Label  Text="Confirm password"></Label>
             <Entry Text="{Binding PasswordConfirm}" IsPassword="True"></Entry>
 
-            <Button Command="{Binding RegisterCommand}" HorizontalOptions="FillAndExpand" Text="Register"></Button>
-            <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Text="Cancel"></Button>
+            <Button Command="{Binding RegisterCommand}"
+                    BackgroundColor="SandyBrown"
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Register"></Button>
+
+            <Button Clicked="Button_Clicked"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    FontSize="Micro"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Cancel"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

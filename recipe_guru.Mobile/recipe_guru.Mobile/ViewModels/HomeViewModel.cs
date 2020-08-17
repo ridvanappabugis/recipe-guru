@@ -12,9 +12,6 @@ namespace recipe_guru.Mobile.ViewModels
 {
     public class HomeViewModel
     {
-        private readonly APIService _MTVSService = new APIService("MovieAndTvShow");
-        private readonly APIService _NewsService = new APIService("News");
-        private readonly APIService _QOTDService = new APIService("QuoteOfTheDay");
 
         public HomeViewModel()
         {

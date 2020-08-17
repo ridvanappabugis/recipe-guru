@@ -12,7 +12,7 @@ namespace recipe_guru.Mobile.ViewModels
 {
     public class RegisterUserViewModel : BaseViewModel
     {
-        private readonly APIService _serviceUser = new APIService("User");
+        private readonly APIService _serviceUser = new APIService("Korisnici");
 
         public RegisterUserViewModel()
         {
@@ -67,7 +67,7 @@ namespace recipe_guru.Mobile.ViewModels
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Wrong input", "Try again");
+                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "Try again");
             }
         }
     }

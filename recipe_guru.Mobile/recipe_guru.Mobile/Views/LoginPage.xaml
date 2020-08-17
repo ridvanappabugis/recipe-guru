@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              Title="Login"
              x:Class="recipe_guru.Mobile.Views.LoginPage"
-             BackgroundColor="LightBlue"
+             BackgroundColor="Beige"
              >
     <ContentPage.BindingContext>
         <vm:LoginViewModel></vm:LoginViewModel>
@@ -20,26 +20,35 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="10" VerticalOptions="Start">
-            <Image HeightRequest="250" WidthRequest="250" HorizontalOptions="Center" x:Name="imgDisp" ></Image>
+            <Image HeightRequest="250" WidthRequest="250" HorizontalOptions="Center" x:Name="imgDisp"></Image>
 
-            <Label Text="You must log in for full experience." 
+            <Label Text="Recipe Guru" 
+                   FontSize="Large"
+                   VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   ></Label>
+            <Label Text="Welcome Back! Please Log In." 
                    FontSize="Micro"
                    VerticalOptions="Center"
                    HorizontalOptions="CenterAndExpand"
                    ></Label>
 
             <Label Text="Username" Margin="0,50,0,0"></Label>
-            <Entry Text="{Binding Username}"></Entry>
+            <Entry Text="{Binding Username}" ></Entry>
 
             <Label  Text="Password"></Label>
             <Entry Text="{Binding Password}" IsPassword="True"></Entry>
 
             <Button Command="{Binding LoginCommand}"
-                    HorizontalOptions="FillAndExpand" Text="Login"></Button>
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="SandyBrown"
+                    TextColor="White"
+                    Text="Login"></Button>
             <Button  
                 BackgroundColor="Transparent"
                 BorderColor="Transparent"
-                Text="You don't have account, Register now" HorizontalOptions="End" Clicked="Button_Clicked"></Button>
+                FontSize="Micro"
+                Text="Dont have an Account? Register now" HorizontalOptions="End" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

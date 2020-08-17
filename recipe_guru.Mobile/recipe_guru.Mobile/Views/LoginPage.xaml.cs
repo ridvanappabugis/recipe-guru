@@ -12,7 +12,7 @@ namespace recipe_guru.Mobile.Views
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            imgDisp.Source = "logo_transparent.png";
+            imgDisp.Source = "logo.png";
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

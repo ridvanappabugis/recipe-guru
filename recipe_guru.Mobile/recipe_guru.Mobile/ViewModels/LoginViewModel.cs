@@ -13,8 +13,7 @@ namespace recipe_guru.Mobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        private readonly APIService _service = new APIService("Comment");
-        private readonly APIService _serviceUser = new APIService("User");
+        private readonly APIService _serviceUser = new APIService("Korisnici");
 
         public LoginViewModel()
         {
@@ -45,7 +44,7 @@ namespace recipe_guru.Mobile.ViewModels
 
             try
             {
-                await _service.Get<dynamic>(null);
+                await _serviceUser.Get<dynamic>(null);
                 List<Model.Korisnik> temp = await _serviceUser.Get<List<Model.Korisnik>>(new KorisniciSearchRequest
                 {
                    Ime = Username

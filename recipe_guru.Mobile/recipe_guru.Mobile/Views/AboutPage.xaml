@@ -9,16 +9,16 @@
     <ContentPage.Content>
         <StackLayout Padding="10" VerticalOptions="StartAndExpand">
             <Label FontSize="20" FontAttributes="Bold" Margin="0,0,0,10">
-                Software development II - MoviePick project.</Label>
-            <Image HeightRequest="250" WidthRequest="250" x:Name="imgDisp" Margin="0,15,0,15"></Image>
-            <Label>
-                This project contains 3 interconnected applications:
-                    REST API C# ASP.NET Core application
-                    Windows forms application
-                    Xamarin mobile application
+                Software Development II</Label>
+            <Label FontSize="20" FontAttributes="Bold" Margin="0,0,0,10">
+                Recipe Guru project.
             </Label>
+            <Image HeightRequest="250" WidthRequest="250" x:Name="imgDisp" Margin="0,15,0,15"></Image>
+                        <Label></Label>
             <Label></Label>
-            <Label>Source code: https://github.com/ajdincatic/MoviePick-Project</Label>
+            <Label></Label>
+            <Label></Label>
+            <Label></Label>
             <Label></Label>
             <Label VerticalOptions="End">
                 © Ridvan Appa Bugis
