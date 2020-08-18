@@ -72,7 +72,7 @@ namespace recipe_guru.Mobile.ViewModels
                 var ratings = await _RatingService.Get<List<Model.Rating>>(new Model.Requests.RatingSearchRequest { ReceptId = receptId });
                 int sum = 0;
                 foreach(Model.Rating rating in ratings) {
-                    sum += (int)rating.Mark;
+                    sum += (int)rating.Mark + 1;
                 }
                 Rating = createStars(ratings.Count!=0 ? (sum/ratings.Count) : 0) + " Stars!";
 

@@ -34,6 +34,11 @@ namespace recipe_guru.WebAPI.Services
                 .Include(x => x.Kategorija)
                 .AsQueryable();
 
+            if (search?.DuzinaPripreme != null && search?.DuzinaPripreme != 0)
+            {
+                query = query.Where(x => x.DuzinaPripreme <= search.DuzinaPripreme);
+            }
+
             if (search?.KnjigaRecepataId != null && search?.KnjigaRecepataId != 0)
             {
                 query = query.Where(x => x.KnjigaRecepataId == search.KnjigaRecepataId);
@@ -44,14 +49,14 @@ namespace recipe_guru.WebAPI.Services
                 query = query.Where(x => x.Naziv.Contains(search.Naziv));
             }
 
-            //if (search?.AverageRating != null)
-            //{
-            //    query = query.Where(x => (int)x.Ratings.Average(r => r.Mark.) == search.AverageRating);
-            //}
-
-            if (search?.Kategorije != null && search?.Kategorije.Count != 0)
+            if (search?.AverageRating != null)
             {
-                query = query.Where(x => search.Kategorije.Contains(x.KategorijaId));
+                query = query.Where(x => (int)x.Ratings.Average(r => (int)r.Mark) == (int)search.AverageRating);
+            }
+
+            if (search?.KategorijaId != null && search?.KategorijaId != 0)
+            {
+                query = query.Where(x => search.KategorijaId == x.KategorijaId);
             }
 
             return _mapper.Map<List<Model.Recept>>(query.ToList());

@@ -27,5 +27,10 @@ namespace recipe_guru.Mobile.Views
         {
             await Navigation.PushModalAsync(new RatingListPage(model.receptId, model.NazivRecepta));
         }
+
+        public async void OnAddRatingButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new AddRatingPage(model.receptId));
+        }
     }
 }

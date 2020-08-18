@@ -30,6 +30,12 @@
     <Compile Update="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AddRatingPage.xaml.cs">
+      <DependentUpon>AddRatingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReceptiPretragaPage.xaml.cs">
+      <DependentUpon>ReceptiPretragaPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

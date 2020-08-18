@@ -11,7 +11,7 @@ namespace recipe_guru.Model.Requests
 
         public RatingMark AverageRating { get; set; }
 
-        public List<int> Kategorije { get; set; }
+        public int KategorijaId { get; set; }
 
         public int KnjigaRecepataId { get; set; }
     }

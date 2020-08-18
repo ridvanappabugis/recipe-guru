@@ -10,7 +10,8 @@ namespace recipe_guru.Mobile.Models
         About,
         Logout,
         Home,
-        YourProfile
+        YourProfile,
+        Search
     }
     public class HomeMenuItem
     {

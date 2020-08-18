@@ -42,6 +42,9 @@ namespace recipe_guru.Mobile.Views
                     case (int)MenuItemType.YourProfile:
                         MenuPages.Add(id, new NavigationPage(new EditUserInformationsPage()));
                         break;
+                    case (int)MenuItemType.Search:
+                        MenuPages.Add(id, new NavigationPage(new ReceptiPretragaPage()));
+                        break;
                 }
             }
 
