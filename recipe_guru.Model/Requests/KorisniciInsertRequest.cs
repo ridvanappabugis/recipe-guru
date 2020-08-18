@@ -18,10 +18,7 @@ namespace recipe_guru.Model.Requests
         public string Telefon { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string KorisnickoIme { get; set; }
-        [Required(AllowEmptyStrings = false)]
-        [MinLength(3)]
         public string Password { get; set; }
-        [Required(AllowEmptyStrings = false)]
         public string PasswordPotvrda { get; set; }
 
         [Required]

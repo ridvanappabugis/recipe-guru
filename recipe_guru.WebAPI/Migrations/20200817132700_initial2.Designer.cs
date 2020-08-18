@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using recipe_guru.WebAPI.Database;
 
 namespace recipeguru.WebAPI.Migrations
 {
     [DbContext(typeof(recipeGuruContext))]
-    partial class recipeGuruContextModelSnapshot : ModelSnapshot
+    [Migration("20200817132700_initial2")]
+    partial class initial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,9 +130,6 @@ namespace recipeguru.WebAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Deskripcija")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("ImageResouceId")
                         .HasColumnType("int");
 
@@ -245,8 +244,8 @@ namespace recipeguru.WebAPI.Migrations
                             Email = "ridvan@fit.ba",
                             Ime = "Ridvan",
                             KorisnickoIme = "admin",
-                            LozinkaHash = "30E/XPWSeEOH9YhukBLkwrrgFsw=",
-                            LozinkaSalt = "PpDxuwnEIRd+M2EmI20hEw==",
+                            LozinkaHash = "g4cBZyS7PNkhe4xkBPM2+48P8QY=",
+                            LozinkaSalt = "D0pIC0nkm+PlUsUfUay7Mw==",
                             Prezime = "Appa",
                             Telefon = "061234567",
                             UlogaId = 1
@@ -257,8 +256,8 @@ namespace recipeguru.WebAPI.Migrations
                             Email = "ridvanclient@fit.ba",
                             Ime = "Ridvan",
                             KorisnickoIme = "ClientUser",
-                            LozinkaHash = "mOSj886OvPlWI5TJ/n5Pjm0Ac70=",
-                            LozinkaSalt = "EgSammD4rBZug7iixCtsbg==",
+                            LozinkaHash = "nbRaVDOc/GeDKTH34ItqL99vTX8=",
+                            LozinkaSalt = "q2YzFZlXnuqpc4w0A/r5UQ==",
                             Prezime = "Appa",
                             Telefon = "061234567",
                             UlogaId = 2
@@ -300,7 +299,7 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 1,
                             Comment = "Predobar doner.",
-                            InsertTime = new DateTime(2020, 8, 17, 21, 22, 16, 687, DateTimeKind.Local).AddTicks(5480),
+                            InsertTime = new DateTime(2020, 8, 17, 15, 26, 59, 684, DateTimeKind.Local).AddTicks(3500),
                             KorisnikId = 1,
                             Mark = 4,
                             ReceptId = 2

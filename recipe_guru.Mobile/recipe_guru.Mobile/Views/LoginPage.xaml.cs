@@ -14,10 +14,5 @@ namespace recipe_guru.Mobile.Views
             NavigationPage.SetHasNavigationBar(this, false);
             imgDisp.Source = "logo.png";
         }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new RegisterUserPage());
-        }
     }
 }

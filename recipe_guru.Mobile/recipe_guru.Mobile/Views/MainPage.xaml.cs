@@ -30,7 +30,7 @@ namespace recipe_guru.Mobile.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.MTVS:
+                    case (int)MenuItemType.Home:
                         MenuPages.Add(id, new NavigationPage(new Home()));
                         break;
                     case (int)MenuItemType.Logout:
@@ -38,6 +38,9 @@ namespace recipe_guru.Mobile.Views
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        break;
+                    case (int)MenuItemType.YourProfile:
+                        MenuPages.Add(id, new NavigationPage(new EditUserInformationsPage()));
                         break;
                 }
             }

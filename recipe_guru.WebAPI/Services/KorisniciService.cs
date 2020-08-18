@@ -49,6 +49,11 @@ namespace recipe_guru.WebAPI.Services
                 query = query.Where(x => x.Ime.StartsWith(request.Ime));
             }
 
+            if (!string.IsNullOrWhiteSpace(request?.UserName))
+            {
+                query = query.Where(x => x.KorisnickoIme.StartsWith(request.UserName));
+            }
+
             if (!string.IsNullOrWhiteSpace(request?.Prezime))
             {
                 query = query.Where(x => x.Prezime.StartsWith(request.Prezime));
@@ -100,13 +105,14 @@ namespace recipe_guru.WebAPI.Services
             _context.Korisnici.Attach(entity);
             _context.Korisnici.Update(entity);
 
-            if(!string.IsNullOrWhiteSpace(request.Password))
+            if (request.KorisnickoIme != entity.KorisnickoIme
+                && _context.Korisnici.Where(k => k.KorisnickoIme == request.KorisnickoIme).Any())
             {
-                if (request.KorisnickoIme != entity.KorisnickoIme
-                        && _context.Korisnici.Where(k => k.KorisnickoIme == request.KorisnickoIme).Any())
-                {
-                    throw new UserException("Username je zauzet");
-                }
+                throw new UserException("Username je zauzet");
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.Password))
+            {
 
                 if (request.Password != request.PasswordPotvrda)
                 {

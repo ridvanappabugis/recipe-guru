@@ -47,7 +47,7 @@ namespace recipe_guru.Mobile.ViewModels
                 await _serviceUser.Get<dynamic>(null);
                 List<Model.Korisnik> temp = await _serviceUser.Get<List<Model.Korisnik>>(new KorisniciSearchRequest
                 {
-                   Ime = Username
+                   UserName = Username
                 });
                 APIService.User = temp.FirstOrDefault();
                 APIService.UserId = temp.Select(x => x.Id).FirstOrDefault();

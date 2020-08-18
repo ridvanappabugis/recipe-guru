@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
@@ -73,11 +72,14 @@ namespace recipe_guru
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IService<Model.Uloga, object>, BaseService<Model.Uloga, object, Uloga>>();
             services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
+            services.AddScoped<IRecommenderService, RecommenderService>();
 
+            services.AddScoped<ICRUDService<Model.ImageResource, ImageResourceSearchRequest, ImageResourceUpsertRequest, ImageResourceUpsertRequest>, ImageResourceService>();
             services.AddScoped<ICRUDService<Model.KnjigaRecepata, KnjigaRecepataSearchRequest, KnjigaRecepataUpsertRequest, KnjigaRecepataUpsertRequest>, KnjigaRecepataService>();
             services.AddScoped<ICRUDService<Model.Rating, RatingSearchRequest, RatingUpsertRequest, RatingUpsertRequest>, RatingService>();
             services.AddScoped<ICRUDService<Model.ReceptKorak, ReceptKoraciSearchRequest, ReceptKoraciUpsertRequest, ReceptKoraciUpsertRequest>, ReceptKoraciService>();
             services.AddScoped<ICRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest>, ReceptService>();
+            services.AddScoped<ICRUDService<Model.ReceptSastojak, ReceptSastojakSearchRequest, ReceptSastojakUpsertRequest, ReceptSastojakUpsertRequest>, ReceptSastojakService>();
 
             // connection to database
             // Scaffold-DbContext -Connection "Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database -context MoviePickContext -force

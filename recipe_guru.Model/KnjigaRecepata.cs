@@ -8,7 +8,10 @@ namespace recipe_guru.Model
         public int Id { get; set; }
 
         public string Naziv { get; set; }
+        public string Deskripcija { get; set; }
         public bool Public { get; set; }
+
+        public int ImageResouceId { get; set; }
 
         public int KorisnikId { get; set; }
     }

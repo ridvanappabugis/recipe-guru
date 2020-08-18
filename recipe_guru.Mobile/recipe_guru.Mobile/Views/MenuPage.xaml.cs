@@ -20,7 +20,7 @@ namespace recipe_guru.Mobile.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.MTVS, Title="Home" },
+                new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.YourProfile, Title="Your profile" },
                 new HomeMenuItem {Id = MenuItemType.Logout, Title="Logout" },

@@ -8,11 +8,8 @@ namespace recipe_guru.Mobile.Models
     {
         Browse,
         About,
-        MTVS,
-        NewsPlace,
         Logout,
         Home,
-        HowDoYouFeel,
         YourProfile
     }
     public class HomeMenuItem

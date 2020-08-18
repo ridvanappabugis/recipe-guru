@@ -122,6 +122,7 @@ namespace recipe_guru.WebAPI.Database
                 Id = 1,
                 KorisnikId = 2,
                 Naziv = "Ridvanovi Recepti",
+                Deskripcija = "Moji dobri recepti",
                 Public = true
             });
 
@@ -130,6 +131,7 @@ namespace recipe_guru.WebAPI.Database
                 Id = 2,
                 KorisnikId = 2,
                 Naziv = "Ridvanovi Recepti #2",
+                Deskripcija = "Bolji recepti",
                 Public = false
             });
 

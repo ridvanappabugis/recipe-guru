@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="recipe_guru.Mobile.Views.RatingListPage"
+             BackgroundColor="Beige">
+    <StackLayout>
+           <Frame HasShadow="true" >
+               <Frame.Content>
+                        <Grid BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding NazivRecepta}"  Grid.Column="0"
+                        FontSize="Large"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                        ></Label>
+                </Grid>
+               </Frame.Content>
+           </Frame>
+            
+            <ListView x:Name="listView"  ItemsSource="{Binding Ratings}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Frame Margin="20" HasShadow="True" Padding="0">
+                                <Frame.Content>
+                                    <StackLayout Orientation="Vertical">
+                                        <Grid BackgroundColor="#f4a560" VerticalOptions="Center" Padding="20" HorizontalOptions="StartAndExpand">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Text="{Binding User}" Grid.Column="0" FontSize="Large"  HorizontalTextAlignment="Start" VerticalOptions="Center" TextColor="White"/>
+                                                <Label Text="{Binding Stars}" Grid.Column="1" FontSize="Small"  HorizontalTextAlignment="End" VerticalOptions="Center" TextColor="White"/>
+                                         </Grid>
+                                        <Label Padding="20, 5, 20, 5" Text="{Binding Comment}" FontSize="Medium"  HorizontalTextAlignment="Start" TextColor="Gray" HorizontalOptions="StartAndExpand"/>
+                                        <Label Padding="20, 5, 20, 5" Text="{Binding Date}" FontSize="Small"  HorizontalTextAlignment="Start" TextColor="Gray" HorizontalOptions="StartAndExpand"/>
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+</ContentPage>

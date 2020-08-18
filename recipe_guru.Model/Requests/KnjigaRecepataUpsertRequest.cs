@@ -8,6 +8,7 @@ namespace recipe_guru.Model.Requests
     {
         [Required(AllowEmptyStrings = false)]
         public string Naziv { get; set; }
+        public string Deskripcija { get; set; }
 
         public bool Public { get; set; } = true;
 

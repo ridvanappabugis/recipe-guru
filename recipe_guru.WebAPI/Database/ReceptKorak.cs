@@ -8,6 +8,9 @@ namespace recipe_guru.WebAPI.Database
         public int RedniBrojKoraka { get; set; }
         public string Deskripcija { get; set; }
 
+        public int ImageResouceId { get; set; }
+        public ImageResource ImageResource { get; set; }
+
         public int ReceptId { get; set; }
         public virtual Recept Recept { get; set; }
     }

@@ -1,5 +1,6 @@
 ﻿using recipe_guru.Model.Requests;
 using recipe_guru.Mobile.ViewModels;
+using recipe_guru.Mobile.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,26 @@ namespace recipe_guru.Mobile.Views
     public partial class Home : ContentPage
     {
         public HomeViewModel model = null;
-        private readonly APIService _RatingService = new APIService("Rating");
 
         public Home()
         {
             InitializeComponent();
             BindingContext = model = new HomeViewModel();
         }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await model.Init();
+        }
+
+        public async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            KnjigaRecepataListViewItem item = (KnjigaRecepataListViewItem)e.SelectedItem;
+
+            await Navigation.PushModalAsync(new KnjigaRecepataPage(item.Id, item.Naziv));
+        }
     }
+
+
 }

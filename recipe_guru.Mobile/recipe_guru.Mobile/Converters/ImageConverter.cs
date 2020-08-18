@@ -7,16 +7,14 @@ using Xamarin.Forms;
 
 namespace recipe_guru.Mobile.Converters
 {
-    public class ImageConverter : IValueConverter
+    public class ImageConverter 
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public ImageSource Convert(byte[] value)
         {
             if (value == null)
                 return null;
 
-            byte[] bytes = value as byte[];
-
-            Func<Stream> myFunc = () => new MemoryStream(bytes);
+            Func<Stream> myFunc = () => new MemoryStream(value);
 
             return ImageSource.FromStream(myFunc);
         }

@@ -5,6 +5,8 @@ namespace recipe_guru.Model.Requests
     {
         public string Ime { get; set; }
 
+        public string UserName { get; set; }
+
         public string Prezime { get; set; }
 
         public bool IsUlogeLoadingEnabled { get; set; }

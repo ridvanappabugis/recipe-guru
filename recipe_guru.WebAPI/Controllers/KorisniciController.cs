@@ -24,21 +24,20 @@ namespace recipe_guru.WebAPI.Controllers
         }
 
         [HttpGet]
-        public List<Model.Korisnik> Get([FromQuery]KorisniciSearchRequest request)
+        public List<Model.Korisnik> Get([FromQuery] KorisniciSearchRequest request)
         {
             return _service.Get(request);
         }
 
-        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public Model.Korisnik Insert(KorisniciInsertRequest request)
         {
             return _service.Insert(request);
         }
 
-        [Authorize(Roles = "Administrator")]
+        [Authorize]
         [HttpPut("{id}")]
-        public Model.Korisnik Update(int id, [FromBody]KorisniciInsertRequest request)
+        public Model.Korisnik Update(int id, [FromBody] KorisniciInsertRequest request)
         {
             return _service.Update(id, request);
         }

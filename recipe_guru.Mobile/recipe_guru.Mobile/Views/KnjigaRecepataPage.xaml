@@ -1,17 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:recipe_guru.Mobile.ViewModels"
-             xmlns:converters="clr-namespace:recipe_guru.Mobile.Converters"
-             mc:Ignorable="d"
-             Title="RecipeGuru"
-             BackgroundColor="Beige"
-             x:Class="recipe_guru.Mobile.Views.Home">
-    <ContentPage.BindingContext>
-        <vm:HomeViewModel></vm:HomeViewModel>
-    </ContentPage.BindingContext>
+             x:Class="recipe_guru.Mobile.Views.KnjigaRecepataPage"
+             BackgroundColor="Beige">
     <ContentPage.Content>
        <StackLayout>
            <Frame HasShadow="true" >
@@ -19,9 +10,8 @@
                    <Grid BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
                <Grid.ColumnDefinitions>
                   <ColumnDefinition Width="5*"></ColumnDefinition>
-                  <ColumnDefinition Width="3*"></ColumnDefinition>
               </Grid.ColumnDefinitions>
-               <Label Text="Your Recipe Books"  Grid.Column="0"
+               <Label Text="{Binding NazivKnjige}"  Grid.Column="0"
                    FontSize="Medium"
                       VerticalOptions="Center"
                       HorizontalOptions="Center"
@@ -29,8 +19,8 @@
            </Grid>
                </Frame.Content>
            </Frame>
-            
-            <ListView x:Name="listView"  ItemsSource="{Binding Knjige}" ItemSelected="OnItemSelected" HasUnevenRows="True">
+           
+            <ListView x:Name="listView"  ItemsSource="{Binding Recepti}" ItemSelected="OnItemSelected" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >

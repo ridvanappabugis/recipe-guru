@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="recipe_guru.Mobile.Views.RecipePage"
+             xmlns:vm="clr-namespace:recipe_guru.Mobile.ViewModels"
+             BackgroundColor="Beige">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" VerticalOptions="Start">
+            <Label Text="{Binding NazivRecepta}" FontSize="Large"></Label>
+            <Frame HasShadow="True">
+                <StackLayout>
+                    <Image Source="{Binding ImageSource}" Aspect="Fill"></Image>
+                    <Label Text="Rating" FontSize="Micro" Margin="0,50,0,0"></Label>
+                    <Label Text="{Binding Rating}" FontSize="Medium" ></Label>
+                    <Label Text="Prepare Time" FontSize="Micro" Margin="0,50,0,0"></Label>
+                    <Label Text="{Binding DuzinaPripreme}" FontSize="Medium" ></Label>
+                    <Label Text="Category" FontSize="Micro" Margin="0,50,0,0"></Label>
+                    <Label Text="{Binding Kategorija}" FontSize="Medium" ></Label>
+                </StackLayout>
+            </Frame>
+            
+           <Label Text="Description" FontSize="Medium" Margin="0,50,0,0"></Label>
+           <Label Text="{Binding Description}" FontSize="Small" ></Label>
+
+            <Frame BorderColor="Gray" Margin="50">
+                <ListView x:Name="ListViewMenu" 
+                SeparatorColor="Transparent"
+                BackgroundColor="White" HasUnevenRows="True" ItemsSource="{Binding Sastojci}">
+       
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label HorizontalTextAlignment="Center" Text="{Binding .}" FontSize="Medium"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+
+            <Grid  MinimumHeightRequest="80">
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="Add A Review" FontSize="Small" BackgroundColor="SandyBrown" TextColor="White"></Button>
+                <Button Grid.Column="1" Text="View Reviews" FontSize="Small" BackgroundColor="SandyBrown" TextColor="White" Clicked="OnButtonClicked"></Button>
+            </Grid>
+            
+        </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

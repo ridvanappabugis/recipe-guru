@@ -13,7 +13,7 @@ namespace recipe_guru.Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditUserInformationsPage : ContentPage
     {
-        private readonly APIService _serviceUser = new APIService("Korisnik");
+        private readonly APIService _serviceUser = new APIService("Korisnici");
 
         public EditUserInformationsPage()
         {
