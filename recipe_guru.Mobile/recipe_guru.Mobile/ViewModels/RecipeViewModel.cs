@@ -23,6 +23,8 @@ namespace recipe_guru.Mobile.ViewModels
         public ImageSource imageSource;
         public string nazivRecepta = string.Empty;
         public string kategorija = string.Empty;
+        public int kategorijaId = 0;
+
         public string duzinaPripreme = string.Empty; 
         public string rating = string.Empty;
         public string description = string.Empty;
@@ -36,6 +38,11 @@ namespace recipe_guru.Mobile.ViewModels
         {
             get { return nazivRecepta; }
             set { SetProperty(ref nazivRecepta, value); }
+        }
+        public int KategorijaId
+        {
+            get { return kategorijaId; }
+            set { SetProperty(ref kategorijaId, value); }
         }
         public string Kategorija
         {
@@ -82,6 +89,7 @@ namespace recipe_guru.Mobile.ViewModels
 
                 NazivRecepta = recept.Naziv;
                 Kategorija = kat.Naziv;
+                KategorijaId = kat.Id;
                 DuzinaPripreme = recept.DuzinaPripreme + " minutes";
                 Description = "svasta nesto.";
 

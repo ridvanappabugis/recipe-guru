@@ -32,5 +32,10 @@ namespace recipe_guru.Mobile.Views
         {
             await Navigation.PushModalAsync(new AddRatingPage(model.receptId));
         }
+
+        public async void OnSimilarRecipesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new SimilarRecipesPage(model.receptId, model.KategorijaId, model.NazivRecepta));
+        }
     }
 }

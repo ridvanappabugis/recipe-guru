@@ -46,7 +46,7 @@
                 <Button Grid.Column="0" Text="Add A Review" FontSize="Small" BackgroundColor="SandyBrown" TextColor="White" Clicked="OnAddRatingButtonClicked"></Button>
                 <Button Grid.Column="1" Text="View Reviews" FontSize="Small" BackgroundColor="SandyBrown" TextColor="White" Clicked="OnButtonClicked"></Button>
             </Grid>
-            
+            <Button Text="Similar Recipes" FontSize="Small" BackgroundColor="SandyBrown" TextColor="White" Clicked="OnSimilarRecipesClicked"></Button>
         </StackLayout>
         </ScrollView>
         

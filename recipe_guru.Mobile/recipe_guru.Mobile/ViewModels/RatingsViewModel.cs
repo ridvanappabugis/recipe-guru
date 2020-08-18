@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace recipe_guru.Mobile.ViewModels
 {
-    public class RatingsViewModel
+    public class RatingsViewModel : BaseViewModel
     {
         private readonly APIService _RatingService = new APIService("Rating");
         private readonly APIService _KorisnikService = new APIService("Korisnici");

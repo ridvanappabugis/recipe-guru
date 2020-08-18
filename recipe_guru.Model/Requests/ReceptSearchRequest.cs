@@ -9,7 +9,7 @@ namespace recipe_guru.Model.Requests
 
         public int DuzinaPripreme { get; set; }
 
-        public RatingMark AverageRating { get; set; }
+        public RatingMark? AverageRating { get; set; }
 
         public int KategorijaId { get; set; }
 

@@ -1,5 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="recipe_guru.Mobile.Views.SimilarRecipesPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="recipe_guru.Mobile.Views.SimilarRecipesPage">
     <ContentPage.Content>
+        <StackLayout>
+           <Frame HasShadow="true" >
+               <Frame.Content>
+                   <Grid BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="5*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+               <Label Text="{Binding NazivRecepta}"  Grid.Column="0"
+                   FontSize="Medium"
+                      VerticalOptions="Center"
+                      HorizontalOptions="Center"
+                   ></Label>
+           </Grid>
+               </Frame.Content>
+           </Frame>
+           
+            <ListView x:Name="listView"  ItemsSource="{Binding Recepti}" ItemSelected="OnItemSelected" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Frame Margin="20" HasShadow="False" Padding="0">
+                                <Frame.Content>
+                                    <RelativeLayout BackgroundColor="White" HeightRequest="210">
+                                        <Image Source="{Binding Image}" Aspect="Fill"/>
+                                        <StackLayout HorizontalOptions="StartAndExpand" BackgroundColor="SandyBrown" TranslationY="165" Opacity=".85" Padding="10,5,10,5">
+                                            <Label Text="{Binding Naziv}" FontSize="Medium"  HorizontalTextAlignment="Center" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                    </RelativeLayout>
+                                </Frame.Content>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

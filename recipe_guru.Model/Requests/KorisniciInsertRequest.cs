@@ -10,6 +10,7 @@ namespace recipe_guru.Model.Requests
         public string Ime { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string Prezime { get; set; }
+        public string Deskripcija { get; set; }
         [EmailAddress]
         [Required]
         [MinLength(5)]

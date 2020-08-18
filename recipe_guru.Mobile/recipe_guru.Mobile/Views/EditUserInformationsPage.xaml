@@ -18,6 +18,8 @@
                 <Entry x:Name="Email"></Entry>
                 <Label Text="Phone"></Label>
                 <Entry x:Name="Phone"></Entry>
+                <Label Text="Description"></Label>
+                <Entry x:Name="Description"></Entry>
                 <Label Text="Username"></Label>
                 <Entry x:Name="Username"></Entry>
 

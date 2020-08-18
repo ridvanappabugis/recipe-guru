@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace recipe_guru.Mobile.ViewModels
 {
-    public class ReceptPretragaViewModel
+    public class ReceptPretragaViewModel : BaseViewModel
     {
         private readonly APIService _ReceptService = new APIService("Recept");
         private readonly APIService _ImageResourceService = new APIService("ImageResource");

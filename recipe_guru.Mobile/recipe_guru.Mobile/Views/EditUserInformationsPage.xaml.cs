@@ -23,6 +23,7 @@ namespace recipe_guru.Mobile.Views
             Email.Text = APIService.User.Email;
             Phone.Text = APIService.User.Telefon;
             Username.Text = APIService.User.KorisnickoIme;
+            Description.Text = APIService.User.Deskripcija;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -60,7 +61,8 @@ namespace recipe_guru.Mobile.Views
                     Prezime = LastName.Text,
                     Email = Email.Text,
                     Telefon = Phone.Text,
-                    UlogaId = 2
+                    UlogaId = 2,
+                    Deskripcija = Description.Text
                 });
 
 
