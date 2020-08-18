@@ -122,8 +122,10 @@ namespace recipe_guru.WebAPI.Services
                 entity.LozinkaSalt = PasswordUtil.GenerateSalt();
                 entity.LozinkaHash = PasswordUtil.GenerateHash(entity.LozinkaSalt, request.Password);
             }
-
-            _mapper.Map(request, entity);
+            else
+            {
+                _mapper.Map(request, entity);
+            }
 
             _context.SaveChanges();
 

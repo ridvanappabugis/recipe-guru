@@ -44,6 +44,11 @@
                     BackgroundColor="SandyBrown"
                     TextColor="White"
                     Text="Login"></Button>
+            <Button  
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
+                FontSize="Micro"
+                Text="Dont have an Account? Register now" HorizontalOptions="End" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

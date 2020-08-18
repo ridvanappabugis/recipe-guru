@@ -13,7 +13,7 @@ namespace recipe_guru.Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewPasswordPage : ContentPage
     {
-        private readonly APIService _serviceUser = new APIService("User");
+        private readonly APIService _serviceUser = new APIService("Korisnici");
 
         public NewPasswordPage()
         {

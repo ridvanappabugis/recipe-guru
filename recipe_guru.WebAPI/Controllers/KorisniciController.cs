@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace recipe_guru.WebAPI.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class KorisniciController : ControllerBase
