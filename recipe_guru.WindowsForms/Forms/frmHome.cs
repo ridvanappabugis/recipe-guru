@@ -16,6 +16,5 @@ namespace recipe_guru.WindowsFormsUI.Forms
         {
             InitializeComponent();
         }
-
     }
 }

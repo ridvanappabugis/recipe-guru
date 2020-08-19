@@ -51,7 +51,7 @@ namespace recipe_guru.WindowsFormsUI.Forms
             var list = await _serviceUserType.GetAll<List<Uloga>>();
             list.Insert(0, new Uloga());
             cmbType.ValueMember = "Id";
-            cmbType.DisplayMember = "Type";
+            cmbType.DisplayMember = "Naziv";
             cmbType.DataSource = list;
         }
 

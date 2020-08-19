@@ -14,7 +14,7 @@ namespace recipe_guru.WindowsFormsUI.Forms
 {
     public partial class frmLogin : Form
     {
-        APIService _service = new APIService("UserType");
+        APIService _service = new APIService("Uloge");
 
         public frmLogin()
         {
@@ -37,5 +37,6 @@ namespace recipe_guru.WindowsFormsUI.Forms
             {
             }
         }
+
     }
 }

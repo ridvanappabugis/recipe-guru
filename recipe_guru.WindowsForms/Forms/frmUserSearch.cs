@@ -14,6 +14,7 @@ namespace recipe_guru.WindowsFormsUI.Forms
         APIService _serviceUser = new APIService("Korisnici");
         APIService _serviceUserType = new APIService("Uloge");
 
+
         public frmUserSearch()
         {
             InitializeComponent();
@@ -51,7 +52,8 @@ namespace recipe_guru.WindowsFormsUI.Forms
             List<frmUserSearchVM> vm = new List<frmUserSearchVM>();
             foreach (var item in list)
             {
-                frmUserSearchVM ni = new frmUserSearchVM
+                var uloga = await _serviceUserType.GetById<Model.Uloga>(item.UlogaId);
+                frmUserSearchVM userSearch = new frmUserSearchVM
                 {
                     Email = item.Email,
                     FirstName = item.Ime,
@@ -59,9 +61,9 @@ namespace recipe_guru.WindowsFormsUI.Forms
                     Id = item.Id,
                     Phone = item.Telefon,
                     Username = item.KorisnickoIme,
-                    UserType = item.Uloga.Naziv.ToString()
+                    UserType = uloga.Naziv.ToString()
                 };
-                vm.Add(ni);
+                vm.Add(userSearch);
             }
             dgvUser.DataSource = vm;
         }

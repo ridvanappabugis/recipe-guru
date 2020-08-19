@@ -126,12 +126,5 @@ namespace recipe_guru.WindowsFormsUI.Forms
             frm.MdiParent = this;
             frm.Show();
         }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAbout frm = new frmAbout();
-            frm.MdiParent = this;
-            frm.Show();
-        }
     }
 }
