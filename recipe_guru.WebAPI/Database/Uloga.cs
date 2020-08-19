@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace recipe_guru.WebAPI.Database
+﻿namespace recipe_guru.WebAPI.Database
 {
     public enum Role
     {
-        ADMIN, VISITOR, USER
+        ADMIN, USER
     }
     public partial class Uloga
     {
