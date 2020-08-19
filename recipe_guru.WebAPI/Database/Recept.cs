@@ -10,6 +10,7 @@ namespace recipe_guru.WebAPI.Database
         public string Naziv { get; set; }
         public int DuzinaPripreme { get; set; }
         public bool Public { get; set; }
+        public string Deskripcija { get; set; }
 
         public int? ImageResourceId { get; set; }
         public virtual ImageResource? ImageResource { get; set; }

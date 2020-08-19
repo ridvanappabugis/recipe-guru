@@ -37,7 +37,7 @@ namespace recipe_guru.Mobile.ViewModels
                         Stars = createStars(rating.Mark),
                         Comment = rating.Comment,
                         Date = rating.InsertTime.ToShortDateString(),
-                        User = korisnik.Ime + korisnik.Prezime
+                        User = korisnik.Ime + " " + korisnik.Prezime
                     });
                 }
 

@@ -14,6 +14,8 @@ namespace recipe_guru.Model.Requests
 
         public bool Public { get; set; } = true;
 
+        public string Deskripcija { get; set; }
+
         public int? ImageResourceId { get; set; }
 
         [Required]

@@ -283,7 +283,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 15,
                 ImageResourceId = 4,
-                ReceptPregledId = 1
+                ReceptPregledId = 1,
+                Deskripcija = "Rainbow Cupcakes with fluffy cloud-like vanilla frosting that is guaranteed to make anyone who sees them smile. No cake mix, still EASY."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -301,7 +302,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 15,
                 ImageResourceId = 5,
-                ReceptPregledId = 2
+                ReceptPregledId = 2,
+                Deskripcija = "This classic chocolate mousse is light yet intensely chocolate. Don’t be fooled by the French name — it’s quick and easy to make!"
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -319,7 +321,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 15,
                 ImageResourceId = 6,
-                ReceptPregledId = 3
+                ReceptPregledId = 3,
+                Deskripcija = "An easy, no-churn Nut and Fruit Ice Cream recipe. Sweet vanilla ice cream with crunchy pieces of almond and chocolate-covered fruit."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -337,7 +340,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 15,
                 ImageResourceId = 7,
-                ReceptPregledId = 4
+                ReceptPregledId = 4,
+                Deskripcija = "The one thing that sets this strawberry cake apart from others? Reduce fresh strawberry puree down and add to the best white cake batter. Kiss your boxed strawberry cake buh-bye."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -355,7 +359,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 15,
                 ImageResourceId = 8,
-                ReceptPregledId = 5
+                ReceptPregledId = 5,
+                Deskripcija = "Castagnole Sweet Dough Balls, are a delicious Italian sweet, soft on the inside and crunchy on the outside, the traditional recipe during Carnival time. Italians like to celebrate carnivale time eating Frappe and Sweet Ravioli.One of my family’s favourite are these Castagnole."
             });
 
             // Soups
@@ -374,7 +379,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 7,
                 ImageResourceId = 9,
-                ReceptPregledId = 6
+                ReceptPregledId = 6,
+                Deskripcija = "Chicken soup is a soup made from chicken, simmered in water, usually with various other ingredients. The classic chicken soup consists of a clear chicken broth, often with pieces of chicken or vegetables; common additions are pasta, noodles, dumplings, or grains such as rice and barley."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -392,7 +398,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 7,
                 ImageResourceId = 10,
-                ReceptPregledId = 7
+                ReceptPregledId = 7,
+                Deskripcija = "Noodle soup refers to a variety of soups with noodles and other ingredients served in a light broth. Noodle soup is common dish across East and Southeast Asia. Various types of noodles are used, such as rice noodles, wheat noodles and egg noodles."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -410,7 +417,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 7,
                 ImageResourceId = 11,
-                ReceptPregledId = 8
+                ReceptPregledId = 8,
+                Deskripcija = "This Vegetable Soup has become one of my most popular soup recipes and for good reason! It’s healthy, it’s comforting and 1,000 times better than what you’ll get in a can! Full of flavor and so easy to make you can’t go wrong with a big warm bowl of vegetable soup."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -428,7 +436,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 7,
                 ImageResourceId = 12,
-                ReceptPregledId = 9
+                ReceptPregledId = 9,
+                Deskripcija = "This easy potato soup recipe has been my tried-and-true, back-pocket, all-time-favorite for over a decade now.  It’s perfectly rich and creamy (without using heavy cream), it’s full of flavor (because bland potato soup is the worst), it’s easy to adapt to be vegetarian and/or gluten-free (see below), and it is always, always a crowd fave.  I promise it won’t let you down."
             });
 
             // Foods
@@ -447,7 +456,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 3,
                 ImageResourceId = 13,
-                ReceptPregledId = 10
+                ReceptPregledId = 10,
+                Deskripcija = "Grace Parisi's pasta Bolognese features a traditional combination of ground beef, pork, veal and tomato enriched by smoky pancetta."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -465,7 +475,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 4,
                 ImageResourceId = 14,
-                ReceptPregledId = 11
+                ReceptPregledId = 11,
+                Deskripcija = "A southern meat pie is a pie with a chunky filling of meat and often other savory ingredients. They are popular in the United Kingdom, Australia, Ghana, Nigeria, Europe, New Zealand, Canada, Zimbabwe and South Africa."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -483,7 +494,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 4,
                 ImageResourceId = 15,
-                ReceptPregledId = 12
+                ReceptPregledId = 12,
+                Deskripcija = "Doner kebab is a type of kebab, made of meat cooked on a vertical rotisserie. Seasoned meat stacked in the shape of an inverted cone is turned slowly on the rotisserie, next to a vertical cooking element. The outer layer is sliced into thin shavings as it cooks."
             });
 
             modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
@@ -500,7 +512,8 @@ namespace recipe_guru.WebAPI.Database
                 Public = true,
                 KategorijaId = 8,
                 ImageResourceId = 16,
-                ReceptPregledId = 13
+                ReceptPregledId = 13,
+                Deskripcija = "My husband is not much of a fish lover but when I made this recipe with halibut he very much enjoyed it. It's very simple."
             });
 
             List<string> sastojci = new List<string> {
@@ -542,7 +555,6 @@ namespace recipe_guru.WebAPI.Database
 
             int receptSastojakId = 1;
             int receptReviewId = 1;
-            int receptPregledId = 1;
             for (int r = 1; r<14; r++)
             {
                 // Sastojci

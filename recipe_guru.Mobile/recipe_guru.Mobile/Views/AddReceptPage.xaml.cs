@@ -87,6 +87,7 @@ namespace recipe_guru.Mobile.Views
                     KategorijaId = ((Model.Kategorija)KategorijaPicker.SelectedItem).Id,
                     Naziv = Name.Text,
                     Public = true,
+                    Deskripcija = Description.Text,
                     ReceptPregledId = pregeldi.Id
                 });
 

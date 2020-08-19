@@ -98,7 +98,7 @@ namespace recipe_guru.Mobile.ViewModels
                 Kategorija = kat.Naziv;
                 KategorijaId = kat.Id;
                 DuzinaPripreme = recept.DuzinaPripreme + " minutes";
-                Description = "svasta nesto.";
+                Description = recept.Deskripcija;
 
                 Sastojci.Clear();
 
@@ -109,7 +109,7 @@ namespace recipe_guru.Mobile.ViewModels
 
                 foreach (var sastojak in lista)
                 {
-                    Sastojci.Add(sastojak.Kolicina + sastojak.Naziv);
+                    Sastojci.Add(sastojak.Kolicina + " Grams of " + sastojak.Naziv);
                 }
             }
             catch (Exception ex)

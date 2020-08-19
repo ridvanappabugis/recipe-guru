@@ -10,7 +10,7 @@
             <Label Text="{Binding NazivRecepta}" FontSize="Large"></Label>
             <Frame HasShadow="True">
                 <StackLayout>
-                    <Image Source="{Binding ImageSource}" Aspect="Fill"></Image>
+                    <Image Source="{Binding ImageSource}" Aspect="AspectFill" HeightRequest="210"></Image>
                     <Label Text="Rating" FontSize="Micro" Margin="0,50,0,0"></Label>
                     <Label Text="{Binding Rating}" FontSize="Medium" ></Label>
                     <Label Text="Prepare Time" FontSize="Micro" Margin="0,50,0,0"></Label>
@@ -24,7 +24,7 @@
            <Label Text="{Binding Description}" FontSize="Small" ></Label>
 
             <Frame BorderColor="Gray" Margin="50">
-                <ListView x:Name="ListViewMenu" 
+                <ListView x:Name="ListViewMenu" HeightRequest="250"
                 SeparatorColor="Transparent"
                 BackgroundColor="White" HasUnevenRows="True" ItemsSource="{Binding Sastojci}">
        

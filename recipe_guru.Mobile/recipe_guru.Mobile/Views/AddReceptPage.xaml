@@ -5,7 +5,7 @@
             <StackLayout Margin="20,35,20,20">
                 <Label Text="Add Recipe" Margin="0,30,0,30" FontAttributes="Bold" FontSize="20"></Label>
 
-                <Image x:Name="image" Source="notfound.png" />
+                <Image x:Name="image" Source="notfound.png" Aspect="AspectFill" HeightRequest="210" />
                 <Button Text="Pick Photo"
                         Clicked="OnPickPhotoButtonClicked" Margin="20" BackgroundColor="SandyBrown" TextColor="white"/>
 
@@ -27,7 +27,7 @@
             
                 <Label Text="Ingredients"></Label>
                 <Frame BorderColor="Gray" Margin="50">
-                    <ListView x:Name="ListViewMenu" 
+                    <ListView x:Name="ListViewMenu" HeightRequest="250"
                     SeparatorColor="Transparent"
                     BackgroundColor="White" HasUnevenRows="True" ItemsSource="{Binding Sastojci}">
        
