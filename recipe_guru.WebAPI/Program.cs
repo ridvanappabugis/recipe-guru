@@ -16,6 +16,7 @@ namespace recipe_guru
     {
         public static void Main(string[] args)
         {
+            Environment.GetEnvironmentVariables();
             var host = CreateHostBuilder(args).Build();
             using (var scope = host.Services.CreateScope())
             {
@@ -27,6 +28,7 @@ namespace recipe_guru
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                   
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

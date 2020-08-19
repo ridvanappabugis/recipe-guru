@@ -83,7 +83,7 @@ namespace recipe_guru
 
             // connection to database
             // Scaffold-DbContext -Connection "Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database -context MoviePickContext -force
-            services.AddDbContext<recipeGuruContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("LocalConnection"))
+            services.AddDbContext<recipeGuruContext>(opt => opt.UseSqlServer(Configuration["CONNECTION_STRING"])
             .EnableSensitiveDataLogging());
 
             // basic auth
@@ -98,6 +98,7 @@ namespace recipe_guru
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
             IServiceProvider serviceProvider)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

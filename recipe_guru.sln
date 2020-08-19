@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "recipe_guru.Mobile", "recip
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "recipe_guru.Mobile.Android", "recipe_guru.Mobile\recipe_guru.Mobile.Android\recipe_guru.Mobile.Android.csproj", "{3988C542-C57C-4BCA-B382-9D3FD46F49E1}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "recipe_guru.DockerRun", "recipe_guru.DockerRun.dcproj", "{239E676B-0FD7-4AF9-8797-F247920579EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,18 @@ Global
 		{3988C542-C57C-4BCA-B382-9D3FD46F49E1}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{3988C542-C57C-4BCA-B382-9D3FD46F49E1}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{3988C542-C57C-4BCA-B382-9D3FD46F49E1}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Release|iPhone.Build.0 = Release|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{239E676B-0FD7-4AF9-8797-F247920579EC}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+    recipeguru-sql:
+        image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+        restart: unless-stopped
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=reallyStrongPwd123
+            - MSSQL_PID=Developer
+        ports:
+            - 1401:1433
+        networks:
+            - recipegurunet
+
+    recipe_guru.webapi:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: recipe_guru.WebAPI/Dockerfile
+        ports:
+            - 57869:80
+        networks:
+            - recipegurunet      
+        links:
+            - recipeguru-sql
+        depends_on:
+            - recipeguru-sql
+
+networks:
+    recipegurunet:
+        driver: bridge  

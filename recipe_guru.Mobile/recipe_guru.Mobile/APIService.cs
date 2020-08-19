@@ -18,10 +18,10 @@ namespace recipe_guru.Mobile
         private readonly string _route;
 
 #if DEBUG 
-        private string _apiUrl = "http://10.0.2.2:5000/api";
+        private string _apiUrl = "http://10.0.2.2:57869/api";
 #endif
 #if RELEASE
-        private string _apiUrl = "http://localhost:5000/api";
+        private string _apiUrl = "http://localhost:57869/api";
 #endif
 
         public APIService(string route)

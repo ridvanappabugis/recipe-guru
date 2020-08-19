@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  recipe_guru.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=Server=recipeguru-sql,1433;Database=p1902_recipeguru;User=sa;Password=reallyStrongPwd123;ConnectRetryCount=0
+
