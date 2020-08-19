@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "recipe_guru.Mobile", "recip
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "recipe_guru.Mobile.Android", "recipe_guru.Mobile\recipe_guru.Mobile.Android\recipe_guru.Mobile.Android.csproj", "{3988C542-C57C-4BCA-B382-9D3FD46F49E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "recipe_guru.Mobile.iOS", "recipe_guru.Mobile\recipe_guru.Mobile.iOS\recipe_guru.Mobile.iOS.csproj", "{50C08D6C-4932-4E11-907F-5948E5D56465}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,18 +67,6 @@ Global
 		{3988C542-C57C-4BCA-B382-9D3FD46F49E1}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{3988C542-C57C-4BCA-B382-9D3FD46F49E1}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{3988C542-C57C-4BCA-B382-9D3FD46F49E1}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Release|iPhone.ActiveCfg = Release|iPhone
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Release|iPhone.Build.0 = Release|iPhone
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{50C08D6C-4932-4E11-907F-5948E5D56465}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
