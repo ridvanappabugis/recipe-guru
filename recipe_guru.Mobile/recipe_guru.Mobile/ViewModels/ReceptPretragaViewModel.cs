@@ -83,7 +83,7 @@ namespace recipe_guru.Mobile.ViewModels
 
             foreach (var recept in lista)
             {
-                Model.ImageResource imageResource = await _ImageResourceService.GetById<Model.ImageResource>(recept.ImageResouceId);
+                Model.ImageResource imageResource = await _ImageResourceService.GetById<Model.ImageResource>(recept.ImageResourceId);
 
                 Recepti.Add(new ReceptListViewItem
                 {

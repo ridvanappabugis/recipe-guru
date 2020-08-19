@@ -37,7 +37,7 @@ namespace recipe_guru.Mobile.ViewModels
 
             foreach (var knjiga in lista)
             {
-                Model.ImageResource imageResource = await _ImageResourceService.GetById<Model.ImageResource>(knjiga.ImageResouceId);
+                Model.ImageResource imageResource = await _ImageResourceService.GetById<Model.ImageResource>(knjiga.ImageResourceId);
 
                 Knjige.Add(new KnjigaRecepataListViewItem {
                     Id = knjiga.Id,

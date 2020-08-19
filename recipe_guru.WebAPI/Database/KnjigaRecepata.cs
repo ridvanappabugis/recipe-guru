@@ -14,8 +14,8 @@ namespace recipe_guru.WebAPI.Database
         public int KorisnikId { get; set; }
         public virtual Korisnik Korisnik { get; set; }
 
-        public int ImageResouceId { get; set; }
-        public ImageResource ImageResource { get; set; }
+        public int? ImageResourceId { get; set; }
+        public virtual ImageResource? ImageResource { get; set; }
 
         public virtual ICollection<Recept> Recepti { get; set; }
     }

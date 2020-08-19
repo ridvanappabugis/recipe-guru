@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="recipe_guru.Mobile.Views.AddKnjigaRecepataPage"
+    BackgroundColor="Beige">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20,35,20,20">
+                <Label Text="Add Recipe Book" Margin="0,30,0,30" FontAttributes="Bold" FontSize="20"></Label>
+
+                <Image x:Name="image" Source="notfound.png" />
+                <Button Text="Pick Photo"
+                        Clicked="OnPickPhotoButtonClicked" Margin="20" BackgroundColor="SandyBrown" TextColor="white"/>
+
+                <Label Text="Book Name"></Label>
+                <Entry x:Name="Name"></Entry>
+                <Label Text="Description"></Label>
+                <Entry x:Name="Description"></Entry>
+
+                <Button Text="Save"
+                         Margin="20" Clicked="OnSaveButtonClicked" BackgroundColor="SandyBrown" TextColor="white"/>
+            </StackLayout>  
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

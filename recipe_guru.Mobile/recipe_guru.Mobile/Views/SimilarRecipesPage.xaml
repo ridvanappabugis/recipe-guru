@@ -26,7 +26,8 @@
                             <Frame Margin="20" HasShadow="False" Padding="0">
                                 <Frame.Content>
                                     <RelativeLayout BackgroundColor="White" HeightRequest="210">
-                                        <Image Source="{Binding Image}" Aspect="Fill"/>
+                                        <Image Source="{Binding Image}"  Aspect="AspectFill"
+                                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, ElementName=SearchControlsGrid,Property=Width, Factor=1, Constant=0 }"/>
                                         <StackLayout HorizontalOptions="StartAndExpand" BackgroundColor="SandyBrown" TranslationY="165" Opacity=".85" Padding="10,5,10,5">
                                             <Label Text="{Binding Naziv}" FontSize="Medium"  HorizontalTextAlignment="Center" TextColor="White" HorizontalOptions="CenterAndExpand"/>
                                         </StackLayout>

@@ -10,12 +10,19 @@
                    <Grid BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
                <Grid.ColumnDefinitions>
                   <ColumnDefinition Width="5*"></ColumnDefinition>
+                                     <ColumnDefinition Width="3*"></ColumnDefinition>
               </Grid.ColumnDefinitions>
                <Label Text="{Binding NazivKnjige}"  Grid.Column="0"
                    FontSize="Medium"
                       VerticalOptions="Center"
                       HorizontalOptions="Center"
                    ></Label>
+                 <Button Grid.Column="1"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="SandyBrown"
+                    TextColor="White"
+                    Text="Add Recipe"
+                         Clicked="OnButtonClicked"></Button>
            </Grid>
                </Frame.Content>
            </Frame>
@@ -27,7 +34,8 @@
                             <Frame Margin="20" HasShadow="False" Padding="0">
                                 <Frame.Content>
                                     <RelativeLayout BackgroundColor="White" HeightRequest="210">
-                                        <Image Source="{Binding Image}" Aspect="Fill"/>
+                                        <Image Source="{Binding Image}"  Aspect="AspectFill"
+                                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, ElementName=SearchControlsGrid,Property=Width, Factor=1, Constant=0 }"/>
                                         <StackLayout HorizontalOptions="StartAndExpand" BackgroundColor="SandyBrown" TranslationY="165" Opacity=".85" Padding="10,5,10,5">
                                             <Label Text="{Binding Naziv}" FontSize="Medium"  HorizontalTextAlignment="Center" TextColor="White" HorizontalOptions="CenterAndExpand"/>
                                         </StackLayout>

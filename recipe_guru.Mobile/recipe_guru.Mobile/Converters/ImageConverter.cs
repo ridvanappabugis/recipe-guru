@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace recipe_guru.Mobile.Converters
@@ -17,11 +18,6 @@ namespace recipe_guru.Mobile.Converters
             Func<Stream> myFunc = () => new MemoryStream(value);
 
             return ImageSource.FromStream(myFunc);
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
         }
     }
 }

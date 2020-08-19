@@ -12,7 +12,7 @@ namespace recipe_guru.Model
         public int DuzinaPripreme { get; set; }
         public bool Public { get; set; }
 
-        public int ImageResouceId { get; set; }
+        public int ImageResourceId { get; set; }
 
         public int KnjigaRecepataId { get; set; }
 

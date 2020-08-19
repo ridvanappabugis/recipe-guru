@@ -13,6 +13,7 @@ namespace recipe_guru.WebAPI.Mapper
             CreateMap<Database.Kategorija, Model.Kategorija>();
 
             CreateMap<Database.ImageResource, Model.ImageResource>();
+            CreateMap<Database.ImageResource, Model.Requests.ImageResourceUpsertRequest>().ReverseMap();
 
             CreateMap<Database.KnjigaRecepata, Model.KnjigaRecepata>();
             CreateMap<Database.KnjigaRecepata, Model.Requests.KnjigaRecepataUpsertRequest>().ReverseMap();

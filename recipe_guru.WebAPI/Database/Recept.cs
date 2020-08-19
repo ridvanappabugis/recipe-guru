@@ -12,8 +12,8 @@ namespace recipe_guru.WebAPI.Database
         public int DuzinaPripreme { get; set; }
         public bool Public { get; set; }
 
-        public int ImageResouceId { get; set; }
-        public ImageResource ImageResource { get; set; }
+        public int? ImageResourceId { get; set; }
+        public virtual ImageResource? ImageResource { get; set; }
 
         public int KnjigaRecepataId { get; set; }
         public KnjigaRecepata KnjigaRecepata { get; set; }

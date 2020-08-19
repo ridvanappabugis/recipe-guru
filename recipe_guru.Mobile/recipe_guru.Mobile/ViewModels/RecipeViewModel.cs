@@ -84,7 +84,7 @@ namespace recipe_guru.Mobile.ViewModels
                 Rating = createStars(ratings.Count!=0 ? (sum/ratings.Count) : 0) + " Stars!";
 
                 Model.Kategorija kat = await _KategorijeService.GetById<Model.Kategorija>(recept.KategorijaId);
-                Model.ImageResource imageResource = await _ImageResourceService.GetById<Model.ImageResource>(recept.ImageResouceId);
+                Model.ImageResource imageResource = await _ImageResourceService.GetById<Model.ImageResource>(recept.ImageResourceId);
                 ImageSource = imageResource != null ? new ImageConverter().Convert(imageResource.ImageByteValue) : "notfound.png";
 
                 NazivRecepta = recept.Naziv;

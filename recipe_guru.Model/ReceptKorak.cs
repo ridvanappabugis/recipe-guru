@@ -10,6 +10,6 @@ namespace recipe_guru.Model
 
         public int ReceptId { get; set; }
 
-        public int ImageResouceId { get; set; }
+        public int ImageResourceId { get; set; }
     }
 }

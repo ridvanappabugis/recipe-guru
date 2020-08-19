@@ -17,7 +17,7 @@ namespace recipe_guru.Mobile.ViewModels
 
         public ObservableCollection<ReceptListViewItem> Recepti { get; set; } = new ObservableCollection<ReceptListViewItem>();
 
-        private int KnjigaId { get; set; }
+        public int KnjigaId { get; set; }
         public string NazivKnjige { get; set; }
 
         public KnjigaRecepataViewModel(int KnjigaRecepataId, string naziv)
@@ -39,7 +39,7 @@ namespace recipe_guru.Mobile.ViewModels
 
                 foreach (var recept in lista)
                 {
-                    Model.ImageResource imageResource = await _ImageResourceService.GetById<Model.ImageResource>(recept.ImageResouceId);
+                    Model.ImageResource imageResource = await _ImageResourceService.GetById<Model.ImageResource>(recept.ImageResourceId);
 
                     Recepti.Add(new ReceptListViewItem
                     {

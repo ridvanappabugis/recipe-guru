@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:recipe_guru.Mobile.ViewModels"
-             xmlns:converters="clr-namespace:recipe_guru.Mobile.Converters"
              mc:Ignorable="d"
              Title="RecipeGuru"
              BackgroundColor="Beige"
@@ -26,18 +25,24 @@
                       VerticalOptions="Center"
                       HorizontalOptions="Center"
                    ></Label>
+               <Button Grid.Column="1"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="SandyBrown"
+                    TextColor="White"
+                    Text="Add Book" Clicked="OnButtonClicked"></Button>
            </Grid>
                </Frame.Content>
            </Frame>
-            
+           
             <ListView x:Name="listView"  ItemsSource="{Binding Knjige}" ItemSelected="OnItemSelected" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
                             <Frame Margin="20" HasShadow="False" Padding="0">
                                 <Frame.Content>
-                                    <RelativeLayout BackgroundColor="White" HeightRequest="210">
-                                        <Image Source="{Binding Image}" Aspect="Fill"/>
+                                    <RelativeLayout BackgroundColor="White" HeightRequest="210" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Image Source="{Binding Image}"  Aspect="AspectFill"
+                                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, ElementName=SearchControlsGrid,Property=Width, Factor=1, Constant=0 }"/>
                                         <StackLayout HorizontalOptions="StartAndExpand" BackgroundColor="SandyBrown" TranslationY="165" Opacity=".85" Padding="10,5,10,5">
                                             <Label Text="{Binding Naziv}" FontSize="Medium"  HorizontalTextAlignment="Center" TextColor="White" HorizontalOptions="CenterAndExpand"/>
                                         </StackLayout>

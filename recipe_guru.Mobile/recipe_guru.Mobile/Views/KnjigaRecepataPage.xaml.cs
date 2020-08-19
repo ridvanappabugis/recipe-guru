@@ -30,5 +30,9 @@ namespace recipe_guru.Mobile.Views
 
             await Navigation.PushModalAsync(new RecipePage(item.Id));
         }
+
+        public async void OnButtonClicked(object sender, EventArgs e)
+        {
+        }
     }
 }

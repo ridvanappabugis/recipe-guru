@@ -35,6 +35,11 @@ namespace recipe_guru.Mobile.Views
 
             await Navigation.PushModalAsync(new KnjigaRecepataPage(item.Id, item.Naziv));
         }
+
+        public async void OnButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new AddKnjigaRecepataPage());
+        }
     }
 
 

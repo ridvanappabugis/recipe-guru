@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using recipe_guru.WebAPI.Database;
 
-namespace recipeguru.WebAPI.Migrations
+namespace recipe_guru.WebAPI.Migrations
 {
     [DbContext(typeof(recipeGuruContext))]
-    [Migration("20200818202929_initial4")]
-    partial class initial4
+    [Migration("20200818234835_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,9 +133,6 @@ namespace recipeguru.WebAPI.Migrations
                     b.Property<string>("Deskripcija")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ImageResouceId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ImageResourceId")
                         .HasColumnType("int");
 
@@ -161,7 +158,6 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 1,
                             Deskripcija = "Moji dobri recepti",
-                            ImageResouceId = 0,
                             KorisnikId = 2,
                             Naziv = "Ridvanovi Recepti",
                             Public = true
@@ -170,7 +166,6 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 2,
                             Deskripcija = "Bolji recepti",
-                            ImageResouceId = 0,
                             KorisnikId = 2,
                             Naziv = "Ridvanovi Recepti #2",
                             Public = false
@@ -252,8 +247,8 @@ namespace recipeguru.WebAPI.Migrations
                             Email = "ridvan@fit.ba",
                             Ime = "Ridvan",
                             KorisnickoIme = "admin",
-                            LozinkaHash = "6/f94IHGn8wYm0yXQliS7IrQdVE=",
-                            LozinkaSalt = "Zk8lh52QWfhIZqEqRbrbCw==",
+                            LozinkaHash = "+feMKm9ptQYWqKIRMsIQz3oesbs=",
+                            LozinkaSalt = "38kpu64hqCKN+FuvWNELxQ==",
                             Prezime = "Appa",
                             Telefon = "061234567",
                             UlogaId = 1
@@ -264,8 +259,8 @@ namespace recipeguru.WebAPI.Migrations
                             Email = "ridvanclient@fit.ba",
                             Ime = "Ridvan",
                             KorisnickoIme = "ClientUser",
-                            LozinkaHash = "/afOy5jCN1/kmVDLQvtyXzHnkgk=",
-                            LozinkaSalt = "nT+GQjhNoJSWDpULg/Gqqg==",
+                            LozinkaHash = "7T1JBdUK0dK1v261ZGJyKWB5dvY=",
+                            LozinkaSalt = "LN9AYiIAcQMI933Ryul5Cg==",
                             Prezime = "Appa",
                             Telefon = "061234567",
                             UlogaId = 2
@@ -307,7 +302,7 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 1,
                             Comment = "Predobar doner.",
-                            InsertTime = new DateTime(2020, 8, 18, 22, 29, 29, 297, DateTimeKind.Local).AddTicks(2890),
+                            InsertTime = new DateTime(2020, 8, 19, 1, 48, 35, 361, DateTimeKind.Local).AddTicks(2910),
                             KorisnikId = 1,
                             Mark = 4,
                             ReceptId = 2
@@ -325,9 +320,6 @@ namespace recipeguru.WebAPI.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<int>("DuzinaPripreme")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ImageResouceId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ImageResourceId")
@@ -361,7 +353,6 @@ namespace recipeguru.WebAPI.Migrations
                             Id = 1,
                             BrojPregleda = 0L,
                             DuzinaPripreme = 30,
-                            ImageResouceId = 0,
                             KategorijaId = 7,
                             KnjigaRecepataId = 1,
                             Naziv = "Domaci Nanin Grah",
@@ -372,7 +363,6 @@ namespace recipeguru.WebAPI.Migrations
                             Id = 2,
                             BrojPregleda = 0L,
                             DuzinaPripreme = 30,
-                            ImageResouceId = 0,
                             KategorijaId = 4,
                             KnjigaRecepataId = 1,
                             Naziv = "Doner Kebab iz srca Turske",
@@ -389,9 +379,6 @@ namespace recipeguru.WebAPI.Migrations
 
                     b.Property<string>("Deskripcija")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ImageResouceId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("ImageResourceId")
                         .HasColumnType("int");
@@ -415,7 +402,6 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 1,
                             Deskripcija = "Priprema sosa za prekrivanje mesa.",
-                            ImageResouceId = 0,
                             ReceptId = 2,
                             RedniBrojKoraka = 1
                         },
@@ -423,7 +409,6 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 2,
                             Deskripcija = "Przenje mesa.",
-                            ImageResouceId = 0,
                             ReceptId = 2,
                             RedniBrojKoraka = 2
                         },
@@ -431,7 +416,6 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 3,
                             Deskripcija = "Jedenje.",
-                            ImageResouceId = 0,
                             ReceptId = 2,
                             RedniBrojKoraka = 3
                         },
@@ -439,7 +423,6 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 4,
                             Deskripcija = "Ubrati grah.",
-                            ImageResouceId = 0,
                             ReceptId = 1,
                             RedniBrojKoraka = 1
                         },
@@ -447,7 +430,6 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 5,
                             Deskripcija = "Skuhati.",
-                            ImageResouceId = 0,
                             ReceptId = 1,
                             RedniBrojKoraka = 2
                         },
@@ -455,7 +437,6 @@ namespace recipeguru.WebAPI.Migrations
                         {
                             Id = 6,
                             Deskripcija = "Dodati suhog mesa.",
-                            ImageResouceId = 0,
                             ReceptId = 1,
                             RedniBrojKoraka = 3
                         });
