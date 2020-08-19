@@ -80,6 +80,7 @@ namespace recipe_guru
             services.AddScoped<ICRUDService<Model.ReceptKorak, ReceptKoraciSearchRequest, ReceptKoraciUpsertRequest, ReceptKoraciUpsertRequest>, ReceptKoraciService>();
             services.AddScoped<ICRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest>, ReceptService>();
             services.AddScoped<ICRUDService<Model.ReceptSastojak, ReceptSastojakSearchRequest, ReceptSastojakUpsertRequest, ReceptSastojakUpsertRequest>, ReceptSastojakService>();
+            services.AddScoped<ICRUDService<Model.ReceptPregled, ReceptPregledSearchRequest, ReceptPregledUpsertRequest, ReceptPregledUpsertRequest>, ReceptPregledService>();
 
             // connection to database
             // Scaffold-DbContext -Connection "Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database -context recipe_guruContext -force

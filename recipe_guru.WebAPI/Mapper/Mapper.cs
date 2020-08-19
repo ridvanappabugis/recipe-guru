@@ -27,6 +27,9 @@ namespace recipe_guru.WebAPI.Mapper
             CreateMap<Database.ReceptSastojak, Model.ReceptSastojak>();
             CreateMap<Database.ReceptSastojak, Model.Requests.ReceptSastojakUpsertRequest>().ReverseMap();
 
+            CreateMap<Database.ReceptPregled, Model.ReceptPregled>();
+            CreateMap<Database.ReceptPregled, Model.Requests.ReceptPregledUpsertRequest>().ReverseMap();
+
             CreateMap<Database.Rating, Model.Rating>();
             CreateMap<Database.Rating, Model.Requests.RatingUpsertRequest>().ReverseMap();
 

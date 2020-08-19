@@ -8,7 +8,6 @@ namespace recipe_guru.Model
         public int Id { get; set; }
 
         public string Naziv { get; set; }
-        public long BrojPregleda { get; set; }
         public int DuzinaPripreme { get; set; }
         public bool Public { get; set; }
 
@@ -17,5 +16,7 @@ namespace recipe_guru.Model
         public int KnjigaRecepataId { get; set; }
 
         public int KategorijaId { get; set; }
+        public int ReceptPregledId { get; set; }
+
     }
 }

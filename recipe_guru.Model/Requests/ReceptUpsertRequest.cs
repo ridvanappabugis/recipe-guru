@@ -9,8 +9,6 @@ namespace recipe_guru.Model.Requests
         [Required(AllowEmptyStrings = false)]
         public string Naziv { get; set; }
 
-        public long BrojPregleda { get; set; } = 0;
-
         [Required]
         public int DuzinaPripreme { get; set; }
 
@@ -23,5 +21,7 @@ namespace recipe_guru.Model.Requests
 
         [Required]
         public int KategorijaId { get; set; }
+
+        public int ReceptPregledId { get; set; }
     }
 }

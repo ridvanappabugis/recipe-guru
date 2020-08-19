@@ -343,8 +343,8 @@ namespace recipe_guru.WebAPI.Migrations
                             Email = "admin@fit.ba",
                             Ime = "Admin",
                             KorisnickoIme = "AdminTest",
-                            LozinkaHash = "YmpXY3s6nVPDtTUdFZ9TEnfWWZU=",
-                            LozinkaSalt = "G1kYJEMPV1iWWY4D0hajkw==",
+                            LozinkaHash = "vWCH0w7L0sK6ymS54ZUsI2yGsj4=",
+                            LozinkaSalt = "CBuvNqfjypsS5n21xuX7EA==",
                             Prezime = "Adminovic",
                             Telefon = "061234567",
                             UlogaId = 1
@@ -355,8 +355,8 @@ namespace recipe_guru.WebAPI.Migrations
                             Email = "user@fit.ba",
                             Ime = "User",
                             KorisnickoIme = "UserTest",
-                            LozinkaHash = "8wC3OIYOHgg/Uf9p0E/pa3/qKkM=",
-                            LozinkaSalt = "2ZUYLqrZIZXSy23tUjGQDw==",
+                            LozinkaHash = "eWS7LJpYVk4Pz34cE1KeBlnJqCI=",
+                            LozinkaSalt = "/KbLN/nwtQxQRLnVU5/2DQ==",
                             Prezime = "Usercic",
                             Telefon = "061234567",
                             UlogaId = 2
@@ -397,17 +397,17 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            Comment = "I had a blast eating this, but the cooking recipe could use some description on how to cook this in a technical way.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 445, DateTimeKind.Local).AddTicks(9200),
+                            Comment = "Had better.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 986, DateTimeKind.Local).AddTicks(440),
                             KorisnikId = 2,
-                            Mark = 3,
+                            Mark = 4,
                             ReceptId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Comment = "Easy! My Kids loved it.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(3870),
+                            Comment = "Had better.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4020),
                             KorisnikId = 2,
                             Mark = 2,
                             ReceptId = 1
@@ -415,44 +415,44 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 3,
-                            Comment = "Best eat of my life.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(6410),
+                            Comment = "My mom likes to eat this, so it makes me happy making it for her.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4420),
                             KorisnikId = 2,
-                            Mark = 2,
+                            Mark = 4,
                             ReceptId = 2
                         },
                         new
                         {
                             Id = 4,
-                            Comment = "I had a blast eating this, but the cooking recipe could use some description on how to cook this in a technical way.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(6460),
+                            Comment = "I had better in a 5-star restaurant.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4460),
                             KorisnikId = 2,
-                            Mark = 0,
+                            Mark = 4,
                             ReceptId = 2
                         },
                         new
                         {
                             Id = 5,
-                            Comment = "I had better in a 5-star restaurant.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(6830),
+                            Comment = "I had a blast eating this, but the cooking recipe could use some description on how to cook this in a technical way.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4710),
                             KorisnikId = 2,
-                            Mark = 3,
+                            Mark = 4,
                             ReceptId = 3
                         },
                         new
                         {
                             Id = 6,
-                            Comment = "Easy! My Kids loved it.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(6870),
+                            Comment = "Just like grandma used to make.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4780),
                             KorisnikId = 2,
-                            Mark = 3,
+                            Mark = 4,
                             ReceptId = 3
                         },
                         new
                         {
                             Id = 7,
-                            Comment = "Had better.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7140),
+                            Comment = "Easy! My Kids loved it.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5030),
                             KorisnikId = 2,
                             Mark = 3,
                             ReceptId = 4
@@ -460,8 +460,8 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 8,
-                            Comment = "Just like grandma used to make.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7170),
+                            Comment = "I had better in a 5-star restaurant.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5070),
                             KorisnikId = 2,
                             Mark = 3,
                             ReceptId = 4
@@ -469,8 +469,8 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 9,
-                            Comment = "I had a blast eating this, but the cooking recipe could use some description on how to cook this in a technical way.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7480),
+                            Comment = "Good Recipe! Had fun making it.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5340),
                             KorisnikId = 2,
                             Mark = 3,
                             ReceptId = 5
@@ -478,26 +478,26 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 10,
-                            Comment = "I had better in a 5-star restaurant.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7520),
+                            Comment = "Satisfactory, Could be better.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5400),
                             KorisnikId = 2,
-                            Mark = 0,
+                            Mark = 4,
                             ReceptId = 5
                         },
                         new
                         {
                             Id = 11,
                             Comment = "Had better.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7820),
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5630),
                             KorisnikId = 2,
-                            Mark = 4,
+                            Mark = 2,
                             ReceptId = 6
                         },
                         new
                         {
                             Id = 12,
-                            Comment = "I had better in a 5-star restaurant.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7870),
+                            Comment = "Satisfactory, Could be better.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5670),
                             KorisnikId = 2,
                             Mark = 3,
                             ReceptId = 6
@@ -505,8 +505,8 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 13,
-                            Comment = "My mom likes to eat this, so it makes me happy making it for her.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8130),
+                            Comment = "Easy! My Kids loved it.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5950),
                             KorisnikId = 2,
                             Mark = 4,
                             ReceptId = 7
@@ -514,44 +514,44 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 14,
-                            Comment = "Good Recipe! Had fun making it.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8200),
+                            Comment = "My mom likes to eat this, so it makes me happy making it for her.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5980),
                             KorisnikId = 2,
-                            Mark = 0,
+                            Mark = 2,
                             ReceptId = 7
                         },
                         new
                         {
                             Id = 15,
-                            Comment = "My mom likes to eat this, so it makes me happy making it for her.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8460),
+                            Comment = "Had better.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6250),
                             KorisnikId = 2,
-                            Mark = 3,
+                            Mark = 2,
                             ReceptId = 8
                         },
                         new
                         {
                             Id = 16,
                             Comment = "Satisfactory, Could be better.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8500),
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6290),
                             KorisnikId = 2,
-                            Mark = 0,
+                            Mark = 3,
                             ReceptId = 8
                         },
                         new
                         {
                             Id = 17,
-                            Comment = "Easy! My Kids loved it.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8790),
+                            Comment = "Best eat of my life.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6520),
                             KorisnikId = 2,
-                            Mark = 3,
+                            Mark = 4,
                             ReceptId = 9
                         },
                         new
                         {
                             Id = 18,
-                            Comment = "Good Recipe! Had fun making it.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8830),
+                            Comment = "Just like grandma used to make.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6560),
                             KorisnikId = 2,
                             Mark = 3,
                             ReceptId = 9
@@ -559,26 +559,26 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 19,
-                            Comment = "Just like grandma used to make.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9190),
-                            KorisnikId = 2,
-                            Mark = 0,
-                            ReceptId = 10
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Comment = "Easy! My Kids loved it.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9230),
+                            Comment = "I had better in a 5-star restaurant.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6830),
                             KorisnikId = 2,
                             Mark = 2,
                             ReceptId = 10
                         },
                         new
                         {
+                            Id = 20,
+                            Comment = "Good Recipe! Had fun making it.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6870),
+                            KorisnikId = 2,
+                            Mark = 4,
+                            ReceptId = 10
+                        },
+                        new
+                        {
                             Id = 21,
-                            Comment = "Satisfactory, Could be better.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9490),
+                            Comment = "My mom likes to eat this, so it makes me happy making it for her.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7140),
                             KorisnikId = 2,
                             Mark = 2,
                             ReceptId = 11
@@ -586,35 +586,35 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 22,
-                            Comment = "Best eat of my life.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9530),
+                            Comment = "Just like grandma used to make.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7180),
                             KorisnikId = 2,
-                            Mark = 2,
+                            Mark = 4,
                             ReceptId = 11
                         },
                         new
                         {
                             Id = 23,
-                            Comment = "Had better.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9830),
+                            Comment = "Best eat of my life.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7410),
+                            KorisnikId = 2,
+                            Mark = 0,
+                            ReceptId = 12
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Comment = "My mom likes to eat this, so it makes me happy making it for her.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7450),
                             KorisnikId = 2,
                             Mark = 3,
                             ReceptId = 12
                         },
                         new
                         {
-                            Id = 24,
-                            Comment = "I had better in a 5-star restaurant.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9860),
-                            KorisnikId = 2,
-                            Mark = 2,
-                            ReceptId = 12
-                        },
-                        new
-                        {
                             Id = 25,
-                            Comment = "I had better in a 5-star restaurant.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 452, DateTimeKind.Local).AddTicks(150),
+                            Comment = "Best eat of my life.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7790),
                             KorisnikId = 2,
                             Mark = 2,
                             ReceptId = 13
@@ -622,8 +622,8 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 26,
-                            Comment = "Easy! My Kids loved it.",
-                            InsertTime = new DateTime(2020, 8, 19, 20, 56, 17, 452, DateTimeKind.Local).AddTicks(190),
+                            Comment = "My mom likes to eat this, so it makes me happy making it for her.",
+                            InsertTime = new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7830),
                             KorisnikId = 2,
                             Mark = 0,
                             ReceptId = 13
@@ -636,9 +636,6 @@ namespace recipe_guru.WebAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("BrojPregleda")
-                        .HasColumnType("bigint");
 
                     b.Property<int>("DuzinaPripreme")
                         .HasColumnType("int");
@@ -658,6 +655,9 @@ namespace recipe_guru.WebAPI.Migrations
                     b.Property<bool>("Public")
                         .HasColumnType("bit");
 
+                    b.Property<int>("ReceptPregledId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ImageResourceId");
@@ -666,151 +666,153 @@ namespace recipe_guru.WebAPI.Migrations
 
                     b.HasIndex("KnjigaRecepataId");
 
+                    b.HasIndex("ReceptPregledId");
+
                     b.ToTable("Recepti");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 4,
                             KategorijaId = 15,
                             KnjigaRecepataId = 3,
                             Naziv = "Colorful Birthday Muffins",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 1
                         },
                         new
                         {
                             Id = 2,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 15,
                             ImageResourceId = 5,
                             KategorijaId = 15,
                             KnjigaRecepataId = 3,
                             Naziv = "Chocolate Musse",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 2
                         },
                         new
                         {
                             Id = 3,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 20,
                             ImageResourceId = 6,
                             KategorijaId = 15,
                             KnjigaRecepataId = 3,
                             Naziv = "Nuts Icecream",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 3
                         },
                         new
                         {
                             Id = 4,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 35,
                             ImageResourceId = 7,
                             KategorijaId = 15,
                             KnjigaRecepataId = 3,
                             Naziv = "Strawberry Cake",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 4
                         },
                         new
                         {
                             Id = 5,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 10,
                             ImageResourceId = 8,
                             KategorijaId = 15,
                             KnjigaRecepataId = 3,
                             Naziv = "Sugar Bits",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 5
                         },
                         new
                         {
                             Id = 6,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 9,
                             KategorijaId = 7,
                             KnjigaRecepataId = 2,
                             Naziv = "Late Night Chicken Soup",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 6
                         },
                         new
                         {
                             Id = 7,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 10,
                             KategorijaId = 7,
                             KnjigaRecepataId = 2,
                             Naziv = "Italian Pasta Soup",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 7
                         },
                         new
                         {
                             Id = 8,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 11,
                             KategorijaId = 7,
                             KnjigaRecepataId = 2,
                             Naziv = "Sick Vegetables",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 8
                         },
                         new
                         {
                             Id = 9,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 12,
                             KategorijaId = 7,
                             KnjigaRecepataId = 2,
                             Naziv = "Grandmas Potato Soup",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 9
                         },
                         new
                         {
                             Id = 10,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 13,
                             KategorijaId = 3,
                             KnjigaRecepataId = 1,
                             Naziv = "Italian Pasta Bolognese",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 10
                         },
                         new
                         {
                             Id = 11,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 14,
                             KategorijaId = 4,
                             KnjigaRecepataId = 1,
                             Naziv = "Southern Pie",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 11
                         },
                         new
                         {
                             Id = 12,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 15,
                             KategorijaId = 4,
                             KnjigaRecepataId = 1,
                             Naziv = "Turkish Ala Doner",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 12
                         },
                         new
                         {
                             Id = 13,
-                            BrojPregleda = 0L,
                             DuzinaPripreme = 30,
                             ImageResourceId = 16,
                             KategorijaId = 8,
                             KnjigaRecepataId = 1,
                             Naziv = "Grilled Fish",
-                            Public = true
+                            Public = true,
+                            ReceptPregledId = 13
                         });
                 });
 
@@ -852,12 +854,7 @@ namespace recipe_guru.WebAPI.Migrations
                     b.Property<int>("BrojPregleda")
                         .HasColumnType("int");
 
-                    b.Property<int>("ReceptId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ReceptId");
 
                     b.ToTable("ReceptPregledi");
 
@@ -865,80 +862,67 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            BrojPregleda = 111,
-                            ReceptId = 1
+                            BrojPregleda = 170
                         },
                         new
                         {
                             Id = 2,
-                            BrojPregleda = 229,
-                            ReceptId = 2
+                            BrojPregleda = 254
                         },
                         new
                         {
                             Id = 3,
-                            BrojPregleda = 215,
-                            ReceptId = 3
+                            BrojPregleda = 253
                         },
                         new
                         {
                             Id = 4,
-                            BrojPregleda = 165,
-                            ReceptId = 4
+                            BrojPregleda = 283
                         },
                         new
                         {
                             Id = 5,
-                            BrojPregleda = 206,
-                            ReceptId = 5
+                            BrojPregleda = 100
                         },
                         new
                         {
                             Id = 6,
-                            BrojPregleda = 18,
-                            ReceptId = 6
+                            BrojPregleda = 239
                         },
                         new
                         {
                             Id = 7,
-                            BrojPregleda = 301,
-                            ReceptId = 7
+                            BrojPregleda = 117
                         },
                         new
                         {
                             Id = 8,
-                            BrojPregleda = 33,
-                            ReceptId = 8
+                            BrojPregleda = 145
                         },
                         new
                         {
                             Id = 9,
-                            BrojPregleda = 111,
-                            ReceptId = 9
+                            BrojPregleda = 284
                         },
                         new
                         {
                             Id = 10,
-                            BrojPregleda = 193,
-                            ReceptId = 10
+                            BrojPregleda = 301
                         },
                         new
                         {
                             Id = 11,
-                            BrojPregleda = 64,
-                            ReceptId = 11
+                            BrojPregleda = 266
                         },
                         new
                         {
                             Id = 12,
-                            BrojPregleda = 24,
-                            ReceptId = 12
+                            BrojPregleda = 186
                         },
                         new
                         {
                             Id = 13,
-                            BrojPregleda = 179,
-                            ReceptId = 13
+                            BrojPregleda = 201
                         });
                 });
 
@@ -968,547 +952,547 @@ namespace recipe_guru.WebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            Kolicina = "106",
-                            Naziv = "Potato",
+                            Kolicina = "176",
+                            Naziv = "Flour",
                             ReceptId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Kolicina = "23",
-                            Naziv = "Sugar",
+                            Kolicina = "13",
+                            Naziv = "Butter",
                             ReceptId = 1
                         },
                         new
                         {
                             Id = 3,
-                            Kolicina = "102",
-                            Naziv = "Cooking Oil",
+                            Kolicina = "16",
+                            Naziv = "Cream",
                             ReceptId = 1
                         },
                         new
                         {
                             Id = 4,
-                            Kolicina = "40",
-                            Naziv = "Ice",
+                            Kolicina = "87",
+                            Naziv = "Salt",
                             ReceptId = 1
                         },
                         new
                         {
                             Id = 5,
-                            Kolicina = "26",
-                            Naziv = "Cooking Oil",
+                            Kolicina = "9",
+                            Naziv = "Chili Powder",
                             ReceptId = 1
                         },
                         new
                         {
                             Id = 6,
-                            Kolicina = "127",
-                            Naziv = "Seasoning",
+                            Kolicina = "72",
+                            Naziv = "Carrots",
                             ReceptId = 1
                         },
                         new
                         {
                             Id = 7,
-                            Kolicina = "119",
-                            Naziv = "Butter",
+                            Kolicina = "115",
+                            Naziv = "Water",
                             ReceptId = 2
                         },
                         new
                         {
                             Id = 8,
-                            Kolicina = "42",
-                            Naziv = "Eggs",
+                            Kolicina = "83",
+                            Naziv = "Ice",
                             ReceptId = 2
                         },
                         new
                         {
                             Id = 9,
-                            Kolicina = "31",
-                            Naziv = "Ice",
+                            Kolicina = "174",
+                            Naziv = "Cream",
                             ReceptId = 2
                         },
                         new
                         {
                             Id = 10,
-                            Kolicina = "192",
-                            Naziv = "Ice",
+                            Kolicina = "124",
+                            Naziv = "Potato",
                             ReceptId = 2
                         },
                         new
                         {
                             Id = 11,
-                            Kolicina = "115",
-                            Naziv = "Milk",
+                            Kolicina = "71",
+                            Naziv = "Sugar",
                             ReceptId = 2
                         },
                         new
                         {
                             Id = 12,
-                            Kolicina = "26",
-                            Naziv = "Salt",
+                            Kolicina = "4",
+                            Naziv = "Water",
                             ReceptId = 2
                         },
                         new
                         {
                             Id = 13,
-                            Kolicina = "44",
+                            Kolicina = "72",
                             Naziv = "Seasoning",
                             ReceptId = 3
                         },
                         new
                         {
                             Id = 14,
-                            Kolicina = "48",
-                            Naziv = "Chicken Drumsticks",
+                            Kolicina = "171",
+                            Naziv = "Chocolate",
                             ReceptId = 3
                         },
                         new
                         {
                             Id = 15,
-                            Kolicina = "175",
-                            Naziv = "Chili Powder",
+                            Kolicina = "59",
+                            Naziv = "Water",
                             ReceptId = 3
                         },
                         new
                         {
                             Id = 16,
-                            Kolicina = "149",
-                            Naziv = "Ice",
+                            Kolicina = "101",
+                            Naziv = "Coconut",
                             ReceptId = 3
                         },
                         new
                         {
                             Id = 17,
-                            Kolicina = "67",
-                            Naziv = "Chicken Drumsticks",
+                            Kolicina = "122",
+                            Naziv = "Butter",
                             ReceptId = 3
                         },
                         new
                         {
                             Id = 18,
-                            Kolicina = "43",
-                            Naziv = "Chocolate",
+                            Kolicina = "171",
+                            Naziv = "Carrots",
                             ReceptId = 3
                         },
                         new
                         {
                             Id = 19,
-                            Kolicina = "8",
-                            Naziv = "Water",
+                            Kolicina = "68",
+                            Naziv = "Chocolate",
                             ReceptId = 4
                         },
                         new
                         {
                             Id = 20,
-                            Kolicina = "131",
-                            Naziv = "Cream",
+                            Kolicina = "133",
+                            Naziv = "Spice",
                             ReceptId = 4
                         },
                         new
                         {
                             Id = 21,
-                            Kolicina = "150",
-                            Naziv = "Ice",
+                            Kolicina = "154",
+                            Naziv = "Water",
                             ReceptId = 4
                         },
                         new
                         {
                             Id = 22,
-                            Kolicina = "141",
-                            Naziv = "Coconut",
+                            Kolicina = "121",
+                            Naziv = "Flour",
                             ReceptId = 4
                         },
                         new
                         {
                             Id = 23,
-                            Kolicina = "111",
-                            Naziv = "Coconut",
+                            Kolicina = "135",
+                            Naziv = "Ice",
                             ReceptId = 4
                         },
                         new
                         {
                             Id = 24,
-                            Kolicina = "80",
-                            Naziv = "Butter",
+                            Kolicina = "196",
+                            Naziv = "Cooking Oil",
                             ReceptId = 4
                         },
                         new
                         {
                             Id = 25,
-                            Kolicina = "66",
-                            Naziv = "Flour",
+                            Kolicina = "196",
+                            Naziv = "Milk",
                             ReceptId = 5
                         },
                         new
                         {
                             Id = 26,
-                            Kolicina = "153",
-                            Naziv = "Spice",
-                            ReceptId = 5
-                        },
-                        new
-                        {
-                            Id = 27,
-                            Kolicina = "21",
+                            Kolicina = "52",
                             Naziv = "Chili Powder",
                             ReceptId = 5
                         },
                         new
                         {
+                            Id = 27,
+                            Kolicina = "124",
+                            Naziv = "Seasoning",
+                            ReceptId = 5
+                        },
+                        new
+                        {
                             Id = 28,
-                            Kolicina = "195",
-                            Naziv = "Spice",
+                            Kolicina = "40",
+                            Naziv = "Coconut",
                             ReceptId = 5
                         },
                         new
                         {
                             Id = 29,
-                            Kolicina = "183",
-                            Naziv = "Milk",
+                            Kolicina = "136",
+                            Naziv = "Sugar",
                             ReceptId = 5
                         },
                         new
                         {
                             Id = 30,
-                            Kolicina = "10",
-                            Naziv = "Cream",
+                            Kolicina = "131",
+                            Naziv = "Butter",
                             ReceptId = 5
                         },
                         new
                         {
                             Id = 31,
-                            Kolicina = "126",
-                            Naziv = "Milk",
+                            Kolicina = "93",
+                            Naziv = "Butter",
                             ReceptId = 6
                         },
                         new
                         {
                             Id = 32,
-                            Kolicina = "155",
-                            Naziv = "Cream",
+                            Kolicina = "30",
+                            Naziv = "Cooking Oil",
                             ReceptId = 6
                         },
                         new
                         {
                             Id = 33,
-                            Kolicina = "191",
-                            Naziv = "Butter",
+                            Kolicina = "152",
+                            Naziv = "Water",
                             ReceptId = 6
                         },
                         new
                         {
                             Id = 34,
-                            Kolicina = "96",
-                            Naziv = "Spice",
+                            Kolicina = "112",
+                            Naziv = "Butter",
                             ReceptId = 6
                         },
                         new
                         {
                             Id = 35,
-                            Kolicina = "119",
-                            Naziv = "Spice",
+                            Kolicina = "62",
+                            Naziv = "Chocolate",
                             ReceptId = 6
                         },
                         new
                         {
                             Id = 36,
-                            Kolicina = "165",
-                            Naziv = "Cooking Oil",
+                            Kolicina = "66",
+                            Naziv = "Butter",
                             ReceptId = 6
                         },
                         new
                         {
                             Id = 37,
-                            Kolicina = "68",
-                            Naziv = "Sugar",
+                            Kolicina = "129",
+                            Naziv = "Flour",
                             ReceptId = 7
                         },
                         new
                         {
                             Id = 38,
-                            Kolicina = "102",
-                            Naziv = "Butter",
+                            Kolicina = "156",
+                            Naziv = "Carrots",
                             ReceptId = 7
                         },
                         new
                         {
                             Id = 39,
-                            Kolicina = "100",
-                            Naziv = "Eggs",
+                            Kolicina = "105",
+                            Naziv = "Ice",
                             ReceptId = 7
                         },
                         new
                         {
                             Id = 40,
-                            Kolicina = "5",
-                            Naziv = "Cream",
+                            Kolicina = "185",
+                            Naziv = "Cooking Oil",
                             ReceptId = 7
                         },
                         new
                         {
                             Id = 41,
-                            Kolicina = "119",
-                            Naziv = "Ice",
+                            Kolicina = "30",
+                            Naziv = "Cooking Oil",
                             ReceptId = 7
                         },
                         new
                         {
                             Id = 42,
-                            Kolicina = "98",
-                            Naziv = "Spice",
+                            Kolicina = "39",
+                            Naziv = "Chocolate",
                             ReceptId = 7
                         },
                         new
                         {
                             Id = 43,
-                            Kolicina = "59",
-                            Naziv = "Cream",
+                            Kolicina = "30",
+                            Naziv = "Carrots",
                             ReceptId = 8
                         },
                         new
                         {
                             Id = 44,
-                            Kolicina = "123",
-                            Naziv = "Butter",
+                            Kolicina = "48",
+                            Naziv = "Chocolate",
                             ReceptId = 8
                         },
                         new
                         {
                             Id = 45,
-                            Kolicina = "77",
-                            Naziv = "Water",
+                            Kolicina = "163",
+                            Naziv = "Chili Powder",
                             ReceptId = 8
                         },
                         new
                         {
                             Id = 46,
-                            Kolicina = "96",
-                            Naziv = "Sugar",
+                            Kolicina = "21",
+                            Naziv = "Ice",
                             ReceptId = 8
                         },
                         new
                         {
                             Id = 47,
-                            Kolicina = "56",
-                            Naziv = "Eggs",
+                            Kolicina = "63",
+                            Naziv = "Cooking Oil",
                             ReceptId = 8
                         },
                         new
                         {
                             Id = 48,
-                            Kolicina = "187",
-                            Naziv = "Chocolate",
+                            Kolicina = "170",
+                            Naziv = "Seasoning",
                             ReceptId = 8
                         },
                         new
                         {
                             Id = 49,
-                            Kolicina = "64",
-                            Naziv = "Cooking Oil",
+                            Kolicina = "175",
+                            Naziv = "Butter",
                             ReceptId = 9
                         },
                         new
                         {
                             Id = 50,
-                            Kolicina = "193",
-                            Naziv = "Chicken Drumsticks",
+                            Kolicina = "66",
+                            Naziv = "Chocolate",
                             ReceptId = 9
                         },
                         new
                         {
                             Id = 51,
-                            Kolicina = "10",
-                            Naziv = "Sugar",
+                            Kolicina = "73",
+                            Naziv = "Chocolate",
                             ReceptId = 9
                         },
                         new
                         {
                             Id = 52,
-                            Kolicina = "112",
-                            Naziv = "Potato",
+                            Kolicina = "164",
+                            Naziv = "Milk",
                             ReceptId = 9
                         },
                         new
                         {
                             Id = 53,
-                            Kolicina = "11",
-                            Naziv = "Spice",
+                            Kolicina = "25",
+                            Naziv = "Potato",
                             ReceptId = 9
                         },
                         new
                         {
                             Id = 54,
-                            Kolicina = "3",
-                            Naziv = "Ice",
+                            Kolicina = "49",
+                            Naziv = "Chicken Drumsticks",
                             ReceptId = 9
                         },
                         new
                         {
                             Id = 55,
-                            Kolicina = "84",
-                            Naziv = "Milk",
+                            Kolicina = "63",
+                            Naziv = "Seasoning",
                             ReceptId = 10
                         },
                         new
                         {
                             Id = 56,
-                            Kolicina = "57",
-                            Naziv = "Cooking Oil",
+                            Kolicina = "58",
+                            Naziv = "Cream",
                             ReceptId = 10
                         },
                         new
                         {
                             Id = 57,
-                            Kolicina = "156",
-                            Naziv = "Sugar",
+                            Kolicina = "154",
+                            Naziv = "Water",
                             ReceptId = 10
                         },
                         new
                         {
                             Id = 58,
-                            Kolicina = "130",
-                            Naziv = "Flour",
+                            Kolicina = "38",
+                            Naziv = "Cooking Oil",
                             ReceptId = 10
                         },
                         new
                         {
                             Id = 59,
-                            Kolicina = "181",
-                            Naziv = "Carrots",
+                            Kolicina = "164",
+                            Naziv = "Cooking Oil",
                             ReceptId = 10
                         },
                         new
                         {
                             Id = 60,
-                            Kolicina = "2",
-                            Naziv = "Chocolate",
+                            Kolicina = "162",
+                            Naziv = "Cream",
                             ReceptId = 10
                         },
                         new
                         {
                             Id = 61,
-                            Kolicina = "143",
-                            Naziv = "Coconut",
+                            Kolicina = "107",
+                            Naziv = "Potato",
                             ReceptId = 11
                         },
                         new
                         {
                             Id = 62,
-                            Kolicina = "7",
-                            Naziv = "Sugar",
+                            Kolicina = "43",
+                            Naziv = "Chocolate",
                             ReceptId = 11
                         },
                         new
                         {
                             Id = 63,
-                            Kolicina = "178",
-                            Naziv = "Salt",
+                            Kolicina = "137",
+                            Naziv = "Coconut",
                             ReceptId = 11
                         },
                         new
                         {
                             Id = 64,
-                            Kolicina = "68",
-                            Naziv = "Ice",
+                            Kolicina = "124",
+                            Naziv = "Cream",
                             ReceptId = 11
                         },
                         new
                         {
                             Id = 65,
-                            Kolicina = "198",
-                            Naziv = "Water",
+                            Kolicina = "36",
+                            Naziv = "Milk",
                             ReceptId = 11
                         },
                         new
                         {
                             Id = 66,
-                            Kolicina = "110",
-                            Naziv = "Salt",
+                            Kolicina = "13",
+                            Naziv = "Chili Powder",
                             ReceptId = 11
                         },
                         new
                         {
                             Id = 67,
-                            Kolicina = "193",
+                            Kolicina = "74",
                             Naziv = "Eggs",
                             ReceptId = 12
                         },
                         new
                         {
                             Id = 68,
-                            Kolicina = "175",
-                            Naziv = "Water",
+                            Kolicina = "119",
+                            Naziv = "Spice",
                             ReceptId = 12
                         },
                         new
                         {
                             Id = 69,
-                            Kolicina = "44",
-                            Naziv = "Seasoning",
+                            Kolicina = "155",
+                            Naziv = "Cream",
                             ReceptId = 12
                         },
                         new
                         {
                             Id = 70,
-                            Kolicina = "149",
-                            Naziv = "Potato",
+                            Kolicina = "33",
+                            Naziv = "Salt",
                             ReceptId = 12
                         },
                         new
                         {
                             Id = 71,
-                            Kolicina = "168",
-                            Naziv = "Water",
-                            ReceptId = 12
-                        },
-                        new
-                        {
-                            Id = 72,
-                            Kolicina = "32",
+                            Kolicina = "113",
                             Naziv = "Chicken Drumsticks",
                             ReceptId = 12
                         },
                         new
                         {
+                            Id = 72,
+                            Kolicina = "178",
+                            Naziv = "Eggs",
+                            ReceptId = 12
+                        },
+                        new
+                        {
                             Id = 73,
-                            Kolicina = "138",
-                            Naziv = "Sugar",
+                            Kolicina = "15",
+                            Naziv = "Ice",
                             ReceptId = 13
                         },
                         new
                         {
                             Id = 74,
-                            Kolicina = "102",
-                            Naziv = "Potato",
+                            Kolicina = "34",
+                            Naziv = "Cooking Oil",
                             ReceptId = 13
                         },
                         new
                         {
                             Id = 75,
-                            Kolicina = "38",
-                            Naziv = "Carrots",
+                            Kolicina = "82",
+                            Naziv = "Chocolate",
                             ReceptId = 13
                         },
                         new
                         {
                             Id = 76,
-                            Kolicina = "44",
-                            Naziv = "Flour",
+                            Kolicina = "141",
+                            Naziv = "Ice",
                             ReceptId = 13
                         },
                         new
                         {
                             Id = 77,
-                            Kolicina = "87",
-                            Naziv = "Spice",
+                            Kolicina = "138",
+                            Naziv = "Potato",
                             ReceptId = 13
                         },
                         new
                         {
                             Id = 78,
-                            Kolicina = "179",
-                            Naziv = "Cooking Oil",
+                            Kolicina = "152",
+                            Naziv = "Coconut",
                             ReceptId = 13
                         });
                 });
@@ -1596,6 +1580,12 @@ namespace recipe_guru.WebAPI.Migrations
                         .HasForeignKey("KnjigaRecepataId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("recipe_guru.WebAPI.Database.ReceptPregled", "ReceptPregled")
+                        .WithMany()
+                        .HasForeignKey("ReceptPregledId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptKorak", b =>
@@ -1606,15 +1596,6 @@ namespace recipe_guru.WebAPI.Migrations
 
                     b.HasOne("recipe_guru.WebAPI.Database.Recept", "Recept")
                         .WithMany("ReceptKoraci")
-                        .HasForeignKey("ReceptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("recipe_guru.WebAPI.Database.ReceptPregled", b =>
-                {
-                    b.HasOne("recipe_guru.WebAPI.Database.Recept", "Recept")
-                        .WithMany()
                         .HasForeignKey("ReceptId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

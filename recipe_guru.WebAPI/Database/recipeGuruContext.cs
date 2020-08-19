@@ -267,164 +267,240 @@ namespace recipe_guru.WebAPI.Database
 
             // Desserts
 
+            Random random3 = new Random();
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 1,
+                BrojPregleda = random3.Next(14, 324)
+            });
+
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 1,
                 KnjigaRecepataId = 3,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Colorful Birthday Muffins",
                 Public = true,
                 KategorijaId = 15,
-                ImageResourceId = 4
+                ImageResourceId = 4,
+                ReceptPregledId = 1
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 2,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 2,
                 KnjigaRecepataId = 3,
-                BrojPregleda = 0,
                 DuzinaPripreme = 15,
                 Naziv = "Chocolate Musse",
                 Public = true,
                 KategorijaId = 15,
-                ImageResourceId = 5
+                ImageResourceId = 5,
+                ReceptPregledId = 2
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 3,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 3,
                 KnjigaRecepataId = 3,
-                BrojPregleda = 0,
                 DuzinaPripreme = 20,
                 Naziv = "Nuts Icecream",
                 Public = true,
                 KategorijaId = 15,
-                ImageResourceId = 6
+                ImageResourceId = 6,
+                ReceptPregledId = 3
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 4,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 4,
                 KnjigaRecepataId = 3,
-                BrojPregleda = 0,
                 DuzinaPripreme = 35,
                 Naziv = "Strawberry Cake",
                 Public = true,
                 KategorijaId = 15,
-                ImageResourceId = 7
+                ImageResourceId = 7,
+                ReceptPregledId = 4
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 5,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 5,
                 KnjigaRecepataId = 3,
-                BrojPregleda = 0,
                 DuzinaPripreme = 10,
                 Naziv = "Sugar Bits",
                 Public = true,
                 KategorijaId = 15,
-                ImageResourceId = 8
+                ImageResourceId = 8,
+                ReceptPregledId = 5
             });
 
             // Soups
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 6,
+                BrojPregleda = random3.Next(14, 324)
+            });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 6,
                 KnjigaRecepataId = 2,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Late Night Chicken Soup",
                 Public = true,
                 KategorijaId = 7,
-                ImageResourceId = 9
+                ImageResourceId = 9,
+                ReceptPregledId = 6
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 7,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 7,
                 KnjigaRecepataId = 2,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Italian Pasta Soup",
                 Public = true,
                 KategorijaId = 7,
-                ImageResourceId = 10
+                ImageResourceId = 10,
+                ReceptPregledId = 7
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 8,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 8,
                 KnjigaRecepataId = 2,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Sick Vegetables",
                 Public = true,
                 KategorijaId = 7,
-                ImageResourceId = 11
+                ImageResourceId = 11,
+                ReceptPregledId = 8
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 9,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 9,
                 KnjigaRecepataId = 2,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Grandmas Potato Soup",
                 Public = true,
                 KategorijaId = 7,
-                ImageResourceId = 12
+                ImageResourceId = 12,
+                ReceptPregledId = 9
             });
 
             // Foods
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 10,
+                BrojPregleda = random3.Next(14, 324)
+            });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 10,
                 KnjigaRecepataId = 1,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Italian Pasta Bolognese",
                 Public = true,
                 KategorijaId = 3,
-                ImageResourceId = 13
+                ImageResourceId = 13,
+                ReceptPregledId = 10
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 11,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 11,
                 KnjigaRecepataId = 1,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Southern Pie",
                 Public = true,
                 KategorijaId = 4,
-                ImageResourceId = 14
+                ImageResourceId = 14,
+                ReceptPregledId = 11
+            });
+
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 12,
+                BrojPregleda = random3.Next(14, 324)
             });
 
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 12,
                 KnjigaRecepataId = 1,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Turkish Ala Doner",
                 Public = true,
                 KategorijaId = 4,
-                ImageResourceId = 15
+                ImageResourceId = 15,
+                ReceptPregledId = 12
             });
 
+            modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
+            {
+                Id = 13,
+                BrojPregleda = random3.Next(14, 324)
+            });
             modelBuilder.Entity<Recept>().HasData(new Recept()
             {
                 Id = 13,
                 KnjigaRecepataId = 1,
-                BrojPregleda = 0,
                 DuzinaPripreme = 30,
                 Naziv = "Grilled Fish",
                 Public = true,
                 KategorijaId = 8,
-                ImageResourceId = 16
+                ImageResourceId = 16,
+                ReceptPregledId = 13
             });
 
             List<string> sastojci = new List<string> {
@@ -497,15 +573,6 @@ namespace recipe_guru.WebAPI.Database
                         Comment = ratings[random2.Next(0,9)]
                     });
                 }
-
-                Random random3 = new Random();
-                modelBuilder.Entity<ReceptPregled>().HasData(new ReceptPregled()
-                {
-
-                    Id = receptPregledId++,
-                    ReceptId = r,
-                    BrojPregleda = random3.Next(14, 324)
-                });
             }
         }
 

@@ -16,6 +16,7 @@ namespace recipe_guru.Mobile.ViewModels
         private readonly APIService _ImageResourceService = new APIService("ImageResource");
         private readonly APIService _KategorijeService = new APIService("Kategorije");
         private readonly APIService _RatingService = new APIService("Rating");
+        private readonly APIService _ReceptPregledService = new APIService("ReceptPregled");
 
         public ObservableCollection<string> Sastojci { get; set; } = new ObservableCollection<string>();
 
@@ -75,6 +76,12 @@ namespace recipe_guru.Mobile.ViewModels
             try
             {
                 Model.Recept recept = await _ReceptService.GetById<Model.Recept>(receptId);
+
+                var oldPregledi = await _ReceptPregledService.GetById<Model.ReceptPregled>(recept.ReceptPregledId);
+
+                await _ReceptPregledService.Update<Model.ReceptPregled>(oldPregledi.Id, new Model.Requests.ReceptPregledUpsertRequest {
+                    BrojPregleda = oldPregledi.BrojPregleda++
+                });
 
                 var ratings = await _RatingService.Get<List<Model.Rating>>(new Model.Requests.RatingSearchRequest { ReceptId = receptId });
                 int sum = 0;

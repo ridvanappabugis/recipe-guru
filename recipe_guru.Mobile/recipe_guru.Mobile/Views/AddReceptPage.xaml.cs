@@ -15,6 +15,7 @@ namespace recipe_guru.Mobile.Views
         private readonly APIService _ReceptService = new APIService("Recept");
         private readonly APIService _ImageResourceService = new APIService("ImageResource");
         private readonly APIService _ReceptSastojakService = new APIService("ReceptSastojak");
+        private readonly APIService _ReceptPregledService = new APIService("ReceptPregled");
 
 
         private int KnjigaRecepataId { get; set; }
@@ -73,16 +74,20 @@ namespace recipe_guru.Mobile.Views
                     });
                     imageResourceId = imageResource.Id;
                 }
+                var pregeldi = await _ReceptPregledService.Insert<Model.ReceptPregled>(new Model.Requests.ReceptPregledUpsertRequest
+                {
+                    BrojPregleda = 0
+                });
 
                 var recept = await _ReceptService.Insert<Model.Recept>(new Model.Requests.ReceptUpsertRequest
                 {
                     KnjigaRecepataId = KnjigaRecepataId,
                     ImageResourceId = imageResourceId,
-                    BrojPregleda = 0,
                     DuzinaPripreme = Convert.ToInt32(Effort.Text),
                     KategorijaId = ((Model.Kategorija)KategorijaPicker.SelectedItem).Id,
                     Naziv = Name.Text,
-                    Public = true
+                    Public = true,
+                    ReceptPregledId = pregeldi.Id
                 });
 
                 foreach (var sastojak in model.Sastojci)

@@ -34,6 +34,19 @@ namespace recipe_guru.WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ReceptPregledi",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BrojPregleda = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReceptPregledi", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Uloge",
                 columns: table => new
                 {
@@ -110,12 +123,12 @@ namespace recipe_guru.WebAPI.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naziv = table.Column<string>(nullable: true),
-                    BrojPregleda = table.Column<long>(nullable: false),
                     DuzinaPripreme = table.Column<int>(nullable: false),
                     Public = table.Column<bool>(nullable: false),
                     ImageResourceId = table.Column<int>(nullable: true),
                     KnjigaRecepataId = table.Column<int>(nullable: false),
-                    KategorijaId = table.Column<int>(nullable: false)
+                    KategorijaId = table.Column<int>(nullable: false),
+                    ReceptPregledId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -136,6 +149,12 @@ namespace recipe_guru.WebAPI.Migrations
                         name: "FK_Recepti_KnjigeRecepata_KnjigaRecepataId",
                         column: x => x.KnjigaRecepataId,
                         principalTable: "KnjigeRecepata",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Recepti_ReceptPregledi_ReceptPregledId",
+                        column: x => x.ReceptPregledId,
+                        principalTable: "ReceptPregledi",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -198,26 +217,6 @@ namespace recipe_guru.WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ReceptPregledi",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    BrojPregleda = table.Column<int>(nullable: false),
-                    ReceptId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ReceptPregledi", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ReceptPregledi_Recepti_ReceptId",
-                        column: x => x.ReceptId,
-                        principalTable: "Recepti",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ReceptSastojci",
                 columns: table => new
                 {
@@ -273,14 +272,34 @@ namespace recipe_guru.WebAPI.Migrations
                     { 12, "Sandwiches" },
                     { 11, "Pizzas" },
                     { 9, "Appetiser" },
-                    { 1, "Breads and Flour Based Recipes" },
                     { 7, "Soups" },
                     { 6, "Coctels" },
                     { 5, "Salsas, Salads" },
                     { 4, "Supper" },
                     { 3, "Dinner" },
                     { 2, "Breakfast" },
+                    { 1, "Breads and Flour Based Recipes" },
                     { 8, "Main Courses" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ReceptPregledi",
+                columns: new[] { "Id", "BrojPregleda" },
+                values: new object[,]
+                {
+                    { 4, 283 },
+                    { 11, 266 },
+                    { 10, 301 },
+                    { 9, 284 },
+                    { 8, 145 },
+                    { 7, 117 },
+                    { 3, 253 },
+                    { 5, 100 },
+                    { 12, 186 },
+                    { 2, 254 },
+                    { 1, 170 },
+                    { 6, 239 },
+                    { 13, 201 }
                 });
 
             migrationBuilder.InsertData(
@@ -295,12 +314,12 @@ namespace recipe_guru.WebAPI.Migrations
             migrationBuilder.InsertData(
                 table: "Korisnici",
                 columns: new[] { "Id", "Deskripcija", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogaId" },
-                values: new object[] { 1, null, "admin@fit.ba", "Admin", "AdminTest", "YmpXY3s6nVPDtTUdFZ9TEnfWWZU=", "G1kYJEMPV1iWWY4D0hajkw==", "Adminovic", "061234567", 1 });
+                values: new object[] { 1, null, "admin@fit.ba", "Admin", "AdminTest", "vWCH0w7L0sK6ymS54ZUsI2yGsj4=", "CBuvNqfjypsS5n21xuX7EA==", "Adminovic", "061234567", 1 });
 
             migrationBuilder.InsertData(
                 table: "Korisnici",
                 columns: new[] { "Id", "Deskripcija", "Email", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "Telefon", "UlogaId" },
-                values: new object[] { 2, null, "user@fit.ba", "User", "UserTest", "8wC3OIYOHgg/Uf9p0E/pa3/qKkM=", "2ZUYLqrZIZXSy23tUjGQDw==", "Usercic", "061234567", 2 });
+                values: new object[] { 2, null, "user@fit.ba", "User", "UserTest", "eWS7LJpYVk4Pz34cE1KeBlnJqCI=", "/KbLN/nwtQxQRLnVU5/2DQ==", "Usercic", "061234567", 2 });
 
             migrationBuilder.InsertData(
                 table: "KnjigeRecepata",
@@ -319,22 +338,22 @@ namespace recipe_guru.WebAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Recepti",
-                columns: new[] { "Id", "BrojPregleda", "DuzinaPripreme", "ImageResourceId", "KategorijaId", "KnjigaRecepataId", "Naziv", "Public" },
+                columns: new[] { "Id", "DuzinaPripreme", "ImageResourceId", "KategorijaId", "KnjigaRecepataId", "Naziv", "Public", "ReceptPregledId" },
                 values: new object[,]
                 {
-                    { 10, 0L, 30, 13, 3, 1, "Italian Pasta Bolognese", true },
-                    { 11, 0L, 30, 14, 4, 1, "Southern Pie", true },
-                    { 12, 0L, 30, 15, 4, 1, "Turkish Ala Doner", true },
-                    { 13, 0L, 30, 16, 8, 1, "Grilled Fish", true },
-                    { 6, 0L, 30, 9, 7, 2, "Late Night Chicken Soup", true },
-                    { 7, 0L, 30, 10, 7, 2, "Italian Pasta Soup", true },
-                    { 8, 0L, 30, 11, 7, 2, "Sick Vegetables", true },
-                    { 9, 0L, 30, 12, 7, 2, "Grandmas Potato Soup", true },
-                    { 1, 0L, 30, 4, 15, 3, "Colorful Birthday Muffins", true },
-                    { 2, 0L, 15, 5, 15, 3, "Chocolate Musse", true },
-                    { 3, 0L, 20, 6, 15, 3, "Nuts Icecream", true },
-                    { 4, 0L, 35, 7, 15, 3, "Strawberry Cake", true },
-                    { 5, 0L, 10, 8, 15, 3, "Sugar Bits", true }
+                    { 10, 30, 13, 3, 1, "Italian Pasta Bolognese", true, 10 },
+                    { 11, 30, 14, 4, 1, "Southern Pie", true, 11 },
+                    { 12, 30, 15, 4, 1, "Turkish Ala Doner", true, 12 },
+                    { 13, 30, 16, 8, 1, "Grilled Fish", true, 13 },
+                    { 6, 30, 9, 7, 2, "Late Night Chicken Soup", true, 6 },
+                    { 7, 30, 10, 7, 2, "Italian Pasta Soup", true, 7 },
+                    { 8, 30, 11, 7, 2, "Sick Vegetables", true, 8 },
+                    { 9, 30, 12, 7, 2, "Grandmas Potato Soup", true, 9 },
+                    { 1, 30, 4, 15, 3, "Colorful Birthday Muffins", true, 1 },
+                    { 2, 15, 5, 15, 3, "Chocolate Musse", true, 2 },
+                    { 3, 20, 6, 15, 3, "Nuts Icecream", true, 3 },
+                    { 4, 35, 7, 15, 3, "Strawberry Cake", true, 4 },
+                    { 5, 10, 8, 15, 3, "Sugar Bits", true, 5 }
                 });
 
             migrationBuilder.InsertData(
@@ -342,52 +361,32 @@ namespace recipe_guru.WebAPI.Migrations
                 columns: new[] { "Id", "Comment", "InsertTime", "KorisnikId", "Mark", "ReceptId" },
                 values: new object[,]
                 {
-                    { 19, "Just like grandma used to make.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9190), 2, 0, 10 },
-                    { 12, "I had better in a 5-star restaurant.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7870), 2, 3, 6 },
-                    { 26, "Easy! My Kids loved it.", new DateTime(2020, 8, 19, 20, 56, 17, 452, DateTimeKind.Local).AddTicks(190), 2, 0, 13 },
-                    { 25, "I had better in a 5-star restaurant.", new DateTime(2020, 8, 19, 20, 56, 17, 452, DateTimeKind.Local).AddTicks(150), 2, 2, 13 },
-                    { 5, "I had better in a 5-star restaurant.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(6830), 2, 3, 3 },
-                    { 7, "Had better.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7140), 2, 3, 4 },
-                    { 8, "Just like grandma used to make.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7170), 2, 3, 4 },
-                    { 13, "My mom likes to eat this, so it makes me happy making it for her.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8130), 2, 4, 7 },
-                    { 14, "Good Recipe! Had fun making it.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8200), 2, 0, 7 },
-                    { 24, "I had better in a 5-star restaurant.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9860), 2, 2, 12 },
-                    { 23, "Had better.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9830), 2, 3, 12 },
-                    { 4, "I had a blast eating this, but the cooking recipe could use some description on how to cook this in a technical way.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(6460), 2, 0, 2 },
-                    { 11, "Had better.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7820), 2, 4, 6 },
-                    { 15, "My mom likes to eat this, so it makes me happy making it for her.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8460), 2, 3, 8 },
-                    { 3, "Best eat of my life.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(6410), 2, 2, 2 },
-                    { 9, "I had a blast eating this, but the cooking recipe could use some description on how to cook this in a technical way.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7480), 2, 3, 5 },
-                    { 20, "Easy! My Kids loved it.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9230), 2, 2, 10 },
-                    { 1, "I had a blast eating this, but the cooking recipe could use some description on how to cook this in a technical way.", new DateTime(2020, 8, 19, 20, 56, 17, 445, DateTimeKind.Local).AddTicks(9200), 2, 3, 1 },
-                    { 18, "Good Recipe! Had fun making it.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8830), 2, 3, 9 },
-                    { 17, "Easy! My Kids loved it.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8790), 2, 3, 9 },
-                    { 16, "Satisfactory, Could be better.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(8500), 2, 0, 8 },
-                    { 2, "Easy! My Kids loved it.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(3870), 2, 2, 1 },
-                    { 21, "Satisfactory, Could be better.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9490), 2, 2, 11 },
-                    { 22, "Best eat of my life.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(9530), 2, 2, 11 },
-                    { 10, "I had better in a 5-star restaurant.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(7520), 2, 0, 5 },
-                    { 6, "Easy! My Kids loved it.", new DateTime(2020, 8, 19, 20, 56, 17, 451, DateTimeKind.Local).AddTicks(6870), 2, 3, 3 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ReceptPregledi",
-                columns: new[] { "Id", "BrojPregleda", "ReceptId" },
-                values: new object[,]
-                {
-                    { 1, 111, 1 },
-                    { 7, 301, 7 },
-                    { 6, 18, 6 },
-                    { 9, 111, 9 },
-                    { 2, 229, 2 },
-                    { 8, 33, 8 },
-                    { 3, 215, 3 },
-                    { 10, 193, 10 },
-                    { 13, 179, 13 },
-                    { 12, 24, 12 },
-                    { 11, 64, 11 },
-                    { 5, 206, 5 },
-                    { 4, 165, 4 }
+                    { 19, "I had better in a 5-star restaurant.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6830), 2, 2, 10 },
+                    { 25, "Best eat of my life.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7790), 2, 2, 13 },
+                    { 26, "My mom likes to eat this, so it makes me happy making it for her.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7830), 2, 0, 13 },
+                    { 6, "Just like grandma used to make.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4780), 2, 4, 3 },
+                    { 18, "Just like grandma used to make.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6560), 2, 3, 9 },
+                    { 11, "Had better.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5630), 2, 2, 6 },
+                    { 12, "Satisfactory, Could be better.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5670), 2, 3, 6 },
+                    { 4, "I had better in a 5-star restaurant.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4460), 2, 4, 2 },
+                    { 3, "My mom likes to eat this, so it makes me happy making it for her.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4420), 2, 4, 2 },
+                    { 13, "Easy! My Kids loved it.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5950), 2, 4, 7 },
+                    { 14, "My mom likes to eat this, so it makes me happy making it for her.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5980), 2, 2, 7 },
+                    { 15, "Had better.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6250), 2, 2, 8 },
+                    { 16, "Satisfactory, Could be better.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6290), 2, 3, 8 },
+                    { 2, "Had better.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4020), 2, 2, 1 },
+                    { 1, "Had better.", new DateTime(2020, 8, 19, 21, 21, 52, 986, DateTimeKind.Local).AddTicks(440), 2, 4, 1 },
+                    { 17, "Best eat of my life.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6520), 2, 4, 9 },
+                    { 7, "Easy! My Kids loved it.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5030), 2, 3, 4 },
+                    { 8, "I had better in a 5-star restaurant.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5070), 2, 3, 4 },
+                    { 5, "I had a blast eating this, but the cooking recipe could use some description on how to cook this in a technical way.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(4710), 2, 4, 3 },
+                    { 23, "Best eat of my life.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7410), 2, 0, 12 },
+                    { 20, "Good Recipe! Had fun making it.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(6870), 2, 4, 10 },
+                    { 10, "Satisfactory, Could be better.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5400), 2, 4, 5 },
+                    { 9, "Good Recipe! Had fun making it.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(5340), 2, 3, 5 },
+                    { 21, "My mom likes to eat this, so it makes me happy making it for her.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7140), 2, 2, 11 },
+                    { 24, "My mom likes to eat this, so it makes me happy making it for her.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7450), 2, 3, 12 },
+                    { 22, "Just like grandma used to make.", new DateTime(2020, 8, 19, 21, 21, 52, 991, DateTimeKind.Local).AddTicks(7180), 2, 4, 11 }
                 });
 
             migrationBuilder.InsertData(
@@ -395,84 +394,84 @@ namespace recipe_guru.WebAPI.Migrations
                 columns: new[] { "Id", "Kolicina", "Naziv", "ReceptId" },
                 values: new object[,]
                 {
-                    { 13, "44", "Seasoning", 3 },
-                    { 23, "111", "Coconut", 4 },
-                    { 24, "80", "Butter", 4 },
-                    { 4, "40", "Ice", 1 },
-                    { 2, "23", "Sugar", 1 },
-                    { 5, "26", "Cooking Oil", 1 },
-                    { 1, "106", "Potato", 1 },
-                    { 25, "66", "Flour", 5 },
-                    { 26, "153", "Spice", 5 },
-                    { 27, "21", "Chili Powder", 5 },
-                    { 28, "195", "Spice", 5 },
-                    { 3, "102", "Cooking Oil", 1 },
-                    { 6, "127", "Seasoning", 1 },
-                    { 21, "150", "Ice", 4 },
-                    { 14, "48", "Chicken Drumsticks", 3 },
-                    { 20, "131", "Cream", 4 },
-                    { 7, "119", "Butter", 2 },
-                    { 19, "8", "Water", 4 },
-                    { 8, "42", "Eggs", 2 },
-                    { 9, "31", "Ice", 2 },
-                    { 10, "192", "Ice", 2 },
-                    { 11, "115", "Milk", 2 },
-                    { 12, "26", "Salt", 2 },
-                    { 18, "43", "Chocolate", 3 },
-                    { 17, "67", "Chicken Drumsticks", 3 },
-                    { 16, "149", "Ice", 3 },
-                    { 15, "175", "Chili Powder", 3 },
-                    { 54, "3", "Ice", 9 },
-                    { 22, "141", "Coconut", 4 },
-                    { 53, "11", "Spice", 9 },
-                    { 44, "123", "Butter", 8 },
-                    { 51, "10", "Sugar", 9 },
-                    { 74, "102", "Potato", 13 },
-                    { 73, "138", "Sugar", 13 },
-                    { 72, "32", "Chicken Drumsticks", 12 },
-                    { 71, "168", "Water", 12 },
-                    { 70, "149", "Potato", 12 },
-                    { 69, "44", "Seasoning", 12 },
-                    { 68, "175", "Water", 12 },
-                    { 67, "193", "Eggs", 12 },
-                    { 66, "110", "Salt", 11 },
-                    { 75, "38", "Carrots", 13 },
-                    { 65, "198", "Water", 11 },
-                    { 63, "178", "Salt", 11 },
-                    { 62, "7", "Sugar", 11 },
-                    { 61, "143", "Coconut", 11 },
-                    { 60, "2", "Chocolate", 10 },
-                    { 59, "181", "Carrots", 10 },
-                    { 58, "130", "Flour", 10 },
-                    { 57, "156", "Sugar", 10 },
-                    { 56, "57", "Cooking Oil", 10 },
-                    { 55, "84", "Milk", 10 },
-                    { 64, "68", "Ice", 11 },
-                    { 52, "112", "Potato", 9 },
-                    { 76, "44", "Flour", 13 },
-                    { 78, "179", "Cooking Oil", 13 },
-                    { 50, "193", "Chicken Drumsticks", 9 },
-                    { 49, "64", "Cooking Oil", 9 },
-                    { 48, "187", "Chocolate", 8 },
-                    { 47, "56", "Eggs", 8 },
-                    { 46, "96", "Sugar", 8 },
-                    { 45, "77", "Water", 8 },
-                    { 29, "183", "Milk", 5 },
-                    { 43, "59", "Cream", 8 },
-                    { 42, "98", "Spice", 7 },
-                    { 77, "87", "Spice", 13 },
-                    { 41, "119", "Ice", 7 },
-                    { 39, "100", "Eggs", 7 },
-                    { 38, "102", "Butter", 7 },
-                    { 37, "68", "Sugar", 7 },
-                    { 36, "165", "Cooking Oil", 6 },
-                    { 35, "119", "Spice", 6 },
-                    { 34, "96", "Spice", 6 },
-                    { 33, "191", "Butter", 6 },
-                    { 32, "155", "Cream", 6 },
-                    { 31, "126", "Milk", 6 },
-                    { 40, "5", "Cream", 7 },
-                    { 30, "10", "Cream", 5 }
+                    { 14, "171", "Chocolate", 3 },
+                    { 18, "171", "Carrots", 3 },
+                    { 51, "73", "Chocolate", 9 },
+                    { 52, "164", "Milk", 9 },
+                    { 53, "25", "Potato", 9 },
+                    { 54, "49", "Chicken Drumsticks", 9 },
+                    { 28, "40", "Coconut", 5 },
+                    { 27, "124", "Seasoning", 5 },
+                    { 26, "52", "Chili Powder", 5 },
+                    { 25, "196", "Milk", 5 },
+                    { 1, "176", "Flour", 1 },
+                    { 2, "13", "Butter", 1 },
+                    { 3, "16", "Cream", 1 },
+                    { 4, "87", "Salt", 1 },
+                    { 5, "9", "Chili Powder", 1 },
+                    { 20, "133", "Spice", 4 },
+                    { 6, "72", "Carrots", 1 },
+                    { 16, "101", "Coconut", 3 },
+                    { 15, "59", "Water", 3 },
+                    { 19, "68", "Chocolate", 4 },
+                    { 7, "115", "Water", 2 },
+                    { 8, "83", "Ice", 2 },
+                    { 9, "174", "Cream", 2 },
+                    { 10, "124", "Potato", 2 },
+                    { 24, "196", "Cooking Oil", 4 },
+                    { 23, "135", "Ice", 4 },
+                    { 11, "71", "Sugar", 2 },
+                    { 12, "4", "Water", 2 },
+                    { 22, "121", "Flour", 4 },
+                    { 21, "154", "Water", 4 },
+                    { 13, "72", "Seasoning", 3 },
+                    { 17, "122", "Butter", 3 },
+                    { 50, "66", "Chocolate", 9 },
+                    { 44, "48", "Chocolate", 8 },
+                    { 48, "170", "Seasoning", 8 },
+                    { 72, "178", "Eggs", 12 },
+                    { 71, "113", "Chicken Drumsticks", 12 },
+                    { 70, "33", "Salt", 12 },
+                    { 69, "155", "Cream", 12 },
+                    { 68, "119", "Spice", 12 },
+                    { 67, "74", "Eggs", 12 },
+                    { 66, "13", "Chili Powder", 11 },
+                    { 65, "36", "Milk", 11 },
+                    { 73, "15", "Ice", 13 },
+                    { 64, "124", "Cream", 11 },
+                    { 62, "43", "Chocolate", 11 },
+                    { 61, "107", "Potato", 11 },
+                    { 60, "162", "Cream", 10 },
+                    { 59, "164", "Cooking Oil", 10 },
+                    { 58, "38", "Cooking Oil", 10 },
+                    { 57, "154", "Water", 10 },
+                    { 56, "58", "Cream", 10 },
+                    { 55, "63", "Seasoning", 10 },
+                    { 63, "137", "Coconut", 11 },
+                    { 74, "34", "Cooking Oil", 13 },
+                    { 75, "82", "Chocolate", 13 },
+                    { 76, "141", "Ice", 13 },
+                    { 47, "63", "Cooking Oil", 8 },
+                    { 46, "21", "Ice", 8 },
+                    { 45, "163", "Chili Powder", 8 },
+                    { 29, "136", "Sugar", 5 },
+                    { 43, "30", "Carrots", 8 },
+                    { 42, "39", "Chocolate", 7 },
+                    { 41, "30", "Cooking Oil", 7 },
+                    { 40, "185", "Cooking Oil", 7 },
+                    { 39, "105", "Ice", 7 },
+                    { 38, "156", "Carrots", 7 },
+                    { 37, "129", "Flour", 7 },
+                    { 36, "66", "Butter", 6 },
+                    { 35, "62", "Chocolate", 6 },
+                    { 34, "112", "Butter", 6 },
+                    { 33, "152", "Water", 6 },
+                    { 32, "30", "Cooking Oil", 6 },
+                    { 31, "93", "Butter", 6 },
+                    { 78, "152", "Coconut", 13 },
+                    { 77, "138", "Potato", 13 },
+                    { 49, "175", "Butter", 9 },
+                    { 30, "131", "Butter", 5 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -529,6 +528,11 @@ namespace recipe_guru.WebAPI.Migrations
                 column: "KnjigaRecepataId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Recepti_ReceptPregledId",
+                table: "Recepti",
+                column: "ReceptPregledId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ReceptKoraci_ImageResourceId",
                 table: "ReceptKoraci",
                 column: "ImageResourceId");
@@ -536,11 +540,6 @@ namespace recipe_guru.WebAPI.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ReceptKoraci_ReceptId",
                 table: "ReceptKoraci",
-                column: "ReceptId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ReceptPregledi_ReceptId",
-                table: "ReceptPregledi",
                 column: "ReceptId");
 
             migrationBuilder.CreateIndex(
@@ -558,9 +557,6 @@ namespace recipe_guru.WebAPI.Migrations
                 name: "ReceptKoraci");
 
             migrationBuilder.DropTable(
-                name: "ReceptPregledi");
-
-            migrationBuilder.DropTable(
                 name: "ReceptSastojci");
 
             migrationBuilder.DropTable(
@@ -571,6 +567,9 @@ namespace recipe_guru.WebAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "KnjigeRecepata");
+
+            migrationBuilder.DropTable(
+                name: "ReceptPregledi");
 
             migrationBuilder.DropTable(
                 name: "ImageResources");
