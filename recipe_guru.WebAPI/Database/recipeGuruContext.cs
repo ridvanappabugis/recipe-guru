@@ -118,19 +118,19 @@ namespace recipe_guru.WebAPI.Database
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 1,
-                ImageByteValue = File.ReadAllBytes("img/supe.png")
+                ImageByteValue = File.ReadAllBytes("img/supe.jpg")
             });
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 2,
-                ImageByteValue = File.ReadAllBytes("img/dessert.png")
+                ImageByteValue = File.ReadAllBytes("img/dessert.jpg")
             });
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 3,
-                ImageByteValue = File.ReadAllBytes("img/food.png")
+                ImageByteValue = File.ReadAllBytes("img/food.jpg")
             });
 
             // Slike Recepata
@@ -140,35 +140,35 @@ namespace recipe_guru.WebAPI.Database
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 4,
-                ImageByteValue = File.ReadAllBytes("img/birthday.png")
+                ImageByteValue = File.ReadAllBytes("img/birthday.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 5,
-                ImageByteValue = File.ReadAllBytes("img/musse.png")
+                ImageByteValue = File.ReadAllBytes("img/musse.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 6,
-                ImageByteValue = File.ReadAllBytes("img/nuts.png")
+                ImageByteValue = File.ReadAllBytes("img/nuts.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 7,
-                ImageByteValue = File.ReadAllBytes("img/strawberry.png")
+                ImageByteValue = File.ReadAllBytes("img/strawberry.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 8,
-                ImageByteValue = File.ReadAllBytes("img/sugarbits.png")
+                ImageByteValue = File.ReadAllBytes("img/sugarbits.jpg")
             });
 
             // Soups
@@ -176,28 +176,28 @@ namespace recipe_guru.WebAPI.Database
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 9,
-                ImageByteValue = File.ReadAllBytes("img/chickensoup.png")
+                ImageByteValue = File.ReadAllBytes("img/chickensoup.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 10,
-                ImageByteValue = File.ReadAllBytes("img/pastasoup.png")
+                ImageByteValue = File.ReadAllBytes("img/pastasoup.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 11,
-                ImageByteValue = File.ReadAllBytes("img/vegetablesoup.png")
+                ImageByteValue = File.ReadAllBytes("img/vegetablesoup.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 12,
-                ImageByteValue = File.ReadAllBytes("img/potatosoup.png")
+                ImageByteValue = File.ReadAllBytes("img/potatosoup.jpg")
             });
 
 
@@ -206,28 +206,28 @@ namespace recipe_guru.WebAPI.Database
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 13,
-                ImageByteValue = File.ReadAllBytes("img/pasta.png")
+                ImageByteValue = File.ReadAllBytes("img/pasta.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 14,
-                ImageByteValue = File.ReadAllBytes("img/pie.png")
+                ImageByteValue = File.ReadAllBytes("img/pie.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 15,
-                ImageByteValue = File.ReadAllBytes("img/doner.png")
+                ImageByteValue = File.ReadAllBytes("img/doner.jpg")
             });
 
 
             modelBuilder.Entity<ImageResource>().HasData(new ImageResource()
             {
                 Id = 16,
-                ImageByteValue = File.ReadAllBytes("img/fish.png")
+                ImageByteValue = File.ReadAllBytes("img/fish.jpg")
             });
 
             // Knjige Recepata
