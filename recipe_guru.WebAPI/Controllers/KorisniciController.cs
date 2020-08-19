@@ -47,7 +47,7 @@ namespace recipe_guru.WebAPI.Controllers
             return _service.GetById(id);
         }
 
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "ADMIN")]
         [HttpDelete("{Id}")]
         public Model.Korisnik Delete(int Id)
         {

@@ -29,7 +29,7 @@ namespace recipe_guru.WebAPI.Controllers
             return _service.Update(id, request);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "ADMIN")]
         [HttpDelete("{Id}")]
         public T Delete(int Id)
         {
