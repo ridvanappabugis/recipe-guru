@@ -1,6 +1,6 @@
 ﻿namespace recipe_guru.WindowsFormsUI.Forms
 {
-    partial class frmRptUser
+    partial class frmRptCategory
     {
         /// <summary>
         /// Required designer variable.
@@ -20,8 +20,6 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -32,43 +30,45 @@
 
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.frmUserSearchVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.frmUserSearchVMBindingSource)).BeginInit();
+            this.frmCategoryVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.frmCategoryVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.frmUserSearchVMBindingSource;
+            reportDataSource1.Value = this.frmCategoryVMBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "recipe_guru.WindowsFormsUI.Reports.rptUsers.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "recipe_guru.WindowsFormsUI.Reports.rptCategory.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1281, 737);
             this.reportViewer1.TabIndex = 0;
             // 
-            // frmUserSearchVMBindingSource
+            // frmCategorySearchVMBindingSource
             // 
-            this.frmUserSearchVMBindingSource.DataSource = typeof(recipe_guru.WindowsFormsUI.ViewModels.frmUserSearchVM);
+            this.frmCategoryVMBindingSource.DataSource = typeof(recipe_guru.WindowsFormsUI.ViewModels.frmUserSearchVM);
             // 
-            // frmRptUser
+            // frmRptCategoy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1281, 737);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "frmRptUser";
-            this.Text = "frmRptUser";
+            this.Name = "frmRptCategory";
+            this.Text = "frmRptCategory";
             this.Load += new System.EventHandler(this.frmRptUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.frmUserSearchVMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmCategoryVMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
+        #region Windows Form Designer generated code
+
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource frmUserSearchVMBindingSource;
+        private System.Windows.Forms.BindingSource frmCategoryVMBindingSource;
     }
 }

@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIndex));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.movieAndTvShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recipesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +51,6 @@
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
-            this.movieAndTvShowToolStripMenuItem,
             this.personToolStripMenuItem,
             this.userToolStripMenuItem,
             this.aboutToolStripMenuItem});
@@ -70,24 +67,12 @@
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
-            // movieAndTvShowToolStripMenuItem
-            // 
-            this.movieAndTvShowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.recipesToolStripMenuItem});
-            this.movieAndTvShowToolStripMenuItem.Name = "movieAndTvShowToolStripMenuItem";
-            this.movieAndTvShowToolStripMenuItem.Size = new System.Drawing.Size(195, 29);
-            this.movieAndTvShowToolStripMenuItem.Text = "System Recipe Books";
-            // 
-            // recipesToolStripMenuItem
-            // 
-            this.recipesToolStripMenuItem.Name = "recipesToolStripMenuItem";
-            this.recipesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            // 
             // personToolStripMenuItem
             // 
             this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(112, 29);
-            this.personToolStripMenuItem.Text = "Categories";
+            this.personToolStripMenuItem.Size = new System.Drawing.Size(231, 29);
+            this.personToolStripMenuItem.Text = "Category Statistics Report";
+            this.personToolStripMenuItem.Click += new System.EventHandler(this.personToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
@@ -101,14 +86,14 @@
             // addToolStripMenuItem2
             // 
             this.addToolStripMenuItem2.Name = "addToolStripMenuItem2";
-            this.addToolStripMenuItem2.Size = new System.Drawing.Size(166, 34);
+            this.addToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
             this.addToolStripMenuItem2.Text = "Add";
             this.addToolStripMenuItem2.Click += new System.EventHandler(this.addToolStripMenuItem2_Click);
             // 
             // searchToolStripMenuItem2
             // 
             this.searchToolStripMenuItem2.Name = "searchToolStripMenuItem2";
-            this.searchToolStripMenuItem2.Size = new System.Drawing.Size(166, 34);
+            this.searchToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
             this.searchToolStripMenuItem2.Text = "Search";
             this.searchToolStripMenuItem2.Click += new System.EventHandler(this.searchToolStripMenuItem2_Click);
             // 
@@ -166,7 +151,6 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem movieAndTvShowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem personToolStripMenuItem;
@@ -176,7 +160,6 @@
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem recipesToolStripMenuItem;
     }
 }
 

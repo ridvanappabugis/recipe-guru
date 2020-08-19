@@ -14,7 +14,6 @@ namespace recipe_guru.WindowsFormsUI.Forms
         APIService _serviceUser = new APIService("Korisnici");
         APIService _serviceUserType = new APIService("Uloge");
 
-
         public frmUserSearch()
         {
             InitializeComponent();
