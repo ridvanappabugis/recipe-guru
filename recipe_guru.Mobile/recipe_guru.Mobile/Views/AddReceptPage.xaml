@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="recipe_guru.Mobile.Views.AddReceptPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20,35,20,20">
+                <Label Text="Add Recipe" Margin="0,30,0,30" FontAttributes="Bold" FontSize="20"></Label>
+
+                <Image x:Name="image" Source="notfound.png" />
+                <Button Text="Pick Photo"
+                        Clicked="OnPickPhotoButtonClicked" Margin="20" BackgroundColor="SandyBrown" TextColor="white"/>
+
+                <Label Text="Recipe Name"></Label>
+                <Entry x:Name="Name"></Entry>
+                <Label Text="Description"></Label>
+                <Entry x:Name="Description"></Entry>
+                <Label Text="Category"></Label>
+                <Picker Grid.Column="0" x:Name="KategorijaPicker"
+                        ItemsSource="{Binding Kategorije}" ItemDisplayBinding="{Binding Naziv}"/>
+                <Label Text="Effort in Minutes"></Label>
+                <Entry x:Name="Effort" Keyboard="Numeric"></Entry>
+
+                <Label Text="Add Ingredient"></Label>
+                <Entry Placeholder="Ammount" x:Name="IngredientAmmount" Keyboard="Numeric"></Entry>
+                <Entry Placeholder="Ingredient Name" x:Name="IngredientName"></Entry>
+                <Button Text="Add Ingredient"
+                         Margin="20" Clicked="OnAddIngredientButtonClicked" BackgroundColor="SandyBrown" TextColor="white"/>
+            
+                <Label Text="Ingredients"></Label>
+                <Frame BorderColor="Gray" Margin="50">
+                    <ListView x:Name="ListViewMenu" 
+                    SeparatorColor="Transparent"
+                    BackgroundColor="White" HasUnevenRows="True" ItemsSource="{Binding Sastojci}">
+       
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label HorizontalTextAlignment="Center" Text="{Binding PuniNaziv}" FontSize="Medium"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+
+                <Button Text="Save"
+                         Margin="20" Clicked="OnSaveButtonClicked" BackgroundColor="SandyBrown" TextColor="white"/>
+            </StackLayout>  
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

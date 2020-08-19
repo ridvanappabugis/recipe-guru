@@ -33,6 +33,7 @@ namespace recipe_guru.Mobile.Views
 
         public async void OnButtonClicked(object sender, EventArgs e)
         {
+            await Navigation.PushModalAsync(new AddReceptPage(model.KnjigaId));
         }
     }
 }

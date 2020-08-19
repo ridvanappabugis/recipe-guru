@@ -8,7 +8,7 @@ namespace recipe_guru.Model.Requests
         [Required]
         public string Kolicina { get; set; }
         [Required]
-        public string Nazic { get; set; }
+        public string Naziv { get; set; }
         [Required]
         public int ReceptId { get; set; }
     }
