@@ -50,7 +50,7 @@
             // 
             // frmUserSearchVMBindingSource
             // 
-            this.frmUserSearchVMBindingSource.DataSource = typeof(recipe_guru.WindowsFormsUI.ViewModels.frmUserSearchVM);
+            this.frmUserSearchVMBindingSource.DataSource = typeof(recipe_guru.Model.ReportModels.frmUserSearchVM);
             // 
             // frmRptUser
             // 

@@ -9,14 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using recipe_guru.Model.ReportModels;
-
+using recipe_guru.Model.Requests;
 
 namespace recipe_guru.WindowsFormsUI.Forms
 {
     public partial class frmCategories : Form
     {
         APIService _serviceKategorije = new APIService("Kategorije");
-        APIService _serviceUserType = new APIService("Recept");
+        APIService _serviceRecept = new APIService("Recept");
+        APIService _serviceRating = new APIService("Rating");
+        APIService _serviceBrojPregleda = new APIService("ReceptPregled");
 
         public frmCategories()
         {
@@ -29,14 +31,31 @@ namespace recipe_guru.WindowsFormsUI.Forms
             List<frmCategoriesVM> vm = new List<frmCategoriesVM>();
             foreach (var item in list)
             {
+                var recepti = await _serviceRecept.GetAll<List<Model.Recept>>(new ReceptSearchRequest { 
+                    KategorijaId = item.Id
+                });
+
+                List<int> avg = new List<int>();
+                int brojPregleda = 0;
+                foreach (var recept in recepti)
+                {
+                    var ratings = await _serviceRating.GetAll<List<Model.Rating>>(new RatingSearchRequest { ReceptId = recept.Id });
+                    var pregled = await _serviceBrojPregleda.GetById<Model.ReceptPregled>(recept.ReceptPregledId);
+
+                    avg.Add((int)ratings.Average(x => (int)x.Mark));
+                    brojPregleda = pregled.BrojPregleda + brojPregleda;
+
+                }
+
                 frmCategoriesVM categoryStatistics = new frmCategoriesVM
                 {
                     Id = item.Id,
                     Naziv = item.Naziv,
-                    AvgRating = 0,
-                    BrojPregleda = 0,
-                    BrojRecepata = 0
-                };
+                    AvgRating = (int) avg.Average(x => x),
+                    BrojPregleda = brojPregleda,
+                    BrojRecepata = recepti.Count()
+                }; 
+
                 vm.Add(categoryStatistics);
             }
             dgvCategory.DataSource = vm;
