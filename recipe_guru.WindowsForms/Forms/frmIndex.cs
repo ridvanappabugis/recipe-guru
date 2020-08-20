@@ -27,26 +27,6 @@ namespace recipe_guru.WindowsFormsUI.Forms
             childForm.Show();
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
-        }
-
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmHome frm = new frmHome();
@@ -74,6 +54,13 @@ namespace recipe_guru.WindowsFormsUI.Forms
             frmCategories frm = new frmCategories();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLoginUser frm = new frmLoginUser();
+            frm.Show();
+            this.Hide();
         }
     }
 }

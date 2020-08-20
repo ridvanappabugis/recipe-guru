@@ -44,14 +44,13 @@ namespace recipe_guru.WindowsFormsUI.Forms
 
                     avg.Add((int)ratings.Average(x => (int)x.Mark));
                     brojPregleda = pregled.BrojPregleda + brojPregleda;
-
                 }
 
                 frmCategoriesVM categoryStatistics = new frmCategoriesVM
                 {
                     Id = item.Id,
                     Naziv = item.Naziv,
-                    AvgRating = (int) avg.Average(x => x),
+                    AvgRating = avg.Count() != 0 ? (int) avg.Average(x => x) + 1 : 0,
                     BrojPregleda = brojPregleda,
                     BrojRecepata = recepti.Count()
                 }; 

@@ -31,12 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCategory = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +44,8 @@
             // 
             this.dgvCategory.AllowUserToAddRows = false;
             this.dgvCategory.AllowUserToDeleteRows = false;
-            this.dgvCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCategory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCategory.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -69,29 +70,17 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCategory.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCategory.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvCategory.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvCategory.Location = new System.Drawing.Point(12, 61);
+            this.dgvCategory.Location = new System.Drawing.Point(0, 0);
             this.dgvCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.ReadOnly = true;
             this.dgvCategory.RowHeadersWidth = 51;
             this.dgvCategory.RowTemplate.Height = 24;
             this.dgvCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategory.Size = new System.Drawing.Size(1636, 560);
+            this.dgvCategory.Size = new System.Drawing.Size(1689, 560);
             this.dgvCategory.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1116, 645);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(253, 40);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Generate report";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Id
             // 
@@ -100,7 +89,6 @@
             this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 125;
             // 
             // Type
             // 
@@ -109,7 +97,6 @@
             this.Type.MinimumWidth = 6;
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
-            this.Type.Width = 300;
             // 
             // Username
             // 
@@ -118,7 +105,6 @@
             this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
             this.Username.ReadOnly = true;
-            this.Username.Width = 300;
             // 
             // FirstName
             // 
@@ -127,7 +113,6 @@
             this.FirstName.MinimumWidth = 6;
             this.FirstName.Name = "FirstName";
             this.FirstName.ReadOnly = true;
-            this.FirstName.Width = 300;
             // 
             // LastName
             // 
@@ -136,7 +121,19 @@
             this.LastName.MinimumWidth = 6;
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
-            this.LastName.Width = 300;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1098, 558);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(253, 40);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Generate report";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmCategories
             // 

@@ -6,11 +6,9 @@ namespace recipe_guru.Model.Requests
 {
     public class ReceptUpsertRequest
     {
-        [Required(AllowEmptyStrings = false)]
         public string Naziv { get; set; }
 
-        [Required]
-        public int DuzinaPripreme { get; set; }
+        public int? DuzinaPripreme { get; set; }
 
         public bool Public { get; set; } = true;
 
@@ -18,12 +16,10 @@ namespace recipe_guru.Model.Requests
 
         public int? ImageResourceId { get; set; }
 
-        [Required]
-        public int KnjigaRecepataId { get; set; }
+        public int? KnjigaRecepataId { get; set; }
 
-        [Required]
-        public int KategorijaId { get; set; }
+        public int? KategorijaId { get; set; }
 
-        public int ReceptPregledId { get; set; }
+        public int? ReceptPregledId { get; set; }
     }
 }

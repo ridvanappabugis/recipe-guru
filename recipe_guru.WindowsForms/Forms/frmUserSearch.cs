@@ -35,7 +35,7 @@ namespace recipe_guru.WindowsFormsUI.Forms
 
         private async Task LoadUsers()
         {
-            KorisniciInsertRequest request = new KorisniciInsertRequest
+            KorisniciSearchRequest request = new KorisniciSearchRequest
             {
                 KorisnickoIme = txtSearch.Text
             };
@@ -77,8 +77,8 @@ namespace recipe_guru.WindowsFormsUI.Forms
         private async void dgvUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var item = dgvUser.SelectedRows[0].DataBoundItem;
-            var MTVS = await _serviceUser.GetById<Korisnik>((item as frmUserSearchVM).Id);
-            frmUserAdd frm = new frmUserAdd(MTVS);
+            var korisnik = await _serviceUser.GetById<Korisnik>((item as frmUserSearchVM).Id);
+            frmUserAdd frm = new frmUserAdd(korisnik);
             frm.WindowState = FormWindowState.Normal;
             frm.Show();
         }

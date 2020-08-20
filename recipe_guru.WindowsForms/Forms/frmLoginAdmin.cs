@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace recipe_guru.WindowsFormsUI.Forms
 {
-    public partial class frmLogin : Form
+    public partial class frmLoginAdmin : Form
     {
         APIService _service = new APIService("Uloge");
 
-        public frmLogin()
+        public frmLoginAdmin()
         {
             InitializeComponent();
         }

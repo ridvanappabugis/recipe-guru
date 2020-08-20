@@ -104,11 +104,23 @@
     <Compile Include="Forms\frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLogin.cs">
+    <Compile Include="Forms\frmLoginAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="Forms\frmLoginAdmin.Designer.cs">
+      <DependentUpon>frmLoginAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLoginUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLoginUser.Designer.cs">
+      <DependentUpon>frmLoginUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRecipeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRecipeEdit.Designer.cs">
+      <DependentUpon>frmRecipeEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmRptCategory.cs">
       <SubType>Form</SubType>
@@ -140,6 +152,12 @@
     <Compile Include="Forms\frmUserSearch.Designer.cs">
       <DependentUpon>frmUserSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmUserProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUserProfile.Designer.cs">
+      <DependentUpon>frmUserProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\frmCategories.resx">
@@ -148,8 +166,14 @@
     <EmbeddedResource Include="Forms\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmLoginAdmin.resx">
+      <DependentUpon>frmLoginAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLoginUser.resx">
+      <DependentUpon>frmLoginUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRecipeEdit.resx">
+      <DependentUpon>frmRecipeEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRptCategory.resx">
       <DependentUpon>frmRptCategory.cs</DependentUpon>
@@ -165,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUserSearch.resx">
       <DependentUpon>frmUserSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUserProfile.resx">
+      <DependentUpon>frmUserProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

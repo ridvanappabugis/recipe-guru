@@ -49,9 +49,9 @@ namespace recipe_guru.WebAPI.Services
                 query = query.Where(x => x.Ime.StartsWith(request.Ime));
             }
 
-            if (!string.IsNullOrWhiteSpace(request?.UserName))
+            if (!string.IsNullOrWhiteSpace(request?.KorisnickoIme))
             {
-                query = query.Where(x => x.KorisnickoIme.StartsWith(request.UserName));
+                query = query.Where(x => x.KorisnickoIme.StartsWith(request.KorisnickoIme));
             }
 
             if (!string.IsNullOrWhiteSpace(request?.Prezime))
@@ -59,9 +59,9 @@ namespace recipe_guru.WebAPI.Services
                 query = query.Where(x => x.Prezime.StartsWith(request.Prezime));
             }
 
-            if(request?.IsUlogeLoadingEnabled == true)
+            if(request?.UlogaId != null && request?.UlogaId != 0)
             {
-                query = query.Include(x => x.Uloga);
+                query = query.Where(x => x.UlogaId == request.UlogaId);
             }
 
             var list = query.ToList();
