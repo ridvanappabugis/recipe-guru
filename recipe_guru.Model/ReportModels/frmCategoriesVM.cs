@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace recipe_guru.WindowsFormsUI.ViewModels
+namespace recipe_guru.Model.ReportModels
 {
-    class frmCategoriesVM
+    public class frmCategoriesVM
     {
         public int Id { get; set; }
         public string Naziv { get; set; }

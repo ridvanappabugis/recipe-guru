@@ -48,7 +48,7 @@
             // 
             // frmCategorySearchVMBindingSource
             // 
-            this.frmCategoryVMBindingSource.DataSource = typeof(recipe_guru.WindowsFormsUI.ViewModels.frmUserSearchVM);
+            this.frmCategoryVMBindingSource.DataSource = typeof(recipe_guru.Model.ReportModels.frmCategoriesVM);
             // 
             // frmRptCategoy
             // 

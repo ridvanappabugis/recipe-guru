@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using recipe_guru.WindowsFormsUI.ViewModels;
+using recipe_guru.Model.ReportModels;
 
 namespace recipe_guru.WindowsFormsUI.Forms
 {

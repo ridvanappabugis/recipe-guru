@@ -1,4 +1,5 @@
 ﻿
+using recipe_guru.Model.ReportModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using recipe_guru.WindowsFormsUI.ViewModels;
 
 namespace recipe_guru.WindowsFormsUI.Forms
 {

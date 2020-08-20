@@ -1,4 +1,5 @@
-﻿using System;
+﻿using recipe_guru.Model.ReportModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,8 @@ namespace recipe_guru.WindowsFormsUI.Forms
 {
     public partial class frmRptCategory : Form
     {
-        private List<frmCategories> _source;
-        public frmRptCategory(List<frmCategories> _source)
+        private List<frmCategoriesVM> _source;
+        public frmRptCategory(List<frmCategoriesVM> _source)
         {
             InitializeComponent();
             this._source = _source;

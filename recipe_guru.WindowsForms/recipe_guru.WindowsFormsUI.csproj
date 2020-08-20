@@ -176,12 +176,45 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\rptCategories.rdlc" />
     <EmbeddedResource Include="Reports\rptUsers.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MoviePick.Data.Model.Person.datasource" />
     <None Include="Properties\DataSources\MoviePick.Data.ViewModel.frmMovieTvShowSearchVM.datasource" />
     <None Include="Properties\DataSources\MoviePick.Data.ViewModel.frmNewsSearchVM.datasource" />
     <None Include="Properties\DataSources\MoviePick.Data.ViewModel.frmUserSearchVM.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.ImageResource.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Kategorija.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.KnjigaRecepata.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Korisnik.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.ObjectExtension.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Rating.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Recept.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.ReceptKorak.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.ReceptPregled.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.ReceptSastojak.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.ReportModels.frmCategoriesVM.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.ReportModels.frmUserSearchVM.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ImageResourceSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ImageResourceUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.KnjigaRecepataSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.KnjigaRecepataUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.KorisniciInsertRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.KorisniciSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.RatingSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.RatingUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ReceptKoraciSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ReceptKoraciUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ReceptPregledSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ReceptPregledUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ReceptSastojakSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ReceptSastojakUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ReceptSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.ReceptUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Requests.RecommendSearchRequest.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.Model.Uloga.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.WindowsFormsUI.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\recipe_guru.WindowsFormsUI.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -192,8 +225,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="logo.ico" />
-    <Compile Include="ViewModels\frmCategoriesVM.cs" />
-    <Compile Include="ViewModels\frmUserSearchVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -216,6 +247,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

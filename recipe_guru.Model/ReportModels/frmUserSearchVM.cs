@@ -1,5 +1,5 @@
 ﻿using System;
-namespace recipe_guru.WindowsFormsUI.ViewModels
+namespace recipe_guru.Model.ReportModels
 {
     public class frmUserSearchVM
     {

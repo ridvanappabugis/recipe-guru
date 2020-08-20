@@ -1,5 +1,4 @@
-﻿using recipe_guru.WindowsFormsUI.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +8,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using recipe_guru.Model.ReportModels;
+
 
 namespace recipe_guru.WindowsFormsUI.Forms
 {
@@ -20,11 +21,6 @@ namespace recipe_guru.WindowsFormsUI.Forms
         public frmCategories()
         {
             InitializeComponent();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
         }
 
         private async Task LoadCategories()
@@ -48,7 +44,8 @@ namespace recipe_guru.WindowsFormsUI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            frmRptCategory frm = new frmRptCategory(dgvCategory.DataSource as List<frmCategoriesVM>);
+            frm.Show();
         }
 
         private async void frmCategories_Load(object sender, EventArgs e)
