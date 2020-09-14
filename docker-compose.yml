@@ -18,6 +18,9 @@ services:
         build:
             context: .
             dockerfile: recipe_guru.WebAPI/Dockerfile
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - CONNECTION_STRING=Server=recipeguru-sql,1433;Database=p1902_recipeguru;User=sa;Password=reallyStrongPwd123;ConnectRetryCount=0
         ports:
             - 57869:80
         networks:
