@@ -1,4 +1,6 @@
-﻿using System;
+﻿using recipe_guru.Model;
+using recipe_guru.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +16,7 @@ namespace recipe_guru.WindowsFormsUI.Forms
     public partial class frmLoginUser : Form
     {
         APIService _service = new APIService("Kategorije");
+        APIService _serviceUser = new APIService("Korisnici");
 
         public frmLoginUser()
         {
@@ -28,20 +31,25 @@ namespace recipe_guru.WindowsFormsUI.Forms
                 APIService.password = password.Text;
                 await _service.GetAll<dynamic>(null);
 
-                frmUserProfile frm = new frmUserProfile();
-                frm.Show();
+                Korisnik korisnik = (await _serviceUser.GetAll<List<Model.Korisnik>>(new KorisniciSearchRequest { KorisnickoIme = APIService.username }))[0];
+
+                if (korisnik.UlogaId == 1)
+                {
+                    frmIndex frm = new frmIndex();
+                    frm.Show();
+
+                }
+                else
+                {
+                    frmUserProfile frm = new frmUserProfile();
+                    frm.Show();
+
+                }
                 this.Hide();
             }
             catch (Exception ex)
             {
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            frmLoginAdmin frm = new frmLoginAdmin();
-            frm.Show();
-            this.Hide();
         }
     }
 }
