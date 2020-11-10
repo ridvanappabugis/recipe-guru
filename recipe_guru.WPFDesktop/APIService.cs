@@ -14,37 +14,44 @@ namespace recipe_guru.WPFDesktop
         public static string username;
         public static string password;
         public string _resource;
-        public string endpoint = $"{Resources.ApiUrl}";
+        public string _apiUrl = $"{Resources.ApiUrl}";
 
-        public APIService(string resource)
+        public static int UserId { get; set; }
+        public static recipe_guru.Model.Korisnik User { get; set; }
+        public static string Username { get; set; }
+        public static string Password { get; set; }
+
+        private readonly string _route;
+
+        public APIService(string route)
         {
-            _resource = resource;
+            _route = route;
         }
 
-        public async Task<T> GetAll<T>(object searchRequest = null)
+        public async Task<T> Get<T>(object search)
         {
+            var url = $"{_apiUrl}/{_route}";
+
             try
             {
-                var query = "";
-                if (searchRequest != null)
+                if (search != null)
                 {
-                    query = await searchRequest.ToQueryString();
+                    url += "?";
+                    url += await search.ToQueryString();
                 }
 
-                var list = await $"{endpoint}{_resource}?{query}"
-                    .WithBasicAuth(username, password)
-                    .GetJsonAsync<T>();
-                return list;
+                return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             }
             catch (FlurlHttpException ex)
             {
                 if (ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
-                    MessageBox.Show("Wrong username or password.");
+                    MessageBox.Show("Wrong Username or Pasword", "Error", MessageBoxButton.OK);
                 }
                 if (ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Forbidden)
                 {
-                    MessageBox.Show("Forbidden.");
+                    MessageBox.Show("Forbidden", "Error", MessageBoxButton.OK);
+
                 }
                 throw;
             }
@@ -52,22 +59,18 @@ namespace recipe_guru.WPFDesktop
 
         public async Task<T> GetById<T>(object id)
         {
-            var url = $"{endpoint}{_resource}/{id}";
+            var url = $"{_apiUrl}/{_route}/{id}";
 
-            return await url
-                .WithBasicAuth(username, password)
-                .GetJsonAsync<T>();
+            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
         }
 
         public async Task<T> Insert<T>(object request)
         {
-            var url = $"{endpoint}{_resource}";
+            var url = $"{_apiUrl}/{_route}";
 
             try
             {
-                return await url
-                    .WithBasicAuth(username, password)
-                    .PostJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -79,7 +82,8 @@ namespace recipe_guru.WPFDesktop
                     stringBuilder.AppendLine($"{error.Key}, {string.Join(",", error.Value)}");
                 }
 
-                MessageBox.Show(stringBuilder.ToString(), "Error");
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButton.OK);
+
                 return default(T);
             }
 
@@ -89,11 +93,9 @@ namespace recipe_guru.WPFDesktop
         {
             try
             {
-                var url = $"{endpoint}{_resource}/{id}";
+                var url = $"{_apiUrl}/{_route}/{id}";
 
-                return await url
-                    .WithBasicAuth(username, password)
-                    .PutJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -105,31 +107,7 @@ namespace recipe_guru.WPFDesktop
                     stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
                 }
 
-                MessageBox.Show(stringBuilder.ToString());
-                return default(T);
-            }
-
-        }
-
-        public async Task<T> Delete<T>(int id)
-        {
-            try
-            {
-                return await $"{endpoint}{_resource}/{id}"
-                    .WithBasicAuth(username, password)
-                    .DeleteAsync().ReceiveJson<T>();
-            }
-            catch (FlurlHttpException ex)
-            {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
-                var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
-                {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
-
-                MessageBox.Show(stringBuilder.ToString(), "Error");
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButton.OK);
                 return default(T);
             }
 

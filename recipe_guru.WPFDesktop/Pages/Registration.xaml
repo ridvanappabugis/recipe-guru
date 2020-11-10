@@ -1,0 +1,72 @@
+﻿<Page x:Class="recipe_guru.WPFDesktop.Pages.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:recipe_guru.WPFDesktop.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="Registration">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                <GradientStop Color="SandyBrown" Offset="1" />
+                <GradientStop Color="SandyBrown" Offset="0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Height="490" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="White">
+        </Border>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="350" VerticalAlignment="Center">
+                <Image Source="/Images/logo.png" Width="300" Height="300" VerticalAlignment="Center" Margin="30" Stretch="Fill" />
+            </StackPanel>
+            <StackPanel Width="350">
+                <StackPanel Margin="20 40">
+                    <TextBlock Text="User Register" Margin="20" Foreground="SandyBrown" TextAlignment="Center" FontSize="20" FontFamily="Great Vibes"></TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="SandyBrown"/>
+                        <TextBox x:Name="txtFirstName" Margin="10 0" materialDesign:HintAssist.Hint="Enter Your First Name" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="SandyBrown"/>
+                        <TextBox x:Name="txtLastName" Margin="10 0" materialDesign:HintAssist.Hint="Enter Your Last Name" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Foreground="SandyBrown"/>
+                        <TextBox x:Name="txtPhoneNumber" Margin="10 0" materialDesign:HintAssist.Hint="Enter Your Phone Number" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Foreground="SandyBrown"/>
+                        <TextBox x:Name="txtEmail" Margin="10 0" materialDesign:HintAssist.Hint="Enter Your Email" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="SandyBrown"/>
+                        <TextBox x:Name="txtUserName" Margin="10 0" materialDesign:HintAssist.Hint="Enter Your Userame" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="SandyBrown"/>
+                        <PasswordBox x:Name="txtPassword" Margin="10 0" materialDesign:HintAssist.Hint="Password" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="SandyBrown"/>
+                        <PasswordBox x:Name="txtConfirmPassword" Margin="10 0" materialDesign:HintAssist.Hint="Confirm Password" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" />
+                    </StackPanel>
+
+                    <StackPanel Margin="10" HorizontalAlignment="Center">
+                        <Button Width="100" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" 
+                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="SandyBrown"
+                         Background="SandyBrown" Foreground="Beige" ToolTip="Register" x:Name="btnRegister" Click="btnRegister_Click" Content="Register">
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Width="100">
+                <Button Margin="10 20" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                 ToolTip="Go Back" x:Name="btnBack" Click="btnBack_Click" BorderThickness="2" BorderBrush="SandyBrown">
+                    <materialDesign:PackIcon Kind="ArrowBack" Foreground="SandyBrown" Width="30" Height="30" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

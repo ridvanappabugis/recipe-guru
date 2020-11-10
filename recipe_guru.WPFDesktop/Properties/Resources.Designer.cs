@@ -61,7 +61,7 @@ namespace recipe_guru.WPFDesktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://localhost:57869/api/.
+        ///   Looks up a localized string similar to http://localhost:57869/api.
         /// </summary>
         internal static string ApiUrl {
             get {
