@@ -5,10 +5,56 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:recipe_guru.WPFDesktop.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="800"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Background="SandyBrown"
       Title="UserProfile">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Left" Margin="30 10" Panel.ZIndex="1">
+            <Border Width="200" Height="200" Margin="20 20 20 20" BorderThickness="2" BorderBrush="Beige" HorizontalAlignment="Left" CornerRadius="15">
+                <Border.Background>
+                    <ImageBrush ImageSource="\Images\logo.png" x:Name="img_profile" />
+                </Border.Background>
+            </Border>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <TextBlock FontSize="20" Foreground="SandyBrown" x:Name="txtUsername" Text="Username" Margin="5" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Foreground="SandyBrown"/>
+                <TextBlock  FontSize="15"  x:Name="txtEmail" Text="test_email123@email.com" Margin="10 0" Foreground="SandyBrown" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Foreground="SandyBrown"/>
+                <TextBlock FontSize="15" Text="+387 61 641 709" x:Name="txtPhoneNumber" Margin="10 0"  Foreground="SandyBrown" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" >
+                <materialDesign:PackIcon Kind="Settings" Width="25" Height="25" Foreground="SandyBrown"/>
+                <TextBlock FontSize="15" Text="Edit Your Account Information" PreviewMouseDown="txt_SettingsClick"  x:Name="txtSettings" Margin="10 0"  Foreground="SandyBrown" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" >
+                <materialDesign:PackIcon Kind="PasswordReset" Width="25" Height="25" Foreground="SandyBrown"/>
+                <TextBlock FontSize="15" Text="Change Your Password" PreviewMouseDown="txt_PasswordChangeClick"  x:Name="txtPasswordChange" Margin="10 0"  Foreground="SandyBrown" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" >
+                <materialDesign:PackIcon Kind="FaceProfile" Width="25" Height="25" Foreground="SandyBrown"/>
+                <TextBlock FontSize="15" Text="Change Your Picture" PreviewMouseDown="txt_ProfileChangeClick"  x:Name="txtProfileChange" Margin="10 0"  Foreground="SandyBrown" />
+            </StackPanel>
+        </StackPanel>
+
+        <Border Background="White" Margin="20 100 20 20" CornerRadius="15" >
+            <StackPanel VerticalAlignment="Top" Margin="250,20,20,20" HorizontalAlignment="Stretch">
+                <TextBlock Margin="20 10" FontSize="30" x:Name="txtPersonName" Text="User Name" Foreground="DarkGray"/>
+                <TextBlock Margin="20 0" FontSize="20" x:Name="txtTitleName" Text="Aspiring Cook" Foreground="DarkGray"/>
+
+                <TextBlock Margin="20 30 20 10" FontSize="25" Text="About Me" Foreground="DarkGray"/>
+                <RichTextBox Height="300" x:Name="txtDescription" Margin="25 0" />
+            </StackPanel>
+     
+
+
+        </Border>
+
     </Grid>
 </Page>

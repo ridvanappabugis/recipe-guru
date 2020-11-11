@@ -13,7 +13,7 @@ namespace recipe_guru.Model
         public string Telefon { get; set; }
         public string KorisnickoIme { get; set; }
         public bool? Status { get; set; }
-        public ImageResource SlikaProfila { get; set; }
+        public int ImageResourceId { get; set; }
 
         public int UlogaId { get; set; }
         public Uloga Uloga { get; set; }

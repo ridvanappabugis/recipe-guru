@@ -30,6 +30,11 @@ namespace recipe_guru.WPFDesktop.Pages
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            if (txtUsername.Text == null || txtPassword.Password == null)
+            {
+                MessageBox.Show("Login Fields are required.", "Error", MessageBoxButton.OK);
+            }
+
             APIService.Username = txtUsername.Text;
             APIService.Password = txtPassword.Password;
 

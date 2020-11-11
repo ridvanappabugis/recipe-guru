@@ -16,5 +16,7 @@ namespace recipe_guru.Model.Requests
         public string Password { get; set; }
         public string PasswordPotvrda { get; set; }
         public int UlogaId { get; set; }
+        public int? ImageResourceId { get; set; }
+
     }
 }

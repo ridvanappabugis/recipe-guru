@@ -18,5 +18,8 @@ namespace recipe_guru.WebAPI.Database
 
         public int UlogaId { get; set; }
         public Uloga Uloga { get; set; }
+
+        public int? ImageResourceId { get; set; }
+        public virtual ImageResource? ImageResource { get; set; }
     }
 }
