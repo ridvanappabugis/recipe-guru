@@ -78,7 +78,7 @@ namespace recipe_guru.WPFDesktop.Pages
                 }
 
 
-                var newUser = await _serviceUser.Update<Korisnik>(APIService.UserId, new KorisniciInsertRequest
+                var user = await _serviceUser.Update<Korisnik>(APIService.UserId, new KorisniciInsertRequest
                 {
                     KorisnickoIme = APIService.User.KorisnickoIme,
                     Ime = APIService.User.Ime,

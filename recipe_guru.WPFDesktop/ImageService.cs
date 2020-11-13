@@ -47,6 +47,15 @@ namespace recipe_guru.WPFDesktop
 
             return bitmap as ImageSource;
         }
+        public ImageSource uriToImageSource(string uri)
+        {
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = new Uri(uri);
+            image.EndInit();
+
+            return image as ImageSource;
+        }
     }
 
 }

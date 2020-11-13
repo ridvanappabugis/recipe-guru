@@ -22,7 +22,6 @@ namespace recipe_guru.WPFDesktop
         {
             clearHistory();
             _mainFrame.Navigate(new Search());
-
         }
 
         private async void btnHome_Click(object sender, RoutedEventArgs e)
@@ -41,7 +40,7 @@ namespace recipe_guru.WPFDesktop
         private async void btnRecipeBook_Click(object sender, RoutedEventArgs e)
         {
             clearHistory();
-            _mainFrame.Navigate(new RecipeBook());
+            _mainFrame.Navigate(new RecipeBooks());
 
         }
 
