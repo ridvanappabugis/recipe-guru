@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace recipe_guru.WPFDesktop.Pages
 {
@@ -18,9 +11,15 @@ namespace recipe_guru.WPFDesktop.Pages
     /// </summary>
     public partial class Recipe : Page
     {
-        public Recipe()
+        private int KnjigaId;
+        private int RecipeId;
+
+        public Recipe(int KnjigaId, int RecipeId)
         {
             InitializeComponent();
+
+            this.KnjigaId = KnjigaId;
+            this.RecipeId = RecipeId;
         }
     }
 }
