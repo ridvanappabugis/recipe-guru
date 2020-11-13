@@ -18,7 +18,7 @@
                     </Button>
                     <TextBlock x:Name="txtBookName" Text="My Recipes" Margin="20" FontSize="22" FontWeight="Medium" Foreground="SandyBrown"/>
                     <Button Margin="10" HorizontalAlignment="Right" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
-                        ToolTip="Add Recipe Book" x:Name="btnAddRecipe" Click="btnAddRecipe_Click" BorderThickness="2" BorderBrush="SandyBrown">
+                        ToolTip="Add Recipe" x:Name="btnAddRecipe" Click="btnAddRecipe_Click" BorderThickness="2" BorderBrush="SandyBrown">
                         <materialDesign:PackIcon Kind="Add" Foreground="SandyBrown" Width="30" Height="30" />
                     </Button>
 
@@ -36,6 +36,7 @@
                                             <Border.Background>
                                                 <ImageBrush ImageSource="{Binding Image}"/>
                                             </Border.Background>
+                                            <Button Margin="10" Width="230" Height="270" Background="Transparent"/>
                                         </Border>
                                         <TextBlock Margin="5 0" Text="{Binding Naziv}" FontSize="20" Foreground="SandyBrown"/>
                                     </StackPanel>

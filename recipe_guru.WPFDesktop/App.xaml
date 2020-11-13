@@ -9,7 +9,27 @@
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="ItemStyle" TargetType="{x:Type ComboBoxItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                            <Border x:Name="gd" Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ComboBox}},Path=Background}">
+
+                                <ContentPresenter />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                    <Setter TargetName="gd"  Property="Background" Value="SandyBrown"></Setter>
+                                    <Setter TargetName="gd"  Property="TextElement.Foreground" Value="White"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

@@ -29,18 +29,14 @@ namespace recipe_guru.WPFDesktop.Pages
         private readonly APIService _KnjigeRecepataService = new APIService("KnjigaRecepata");
         private readonly APIService _ImageResourceService = new APIService("ImageResource");
 
-        protected override async void OnInitialized(EventArgs e)
+        protected async void loaded_handler(object sender, RoutedEventArgs e)
         {
-            base.OnInitialized(e);
             Refresh();
-
-
         }
-
 
         private async void Refresh()
         {
-            ListViewKnjigeRecepata.ItemsSource = null;
+            ListViewKnjigeRecepata.Items.Clear();
 
             var lista = await _KnjigeRecepataService.Get<List<KnjigaRecepata>>(new Model.Requests.KnjigaRecepataSearchRequest
             {
@@ -60,7 +56,6 @@ namespace recipe_guru.WPFDesktop.Pages
                 });
             }
         }
-
 
         private void btnAddRecipe_Click(object sender, RoutedEventArgs e)
         {
