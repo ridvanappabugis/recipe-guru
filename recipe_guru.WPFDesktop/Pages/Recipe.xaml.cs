@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace recipe_guru.WPFDesktop.Pages
 {
@@ -107,6 +108,8 @@ namespace recipe_guru.WPFDesktop.Pages
 
         private void txt_ViewRatingsClick(object sender, RoutedEventArgs e)
         {
+            NavigationService ns = NavigationService.GetNavigationService(this);
+            ns.Navigate(new ViewUserRatings(RecipeId));
         }
         private void txt_UpdateRecipeClick(object sender, RoutedEventArgs e)
         {
