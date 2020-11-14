@@ -63,7 +63,7 @@ namespace recipe_guru.WPFDesktop.Pages
         private void btnAddRecipe_Click(object sender, RoutedEventArgs e)
         {
             NavigationService ns = NavigationService.GetNavigationService(this);
-            ns.Navigate(new AddRecipe(KnjigaId));
+            ns.Navigate(new AddRecipe(KnjigaId, false, 0));
         }
 
         private void btnViewRecipe_Click(object sender, RoutedEventArgs e)

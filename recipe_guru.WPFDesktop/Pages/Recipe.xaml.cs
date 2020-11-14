@@ -113,6 +113,8 @@ namespace recipe_guru.WPFDesktop.Pages
         }
         private void txt_UpdateRecipeClick(object sender, RoutedEventArgs e)
         {
+            NavigationService ns = NavigationService.GetNavigationService(this);
+            ns.Navigate(new AddRecipe(KnjigaId, true, RecipeId));
         }
         private void txt_DeleteRecipeClick(object sender, RoutedEventArgs e)
         {
