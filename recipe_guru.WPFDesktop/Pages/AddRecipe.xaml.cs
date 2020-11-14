@@ -37,7 +37,6 @@ namespace recipe_guru.WPFDesktop.Pages
         private readonly APIService _KategorijeService = new APIService("Kategorije");
         private bool updatedImage = false;
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<Model.Kategorija> Kategorije { get; set; } = new ObservableCollection<Model.Kategorija>();
         public ObservableCollection<ReceptSastojakListViewItem> Sastojci { get; set; } = new ObservableCollection<ReceptSastojakListViewItem>();
