@@ -17,11 +17,10 @@ namespace recipe_guru.WPFDesktop.Pages
         private int RecipeId;
         private string KnjigaNaziv;
 
-        public Recipe(int KnjigaId, string KnjigaNaziv, int RecipeId)
+        public Recipe(string KnjigaNaziv, int RecipeId)
         {
             InitializeComponent();
 
-            this.KnjigaId = KnjigaId;
             this.KnjigaNaziv = KnjigaNaziv;
             this.RecipeId = RecipeId;
         }
@@ -70,6 +69,7 @@ namespace recipe_guru.WPFDesktop.Pages
                 txtCategoryName.Text = kat.Naziv;
                 txtEffort.Text = recept.DuzinaPripreme.ToString();
                 txtDescription.AppendText(recept.Deskripcija);
+                KnjigaId = recept.KnjigaRecepataId;
 
                 Sastojci.Clear();
 
