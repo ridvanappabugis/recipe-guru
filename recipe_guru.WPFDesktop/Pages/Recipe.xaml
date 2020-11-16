@@ -28,14 +28,24 @@
                 <materialDesign:PackIcon Kind="SmileyHappy" Width="25" Height="25" Foreground="SandyBrown"/>
                 <TextBlock FontSize="15" Text="View User Ratings" PreviewMouseDown="txt_ViewRatingsClick"  x:Name="txtRatings" Margin="10 0"  Foreground="SandyBrown" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" >
-                <materialDesign:PackIcon Kind="Settings" Width="25" Height="25" Foreground="SandyBrown"/>
-                <TextBlock FontSize="15" Text="Edit Recipe Information" PreviewMouseDown="txt_UpdateRecipeClick"  x:Name="txtUpdateRecipe" Margin="10 0"  Foreground="SandyBrown" />
+
+            <StackPanel x:Name="VisitorOptions" Visibility="{Binding isVisitor}">
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <materialDesign:PackIcon Kind="Heart" Width="25" Height="25" Foreground="SandyBrown"/>
+                    <TextBlock FontSize="15" Text="Add Recipe Rating" PreviewMouseDown="txt_AddRatingClick"  x:Name="txtAddRatingRecipe" Margin="10 0"  Foreground="SandyBrown" />
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" >
-                <materialDesign:PackIcon Kind="Delete" Width="25" Height="25" Foreground="SandyBrown"/>
-                <TextBlock FontSize="15" Text="Delete Recipe" PreviewMouseDown="txt_DeleteRecipeClick"  x:Name="txtDeleteRecipe" Margin="10 0"  Foreground="SandyBrown" />
+            <StackPanel x:Name="UserOptions" Visibility="{Binding isUser}">
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <materialDesign:PackIcon Kind="Settings" Width="25" Height="25" Foreground="SandyBrown"/>
+                    <TextBlock FontSize="15" Text="Edit Recipe Information" PreviewMouseDown="txt_UpdateRecipeClick"  x:Name="txtUpdateRecipe" Margin="10 0"  Foreground="SandyBrown" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <materialDesign:PackIcon Kind="Delete" Width="25" Height="25" Foreground="SandyBrown"/>
+                    <TextBlock FontSize="15" Text="Delete Recipe" PreviewMouseDown="txt_DeleteRecipeClick"  x:Name="txtDeleteRecipe" Margin="10 0"  Foreground="SandyBrown" />
+                </StackPanel>
             </StackPanel>
+ 
         </StackPanel>
 
         <Border Background="White" Margin="20 100 20 20" CornerRadius="15" >

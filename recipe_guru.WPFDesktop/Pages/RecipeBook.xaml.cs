@@ -70,7 +70,7 @@ namespace recipe_guru.WPFDesktop.Pages
         {
             Button button = sender as Button;
             NavigationService ns = NavigationService.GetNavigationService(this);
-            ns.Navigate(new Recipe((button.DataContext as ReceptListViewItem).Naziv, (button.DataContext as ReceptListViewItem).Id));
+            ns.Navigate(new Recipe((button.DataContext as ReceptListViewItem).Naziv, (button.DataContext as ReceptListViewItem).Id, true));
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

@@ -14,7 +14,7 @@ namespace recipe_guru.WPFDesktop
         {
             InitializeComponent();
             _mainFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
-            _mainFrame.Navigate(new Home());
+            _mainFrame.Navigate(new RecipeBooks());
 
         }
 
@@ -22,12 +22,6 @@ namespace recipe_guru.WPFDesktop
         {
             clearHistory();
             _mainFrame.Navigate(new Search());
-        }
-
-        private async void btnHome_Click(object sender, RoutedEventArgs e)
-        {
-            clearHistory();
-            _mainFrame.Navigate(new Home());
         }
 
         private async void btnProfile_Click(object sender, RoutedEventArgs e)

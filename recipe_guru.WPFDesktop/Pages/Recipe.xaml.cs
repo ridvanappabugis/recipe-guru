@@ -16,13 +16,18 @@ namespace recipe_guru.WPFDesktop.Pages
         private int KnjigaId;
         private int RecipeId;
         private string KnjigaNaziv;
+        private bool isUser;
+        private bool isVisitor;
 
-        public Recipe(string KnjigaNaziv, int RecipeId)
+        public Recipe(string KnjigaNaziv, int RecipeId, bool isUser)
         {
             InitializeComponent();
 
             this.KnjigaNaziv = KnjigaNaziv;
             this.RecipeId = RecipeId;
+
+            this.isUser = isUser;
+            this.isVisitor = !isUser;
         }
 
         private readonly APIService _ReceptService = new APIService("Recept");
@@ -37,6 +42,9 @@ namespace recipe_guru.WPFDesktop.Pages
         {
             Init();
             SastojciList.ItemsSource = Sastojci;
+            UserOptions.Visibility = isUser? Visibility.Visible : Visibility.Hidden;
+            VisitorOptions.Visibility = isVisitor ? Visibility.Visible : Visibility.Hidden;
+
         }
 
         private async void Init()
@@ -104,6 +112,12 @@ namespace recipe_guru.WPFDesktop.Pages
                     return "\u2605 \u2605 \u2605 \u2605 \u2605";
             };
             return "\u2605";
+        }
+
+        private void txt_AddRatingClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService ns = NavigationService.GetNavigationService(this);
+            ns.Navigate(new AddRating(RecipeId));
         }
 
         private void txt_ViewRatingsClick(object sender, RoutedEventArgs e)
