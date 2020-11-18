@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using recipe_guru.WPFDesktopApp;
 
 namespace recipe_guru.WPFDesktop.Pages
 {
@@ -48,9 +49,19 @@ namespace recipe_guru.WPFDesktop.Pages
                 APIService.User = temp.FirstOrDefault();
                 APIService.UserId = temp.Select(x => x.Id).FirstOrDefault();
 
-                AppWindow mnw = new AppWindow();
-                Window.GetWindow(this).Close();
-                mnw.ShowDialog();
+                if (APIService.User.UlogaId == 1)
+                {
+                    AdminWindow mnw = new AdminWindow();
+                    Window.GetWindow(this).Close();
+                    mnw.ShowDialog();
+                }
+                else
+                {
+                    AppWindow mnw = new AppWindow();
+                    Window.GetWindow(this).Close();
+                    mnw.ShowDialog();
+                }
+                
             }
             catch (Exception ex)
             {

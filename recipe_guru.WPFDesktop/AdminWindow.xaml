@@ -1,0 +1,57 @@
+﻿<Window x:Class="recipe_guru.WPFDesktopApp.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:recipe_guru.WPFDesktop"
+        mc:Ignorable="d"
+        Title="AdminWindow" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         Height="650" Width="900" Background="White" SizeToContent="WidthAndHeight">
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                        Width="50"
+                        
+                       Margin="15"
+                        >
+            <Label Foreground="SandyBrown">Recipe</Label>
+            <Label Foreground="SandyBrown">Guru</Label>
+            <Label Foreground="SandyBrown">Admin</Label>
+
+            <Button Margin="0 10 0 10" Padding ="0" Height="40" Width="40"  Background="{x:Null}"
+                  x:Name="btnUsers" Click="btnUser_Click" BorderThickness="2" BorderBrush="SandyBrown" ToolTip="Users">
+                <materialDesign:PackIcon Kind="FaceProfile" Foreground="SandyBrown" Width="30" Height="30"  />
+            </Button>
+            <Button Margin="0 10 0 10" Padding ="0" Height="40" Width="40"  Background="{x:Null}"
+                  x:Name="btnRecips" Click="btnRecipes_Click" BorderThickness="2" BorderBrush="SandyBrown" ToolTip="Recipes">
+                <materialDesign:PackIcon Kind="Book" Foreground="SandyBrown" Width="30" Height="30"  />
+            </Button>
+            <Button Margin="0 10 0 10" Padding ="0" Height="40" Width="40"  Background="{x:Null}"
+                  x:Name="btnCategories" Click="btnCategories_Click" BorderThickness="2" BorderBrush="SandyBrown" ToolTip="Categories">
+                <materialDesign:PackIcon Kind="Category" Foreground="SandyBrown" Width="30" Height="30"  />
+            </Button>
+            <Button Margin="0 10 0 10" Padding ="0" Height="40" Width="40"  Background="{x:Null}"
+                  x:Name="btnAddAdmin" Click="btnAdmins_Click" BorderThickness="2" BorderBrush="SandyBrown" ToolTip="Admins">
+                <materialDesign:PackIcon Kind="Wrench" Foreground="SandyBrown" Width="30" Height="30"  />
+            </Button>
+            <Button Margin="0 10 0 10" Padding ="0" Height="40" Width="40"  Background="{x:Null}"
+                  x:Name="btnProfile" Click="btnProfile_Click" BorderThickness="2" BorderBrush="SandyBrown" ToolTip="Your Profile">
+                <materialDesign:PackIcon Kind="Settings" Foreground="SandyBrown" Width="30" Height="30" />
+            </Button>
+            <Button Margin="0 10 0 10" Padding ="0" Height="40" Width="40"  Background="{x:Null}"
+                  x:Name="btnLogout" Click="btnLogout_Click" BorderThickness="2" BorderBrush="SandyBrown" ToolTip="Close">
+                <materialDesign:PackIcon Kind="Logout" Foreground="SandyBrown" Width="30" Height="30" />
+            </Button>
+        </StackPanel>
+
+        <Frame  x:Name="_mainFrame" Grid.Column="1"/>
+    </Grid>
+</Window>
