@@ -1,0 +1,32 @@
+﻿<Page x:Class="recipe_guru.WPFDesktopApp.Pages.AdminWelcome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:recipe_guru.WPFDesktopApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminWelcome">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                <GradientStop Color="SandyBrown" Offset="1" />
+                <GradientStop Color="SandyBrown" Offset="0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="White">
+        </Border>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="350">
+                <Image Source="\Images\logo.png" Width="300" Height="300" VerticalAlignment="Top" Margin="30" Stretch="Fill" />
+            </StackPanel>
+            <StackPanel Width="350">
+                <StackPanel Margin="20 40">
+                    <TextBlock Text="Welcome Admin" Margin="20" Foreground="SandyBrown" TextAlignment="Center" FontSize="36" FontFamily="Great Vibes"></TextBlock>
+                    <TextBlock Text="Admin Name" Foreground="SandyBrown" TextAlignment="Center" FontSize="25" FontFamily="Great Vibes" x:Name="txtAdminName"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
