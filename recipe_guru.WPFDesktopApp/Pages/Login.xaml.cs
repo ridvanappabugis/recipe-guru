@@ -49,7 +49,7 @@ namespace recipe_guru.WPFDesktopApp.Pages
                 APIService.User = temp.FirstOrDefault();
                 APIService.UserId = temp.Select(x => x.Id).FirstOrDefault();
 
-                if (APIService.User.UlogaId == 1)
+                if (APIService.User.UlogaId == 2)
                 {
                     AdminWindow mnw = new AdminWindow();
                     Window.GetWindow(this).Close();

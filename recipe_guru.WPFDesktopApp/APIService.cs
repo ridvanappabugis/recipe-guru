@@ -28,6 +28,37 @@ namespace recipe_guru.WPFDesktopApp
             _route = route;
         }
 
+        public async Task<T> GetAll<T>(object searchRequest = null)
+        {
+            try
+            {
+                var query = "";
+                if (searchRequest != null)
+                {
+                    query = await searchRequest.ToQueryString();
+                }
+
+                var list = await $"{_apiUrl}/{_route}?{query}"
+                    .WithBasicAuth(username, password)
+                    .GetJsonAsync<T>();
+                return list;
+            }
+            catch (FlurlHttpException ex)
+            {
+                if (ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    MessageBox.Show("Wrong Username or Pasword", "Error", MessageBoxButton.OK);
+                }
+                if (ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                {
+                    MessageBox.Show("Forbidden", "Error", MessageBoxButton.OK);
+
+                }
+                throw;
+            }
+        }
+
+
         public async Task<T> Get<T>(object search)
         {
             var url = $"{_apiUrl}/{_route}";
