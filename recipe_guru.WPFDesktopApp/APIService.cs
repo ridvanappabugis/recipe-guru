@@ -11,9 +11,7 @@ namespace recipe_guru.WPFDesktopApp
 {
     class APIService
     {
-        public static string username;
-        public static string password;
-        public string _resource;
+
         public string _apiUrl = $"{Resources.ApiUrl}";
 
         public static int UserId { get; set; }
@@ -39,7 +37,7 @@ namespace recipe_guru.WPFDesktopApp
                 }
 
                 var list = await $"{_apiUrl}/{_route}?{query}"
-                    .WithBasicAuth(username, password)
+                    .WithBasicAuth(Username, Password)
                     .GetJsonAsync<T>();
                 return list;
             }

@@ -5,6 +5,48 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:recipe_guru.WPFDesktopApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AdminUsers">
+      Height="450" Width="800" Background="White"
+      Title="AdminUsers" Loaded="frmUserSearch_Load" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="txtBookName" Text="Search Users: " Margin="20" FontSize="22" FontWeight="Medium" Foreground="SandyBrown" VerticalAlignment="Top"/>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBox x:Name="txtSearch" Margin="20" materialDesign:HintAssist.Hint="Enter User Name" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" VerticalAlignment="Top" />
+                        <Border VerticalAlignment="Top" BorderBrush="SandyBrown" BorderThickness="1" Margin="0 20 0 0">
+                            <Button Click="filterEvent" VerticalAlignment="Stretch" Foreground="SandyBrown">Search</Button>
+                        </Border>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+                    <DataGrid Name="dgvUser" CanUserAddRows="false" Margin="0 80 0 60">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Username" Binding="{Binding Username}"></DataGridTextColumn>
+
+                            <DataGridTextColumn Header="Email" Binding="{Binding Email}"></DataGridTextColumn>
+
+                            <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"></DataGridTextColumn>
+
+                            <DataGridTextColumn Header="User Type" Binding="{Binding UserType}"></DataGridTextColumn>
+
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="DeleteUser_Click">Delete</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Border VerticalAlignment="Bottom" BorderBrush="SandyBrown" BorderThickness="1" >
+                <Button Click="CreateReport" VerticalAlignment="Bottom" Foreground="SandyBrown">Create Report</Button>
+            </Border>
+
+        </StackPanel>
+    </Grid>
 </Page>

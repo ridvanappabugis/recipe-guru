@@ -5,10 +5,50 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:recipe_guru.WPFDesktopApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AdminRecipes">
-
+      Height="450" Width="1000" Background="White"
+      Title="AdminRecipes" Loaded="frmRecipes_Load" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
-        
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="txtBookName" Text="Search Recipes: " Margin="20" FontSize="22" FontWeight="Medium" Foreground="SandyBrown" VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBox x:Name="txtSearch" Margin="20" materialDesign:HintAssist.Hint="Enter Recipe Name" Foreground="SandyBrown" Width="250" BorderBrush="SandyBrown" CaretBrush="SandyBrown" SelectionBrush="SandyBrown" />
+                        <Border VerticalAlignment="Center" BorderBrush="SandyBrown" BorderThickness="1">
+                            <Button Click="filterEvent" VerticalAlignment="Stretch" Foreground="SandyBrown">Search</Button>
+                        </Border>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+     
+            </StackPanel>
+        <DataGrid Name="dgvRecipes" CanUserAddRows="false" Margin="0 90 0 60">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Recipe Book Name" Binding="{Binding RecipeBook}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Recipe Name" Binding="{Binding Naziv}"></DataGridTextColumn>
+
+                <DataGridTextColumn Header="No. Views" Binding="{Binding NumberOfViews}"></DataGridTextColumn>
+
+                <DataGridTextColumn Header="No. Ratings" Binding="{Binding NumberOfRatings}"></DataGridTextColumn>
+
+                <DataGridTextColumn Header="Average Rating" Binding="{Binding AverageRating}"></DataGridTextColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button >Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Border VerticalAlignment="Bottom" BorderBrush="SandyBrown" BorderThickness="1" >
+                <Button Click="CreateReport" VerticalAlignment="Bottom" Foreground="SandyBrown">Create Report</Button>
+            </Border>
+
+        </StackPanel>
     </Grid>
 </Page>

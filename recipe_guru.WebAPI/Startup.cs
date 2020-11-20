@@ -84,7 +84,7 @@ namespace recipe_guru
 
             // connection to database
             // Scaffold-DbContext -Connection "Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database -context recipe_guruContext -force
-            services.AddDbContext<recipeGuruContext>(opt => opt.UseSqlServer("Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;")
+            services.AddDbContext<recipeGuruContext>(opt => opt.UseSqlServer(Environment.GetEnvironmentVariable("CONNECTION_STRING"))
             .EnableSensitiveDataLogging());
 
             // basic auth

@@ -39,10 +39,6 @@
                 <materialDesign:PackIcon Kind="Category" Foreground="SandyBrown" Width="30" Height="30"  />
             </Button>
             <Button Margin="0 10 0 10" Padding ="0" Height="40" Width="40"  Background="{x:Null}"
-                  x:Name="btnAddAdmin" Click="btnAdmins_Click" BorderThickness="2" BorderBrush="SandyBrown" ToolTip="Admins">
-                <materialDesign:PackIcon Kind="Wrench" Foreground="SandyBrown" Width="30" Height="30"  />
-            </Button>
-            <Button Margin="0 10 0 10" Padding ="0" Height="40" Width="40"  Background="{x:Null}"
                   x:Name="btnProfile" Click="btnProfile_Click" BorderThickness="2" BorderBrush="SandyBrown" ToolTip="Your Profile">
                 <materialDesign:PackIcon Kind="Settings" Foreground="SandyBrown" Width="30" Height="30" />
             </Button>

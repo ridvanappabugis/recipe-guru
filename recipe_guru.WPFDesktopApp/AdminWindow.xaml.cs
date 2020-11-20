@@ -21,7 +21,7 @@ namespace recipe_guru.WPFDesktopApp
         private async void btnUser_Click(object sender, RoutedEventArgs e)
         {
             clearHistory();
-            //_mainFrame.Navigate(new AdminUsers());
+            _mainFrame.Navigate(new AdminUsers());
         }
 
         private async void btnRecipes_Click(object sender, RoutedEventArgs e)
@@ -41,13 +41,6 @@ namespace recipe_guru.WPFDesktopApp
         {
             clearHistory();
             _mainFrame.Navigate(new UserProfile());
-
-        }
-
-        private async void btnAdmins_Click(object sender, RoutedEventArgs e)
-        {
-            clearHistory();
-            _mainFrame.Navigate(new AdminAddAdmin());
 
         }
 

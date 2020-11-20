@@ -4,11 +4,22 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:recipe_guru.WPFDesktopApp.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      mc:Ignorable="d" Background="White"
+      Height="450" Width="800"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       Title="AdminCategories" Loaded="loaded_handler">
 
-    <Grid Margin="10">
-        <DataGrid Name="dgSCategories"></DataGrid>
-    </Grid>
+        <Grid>
+                <StackPanel Orientation="Horizontal" Margin="20">
+                    <Border VerticalAlignment="Top" Margin="10" BorderBrush="SandyBrown" BorderThickness="1">
+                        <Button Click="addCategory_Click" VerticalAlignment="Stretch" Foreground="SandyBrown">Add Category</Button>
+                    </Border>
+                    <Border VerticalAlignment="Top" Margin="10" BorderBrush="SandyBrown" BorderThickness="1">
+                    <Button Click="CreateReport" VerticalAlignment="Stretch" Foreground="SandyBrown">Create Report</Button>
+                    </Border>
+
+            </StackPanel>
+
+
+                <DataGrid Name="dgSCategories" Margin="0 80 0 0" ItemsSource="{Binding vm}"></DataGrid>
+        </Grid>
 </Page>
