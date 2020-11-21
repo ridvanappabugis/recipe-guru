@@ -27,6 +27,26 @@ namespace recipe_guru.WebAPI.Services
 
         }
 
+        public override Model.Recept Delete(int Id)
+        {
+            var entity = _context.Set<Database.Recept>().Include(x => x.Ratings).Where(x=> x.Id == Id).First();
+            if (entity == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            foreach (var rating in entity.Ratings)
+            {
+                _context.Set<Database.Rating>().Remove(rating);
+            }
+
+            var x = entity;
+            _context.Set<Database.Recept>().Remove(entity);
+            _context.SaveChanges();
+            return _mapper.Map<Model.Recept>(x);
+        }
+
+
         public override List<Model.Recept> Get(ReceptSearchRequest search)
         {
             var query = _context.Recepti

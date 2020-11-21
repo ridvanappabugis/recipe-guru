@@ -14,12 +14,34 @@
                         <Button Click="addCategory_Click" VerticalAlignment="Stretch" Foreground="SandyBrown">Add Category</Button>
                     </Border>
                     <Border VerticalAlignment="Top" Margin="10" BorderBrush="SandyBrown" BorderThickness="1">
-                    <Button Click="CreateReport" VerticalAlignment="Stretch" Foreground="SandyBrown">Create Report</Button>
                     </Border>
 
             </StackPanel>
+            <DataGrid Name="dSgCategories" CanUserAddRows="false" Margin="0 90 0 60">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Naziv}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Average Rating" Binding="{Binding AvgRating}"></DataGridTextColumn>
+
+                <DataGridTextColumn Header="No. Views" Binding="{Binding BrojPregleda}"></DataGridTextColumn>
+
+                <DataGridTextColumn Header="No. Recipes" Binding="{Binding BrojRecepata}"></DataGridTextColumn>
 
 
-                <DataGrid Name="dgSCategories" Margin="0 80 0 0" ItemsSource="{Binding vm}"></DataGrid>
-        </Grid>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="deleteCategory" >Delete</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Border VerticalAlignment="Bottom" BorderBrush="SandyBrown" BorderThickness="1" >
+                    <Button Click="CreateReport" VerticalAlignment="Bottom" Foreground="SandyBrown">Create Report</Button>
+                </Border>
+
+            </StackPanel>
+    </Grid>
 </Page>

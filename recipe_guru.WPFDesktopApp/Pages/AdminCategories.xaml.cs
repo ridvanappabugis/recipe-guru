@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Navigation;
 using recipe_guru.Model.ReportModels;
 using recipe_guru.Model.Requests;
 
@@ -30,7 +31,8 @@ namespace recipe_guru.WPFDesktopApp.Pages
 
         private async void addCategory_Click(object sender, EventArgs e)
         {
-            await LoadCategories();
+            NavigationService ns = NavigationService.GetNavigationService(this);
+            ns.Navigate(new AdminAddCategory());
         }
 
         private async Task LoadCategories()
@@ -67,7 +69,9 @@ namespace recipe_guru.WPFDesktopApp.Pages
 
                 vm.Add(categoryStatistics);
             }
-            dgSCategories.ItemsSource = vm;
+
+            dSgCategories.AutoGenerateColumns = false;
+            dSgCategories.ItemsSource = vm;
             CollectionViewSource.GetDefaultView(vm).Refresh();
         }
 
@@ -76,10 +80,33 @@ namespace recipe_guru.WPFDesktopApp.Pages
             await LoadCategories();
         }
 
+        private async void deleteCategory(object sender, EventArgs e)
+        {
+            try
+            {
+
+             
+
+                MessageBoxResult result = MessageBox.Show("This will delete the category and all recipes with it. Are you sure?", "Warning", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Button button = sender as Button;
+                    await _serviceKategorije.Delete(((button.DataContext as frmCategoriesVM).Id));
+                }
+
+                await LoadCategories();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unhandled exception: " + ex.Message, "Error", MessageBoxButton.OK);
+            }
+
+        }
+
         private async void CreateReport(object sender, EventArgs e)
         {
             new ReportingService().CreateCategoriesPDF(vm.ToList());
-            MessageBox.Show("Reprot created.", "Info", MessageBoxButton.OK);
 
         }
     }

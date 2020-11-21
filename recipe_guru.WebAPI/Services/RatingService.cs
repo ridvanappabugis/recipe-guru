@@ -16,7 +16,6 @@ namespace recipe_guru.WebAPI.Services
         {
 
         }
-
         public override List<Model.Rating> Get(RatingSearchRequest search)
         {
             var query = _context.Ratings.AsQueryable();
