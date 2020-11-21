@@ -71,7 +71,6 @@ namespace recipe_guru
 
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IService<Model.Uloga, object>, BaseService<Model.Uloga, object, Uloga>>();
-            services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
             services.AddScoped<IRecommenderService, RecommenderService>();
 
             services.AddScoped<ICRUDService<Model.ImageResource, ImageResourceSearchRequest, ImageResourceUpsertRequest, ImageResourceUpsertRequest>, ImageResourceService>();
@@ -81,6 +80,7 @@ namespace recipe_guru
             services.AddScoped<ICRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest>, ReceptService>();
             services.AddScoped<ICRUDService<Model.ReceptSastojak, ReceptSastojakSearchRequest, ReceptSastojakUpsertRequest, ReceptSastojakUpsertRequest>, ReceptSastojakService>();
             services.AddScoped<ICRUDService<Model.ReceptPregled, ReceptPregledSearchRequest, ReceptPregledUpsertRequest, ReceptPregledUpsertRequest>, ReceptPregledService>();
+            services.AddScoped<ICRUDService<Model.Kategorija, KategorijeSearchRequest, KategorijeAddRequest, KategorijeAddRequest>, KategorijeService>();
 
             // connection to database
             // Scaffold-DbContext -Connection "Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database -context recipe_guruContext -force

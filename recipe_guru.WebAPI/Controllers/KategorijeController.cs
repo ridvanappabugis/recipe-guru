@@ -1,11 +1,12 @@
 ﻿using System;
 using recipe_guru.WebAPI.Services;
+using recipe_guru.Model.Requests;
 
 namespace recipe_guru.WebAPI.Controllers
 {
-    public class KategorijeController : BaseController<Model.Kategorija, object>
+    public class KategorijeController : BaseCRUDController<Model.Kategorija, KategorijeSearchRequest, KategorijeAddRequest, KategorijeAddRequest>
     {
-        public KategorijeController(IService<Model.Kategorija, object> service) : base(service)
+        public KategorijeController(ICRUDService<Model.Kategorija, KategorijeSearchRequest, KategorijeAddRequest, KategorijeAddRequest> service) : base(service)
         {
 
         }

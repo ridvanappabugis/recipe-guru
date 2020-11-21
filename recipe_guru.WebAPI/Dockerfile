@@ -9,7 +9,7 @@ WORKDIR /src
 COPY recipe_guru.WebAPI/recipe_guru.WebAPI.csproj recipe_guru.WebAPI/
 COPY recipe_guru.Model/recipe_guru.Model.csproj recipe_guru.Model/
 
-RUN dotnet restore "recipe_guru.WebAPI/recipe_guru.WebAPI.csproj"
+RUN dotnet restore "recipe_guru.WebAPI/recipe_guru.WebAPI.csproj" --disable-parallel
 COPY . .
 WORKDIR "/src/recipe_guru.WebAPI"
 RUN dotnet build "recipe_guru.WebAPI.csproj" -c Release -o /app/build

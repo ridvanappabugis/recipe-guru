@@ -10,8 +10,6 @@ namespace recipe_guru.WebAPI.Mapper
             CreateMap<Database.Korisnik, Model.Korisnik>();
             CreateMap<Database.Korisnik, Model.Requests.KorisniciInsertRequest>().ReverseMap();
 
-            CreateMap<Database.Kategorija, Model.Kategorija>();
-
             CreateMap<Database.ImageResource, Model.ImageResource>();
             CreateMap<Database.ImageResource, Model.Requests.ImageResourceUpsertRequest>().ReverseMap();
 
@@ -32,6 +30,9 @@ namespace recipe_guru.WebAPI.Mapper
 
             CreateMap<Database.Rating, Model.Rating>();
             CreateMap<Database.Rating, Model.Requests.RatingUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Kategorija, Model.Kategorija>();
+            CreateMap<Database.Kategorija, Model.Requests.KategorijeAddRequest>().ReverseMap();
 
             CreateMap<Database.Uloga, Model.Uloga>();
 
