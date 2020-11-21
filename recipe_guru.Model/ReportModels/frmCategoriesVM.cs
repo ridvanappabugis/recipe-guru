@@ -9,6 +9,7 @@ namespace recipe_guru.Model.ReportModels
     public class frmCategoriesVM
     {
         public int Id { get; set; }
+
         public string Naziv { get; set; }
 
         public int AvgRating { get; set; }

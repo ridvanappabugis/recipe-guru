@@ -22,6 +22,7 @@ namespace recipe_guru.WPFDesktopApp.Pages
         APIService _serviceRecipes = new APIService("Recept");
         APIService _serviceRating = new APIService("Rating");
         APIService _serviceBrojPregleda = new APIService("ReceptPregled");
+        APIService _serviceKategorije = new APIService("Kategorije");
 
         public AdminRecipes()
         {
@@ -56,6 +57,7 @@ namespace recipe_guru.WPFDesktopApp.Pages
                     int brojPregleda = 0;
                     var ratings = await _serviceRating.GetAll<List<Model.Rating>>(new RatingSearchRequest { ReceptId = recept.Id });
                     var pregled = await _serviceBrojPregleda.GetById<Model.ReceptPregled>(recept.ReceptPregledId);
+                    var kategorija = await _serviceKategorije.GetById<Model.Kategorija>(recept.KategorijaId);
 
                     vm.Add(new frmRecipesUsersVM
                     {
@@ -65,7 +67,8 @@ namespace recipe_guru.WPFDesktopApp.Pages
                         RecipeBook = knjiga.Naziv,
                         AverageRating = (int)ratings.Average(x => (int)x.Mark) + 1,
                         NumberOfRatings = ratings.Count(),
-                        NumberOfViews = pregled.BrojPregleda
+                        NumberOfViews = pregled.BrojPregleda,
+                        Kategorija = kategorija.Naziv
                     });
 
                 }
@@ -74,6 +77,28 @@ namespace recipe_guru.WPFDesktopApp.Pages
             dgvRecipes.AutoGenerateColumns = false;
             dgvRecipes.ItemsSource = vm;
             CollectionViewSource.GetDefaultView(vm).Refresh();
+        }
+
+        private async void deleteRecipe(object sender, EventArgs e)
+        {
+            try
+            {
+
+                MessageBoxResult result = MessageBox.Show("This will delete the recipe. Are you sure?", "Warning", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Button button = sender as Button;
+                    await _serviceRecipes.Delete(((button.DataContext as frmRecipesUsersVM).Id));
+                }
+
+                refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unhandled exception: " + ex.Message, "Error", MessageBoxButton.OK);
+            }
+
         }
 
         private void filterEvent(object sender, EventArgs e)

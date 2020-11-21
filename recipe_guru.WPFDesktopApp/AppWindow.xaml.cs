@@ -10,6 +10,8 @@ namespace recipe_guru.WPFDesktopApp
     /// </summary>
     public partial class AppWindow : Window
     {
+        private bool btnDisabled = false;
+
         public AppWindow()
         {
             InitializeComponent();
@@ -40,7 +42,16 @@ namespace recipe_guru.WPFDesktopApp
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (btnDisabled)
+            {
+                return;
+            }
+            btnDisabled = true;
+
+            LoginWindow mnw = new LoginWindow();
+            Window.GetWindow(this).Close();
+            mnw.ShowDialog();
+            btnDisabled = false;
         }
 
         private void clearHistory()

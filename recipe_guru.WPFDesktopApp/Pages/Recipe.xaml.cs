@@ -130,8 +130,27 @@ namespace recipe_guru.WPFDesktopApp.Pages
             NavigationService ns = NavigationService.GetNavigationService(this);
             ns.Navigate(new AddRecipe(KnjigaId, true, RecipeId));
         }
-        private void txt_DeleteRecipeClick(object sender, RoutedEventArgs e)
+        private async void txt_DeleteRecipeClick(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
+                MessageBoxResult result = MessageBox.Show("This will delete the recipe. Are you sure?", "Warning", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Button button = sender as Button;
+                    await _ReceptService.Delete(RecipeId);
+                }
+                MessageBox.Show("Recipe Deleted", "info", MessageBoxButton.OK);
+
+                NavigationService.GoBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unhandled exception: " + ex.Message, "Error", MessageBoxButton.OK);
+            }
+
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

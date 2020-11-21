@@ -68,16 +68,6 @@ namespace recipe_guru.WPFDesktopApp.Pages
             await LoadUsers();
         }
 
-        private void DeleteUser_Click(object sender, EventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this user?", "Warning", MessageBoxButton.YesNo);
-
-            if (result == MessageBoxResult.Yes)
-            {
-                // delete
-            }
-        }
-
         private async void CreateReport(object sender, EventArgs e)
         {
             new ReportingService().CreateUsersPDF(vm.ToList());

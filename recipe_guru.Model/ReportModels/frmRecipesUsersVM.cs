@@ -13,6 +13,8 @@ namespace recipe_guru.Model.ReportModels
         public string Naziv { get; set; }
         public string Description { get; set; }
 
+        public string Kategorija { get; set; }
+
         public int NumberOfViews { get; set; }
 
         public int NumberOfRatings { get; set; }
