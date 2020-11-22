@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:recipe_guru.WPFDesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800" Width="800" Height="650"
-      Title="Recipe Book" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Loaded="loaded_handler">
+      Title="Recipe Book" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"   Loaded="loaded_handler">
 
     <Grid>
         <ScrollViewer Grid.Column="1" Grid.Row="1" Background="White">

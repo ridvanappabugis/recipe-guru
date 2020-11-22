@@ -141,10 +141,10 @@ namespace recipe_guru.WPFDesktopApp.Pages
                 {
                     Button button = sender as Button;
                     await _ReceptService.Delete(RecipeId);
+                    MessageBox.Show("Recipe Deleted", "info", MessageBoxButton.OK);
+                    NavigationService.GoBack();
                 }
-                MessageBox.Show("Recipe Deleted", "info", MessageBoxButton.OK);
 
-                NavigationService.GoBack();
             }
             catch (Exception ex)
             {
