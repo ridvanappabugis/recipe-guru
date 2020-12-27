@@ -368,7 +368,11 @@
     <Content Include="Reports\rptUsers.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reports\rptRecipes.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\recipe_guru.Model.ReportModels.frmRecipesUsersVM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

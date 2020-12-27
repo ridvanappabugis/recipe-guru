@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.SqlClient;
-using System.Data;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
@@ -51,13 +48,12 @@ namespace recipe_guru.WPFDesktopApp
         private void SaveReport(ReportViewer viewer)
         {
             // Variables  
-            Warning[] warnings;
-            string[] streamIds;
+   
             string mimeType = string.Empty;
             string encoding = string.Empty;
             string extension = string.Empty;
 
-            byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+            byte[] bytes = viewer.LocalReport.Render("PDF");
 
             using (var dialog = new System.Windows.Forms.SaveFileDialog())
             {

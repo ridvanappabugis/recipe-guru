@@ -60,7 +60,7 @@ namespace recipe_guru.WPFDesktopApp.Pages
                     Prezime = txtLastName.Text,
                     Email = txtEmail.Text,
                     Telefon = txtPhoneNumber.Text,
-                    UlogaId = 2,
+                    UlogaId = APIService.User.UlogaId,
                     Deskripcija = "Loer"
                 });
 

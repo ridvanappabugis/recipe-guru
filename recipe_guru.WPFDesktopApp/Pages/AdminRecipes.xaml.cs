@@ -16,7 +16,6 @@ namespace recipe_guru.WPFDesktopApp.Pages
     public partial class AdminRecipes : Page
     {
 
-
         APIService _serviceUser = new APIService("Korisnici");
         APIService _serviceKnjigaRecepata = new APIService("KnjigaRecepata");
         APIService _serviceRecipes = new APIService("Recept");
@@ -39,9 +38,9 @@ namespace recipe_guru.WPFDesktopApp.Pages
 
         private async void refresh()
         {
-            var listKnjiga = await _serviceKnjigaRecepata.GetAll<List<Model.KnjigaRecepata>>(new KnjigaRecepataSearchRequest ());
+            vm.Clear();
 
-            List<frmRecipesUsersVM> vm = new List<frmRecipesUsersVM>();
+            var listKnjiga = await _serviceKnjigaRecepata.GetAll<List<Model.KnjigaRecepata>>(new KnjigaRecepataSearchRequest ());
 
             foreach (var knjiga in listKnjiga)
             {
