@@ -53,6 +53,7 @@ namespace recipe_guru.WPFDesktopApp
             string encoding = string.Empty;
             string extension = string.Empty;
 
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             byte[] bytes = viewer.LocalReport.Render("PDF");
 
             using (var dialog = new System.Windows.Forms.SaveFileDialog())
