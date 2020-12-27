@@ -2,7 +2,9 @@
 using recipe_guru.Model.Requests;
 using System;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -31,6 +33,23 @@ namespace recipe_guru.WPFDesktopApp.Pages
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                  string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text)
+                  || string.IsNullOrWhiteSpace(txtUserName.Text) || string.IsNullOrWhiteSpace(txtPassword.Password) || string.IsNullOrWhiteSpace(txtConfirmPassword.Password))
+                {
+                    MessageBox.Show("All Fields are required.", "Error", MessageBoxButton.OK);
+                    return;
+                }
+                if (!Regex.IsMatch(txtPhoneNumber.Text, @"^\d+$"))
+                {
+                    MessageBox.Show("Phone Number must be numeric.", "Error", MessageBoxButton.OK);
+                    return;
+                }
+                if (!IsValid(txtEmail.Text))
+                {
+                    MessageBox.Show("Invalid Email format.", "Error", MessageBoxButton.OK);
+                    return;
+                }
                 if (txtPassword.Password != txtConfirmPassword.Password)
                 {
                     MessageBox.Show("Passwords do not match! Try again.", "Error", MessageBoxButton.OK);
@@ -42,6 +61,12 @@ namespace recipe_guru.WPFDesktopApp.Pages
                     if (txtUserName.Text == item.KorisnickoIme)
                     {
                         MessageBox.Show("Username already exists.", "Error", MessageBoxButton.OK);
+                        return;
+                    }
+
+                    if (txtEmail.Text == item.Email)
+                    {
+                        MessageBox.Show("Email already exists.", "Error", MessageBoxButton.OK);
                         return;
                     }
                 }
@@ -80,6 +105,20 @@ namespace recipe_guru.WPFDesktopApp.Pages
         {
             NavigationService ns = NavigationService.GetNavigationService(this);
             ns.GoBack();
+        }
+
+        public bool IsValid(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }

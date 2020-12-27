@@ -2,6 +2,8 @@
 using recipe_guru.Model.Requests;
 using System;
 using System.Collections.Generic;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -37,6 +39,18 @@ namespace recipe_guru.WPFDesktopApp.Pages
                     return;
                 }
 
+                if (!Regex.IsMatch(txtPhoneNumber.Text, @"^\d+$"))
+                {
+                    MessageBox.Show("Phone Number must be numeric.", "Error", MessageBoxButton.OK);
+                    return;
+                }
+
+                if (!IsValid(txtEmail.Text))
+                {
+                    MessageBox.Show("Invalid Email format.", "Error", MessageBoxButton.OK);
+                    return;
+                }
+
                 if (txtUserName.Text.Length < 4)
                 {
                     MessageBox.Show("User Name must have 4 characters.", "Error", MessageBoxButton.OK);
@@ -46,9 +60,15 @@ namespace recipe_guru.WPFDesktopApp.Pages
                 var listUsers = await _serviceUser.Get<List<Model.Korisnik>>(null);
                 foreach (var item in listUsers)
                 {
-                    if (txtUserName.Text == item.KorisnickoIme && APIService.Username != item.KorisnickoIme)
+                    if (txtUserName.Text == item.KorisnickoIme && APIService.UserId != item.Id)
                     {
                         MessageBox.Show("User Name already exists.", "Error", MessageBoxButton.OK);
+                        return;
+                    }
+
+                    if (txtEmail.Text == item.Email && APIService.UserId != item.Id)
+                    {
+                        MessageBox.Show("Email already exists.", "Error", MessageBoxButton.OK);
                         return;
                     }
                 }
@@ -89,6 +109,20 @@ namespace recipe_guru.WPFDesktopApp.Pages
         {
             NavigationService ns = NavigationService.GetNavigationService(this);
             ns.GoBack();
+        }
+
+        public bool IsValid(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }

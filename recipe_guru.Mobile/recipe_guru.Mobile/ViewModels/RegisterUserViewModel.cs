@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace recipe_guru.Mobile.ViewModels
 {
@@ -34,6 +36,25 @@ namespace recipe_guru.Mobile.ViewModels
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(LastName) ||
+                  string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Phone)
+                  || string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(PasswordConfirm))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "All fields are required.", "Try again");
+                    return;
+                }
+
+                if (!Regex.IsMatch(Phone, @"^\d+$"))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Phone number must be numeric.", "Try again");
+                    return;
+                }
+
+                if (!IsValidEmail(Email))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Invalid Email.", "Try again");
+                    return;
+                }
                 if (Password != PasswordConfirm)
                 {
                     await Application.Current.MainPage.DisplayAlert("Error", "Passwords are not matched.", "Try again");
@@ -45,6 +66,12 @@ namespace recipe_guru.Mobile.ViewModels
                     if (Username == item.KorisnickoIme)
                     {
                         await Application.Current.MainPage.DisplayAlert("Error", "Username already exist.", "Try again");
+                        return;
+                    }
+
+                    if (Email == item.Email)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Error", "Email already exist.", "Try again");
                         return;
                     }
                 }
@@ -69,6 +96,20 @@ namespace recipe_guru.Mobile.ViewModels
             catch (Exception ex)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "Try again");
+            }
+        }
+
+        public bool IsValidEmail(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
             }
         }
     }
