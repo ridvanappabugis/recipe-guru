@@ -13,6 +13,7 @@ namespace recipe_guru.Mobile.ViewModels
         private readonly APIService _ReceptService = new APIService("Recept");
         private readonly APIService _ImageResourceService = new APIService("ImageResource");
         private readonly APIService _KategorijeService = new APIService("Kategorije");
+        private bool isInit = true;
 
         public ObservableCollection<ReceptListViewItem> Recepti { get; set; } = new ObservableCollection<ReceptListViewItem>();
 
@@ -28,6 +29,7 @@ namespace recipe_guru.Mobile.ViewModels
             set
             {
                 selectedCategoryFilter = value;
+                if (!isInit) 
                 FilterItems();
             }
         }
@@ -39,7 +41,8 @@ namespace recipe_guru.Mobile.ViewModels
             set
             {
                 selectedEffortFilter = value;
-                FilterItems();
+                if (!isInit)
+                    FilterItems();
             }
         }
 
@@ -50,7 +53,8 @@ namespace recipe_guru.Mobile.ViewModels
             set
             {
                 selectedRatingFilter = value;
-                FilterItems();
+                if (!isInit)
+                    FilterItems();
             }
         }
 
@@ -105,7 +109,9 @@ namespace recipe_guru.Mobile.ViewModels
                     Kategorije.Add(kat);
                 }
 
-                FilterItems();
+                Recepti.Clear();
+                isInit = false;
+
             }
             catch (Exception ex)
             {

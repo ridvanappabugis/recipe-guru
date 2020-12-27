@@ -15,7 +15,7 @@
             <Label x:Name="Email"></Label>
             <Label Text="Phone number" FontAttributes="Bold" FontSize="15"></Label>
             <Label x:Name="Phone"></Label>
-            <Button Clicked="Button_Clicked" Text="Edit informations" BackgroundColor="SandyBrown"
+            <Button Clicked="Button_Clicked" Text="Edit information" BackgroundColor="SandyBrown"
                     TextColor="White" Margin="0,20,0,0"></Button>
             <Button Clicked="Button_Clicked_1" Text="Change password" BackgroundColor="SandyBrown"
                     TextColor="White"></Button>
