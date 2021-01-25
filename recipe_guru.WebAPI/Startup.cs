@@ -84,6 +84,11 @@ namespace recipe_guru
 
             // connection to database
             // Scaffold-DbContext -Connection "Server=(local);Database=RecipeGuru;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database -context recipe_guruContext -force
+            // Docker:
+            //services.AddDbContext<recipeGuruContext>(opt => opt.UseSqlServer(Configuration["CONNECTION_STRING"]));
+            // Local:
+            //services.AddDbContext<recipeGuruContext>(opt => opt.UseSqlServer("Server=.;Database=p1902_recipeguru;Trusted_Connection=True;"));
+
             services.AddDbContext<recipeGuruContext>(opt => opt.UseSqlServer(Environment.GetEnvironmentVariable("CONNECTION_STRING"))
             .EnableSensitiveDataLogging());
 
